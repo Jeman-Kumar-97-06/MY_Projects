@@ -241,7 +241,7 @@ nav {
   transition: var(--transition);
 }
 .show-links {
-  height: 200px;
+  height: auto;
 }
 .links a {
   background: var(--clr-white);
