@@ -1,0 +1,50 @@
+body{
+   margin:0;
+   width:100vw;
+   height: 100vh;
+   background-color: #9BB8CD;
+}
+.head-on-top{
+    width:100vw;
+    background-color: #FFF7D4;
+}
+.navbar{
+    box-sizing: border-box;
+    padding:20px;
+    width:100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo,
+.logo_img{
+    width:40px;
+    height:40px;
+}
+
+.xtra-links{
+    min-width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.about,
+.sort
+{
+    text-decoration: none;
+    color:black;
+}
+
+.wrapper{
+    min-height: 85vh;
+}
+
+footer{
+    padding:3px 10px 3px 10px;
+    position: absolute;
+    bottom:0;
+    background-color: #EEC759;
+}
