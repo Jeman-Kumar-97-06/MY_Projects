@@ -28,6 +28,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 22px;
 }
 .click{
     background-color: rgb(44, 44, 44);;
