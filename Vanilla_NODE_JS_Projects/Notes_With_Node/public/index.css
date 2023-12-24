@@ -42,6 +42,25 @@ body{
     min-height: 85vh;
 }
 
+.createNote{
+    width:500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin:30px;
+}
+
+#title,
+#subject,
+#body{
+    border:none;
+    padding:10px;
+    border-radius: 10px;
+}
+#submit_created{
+    width:60px;
+}
 footer{
     padding:3px 10px 3px 10px;
     position: absolute;
