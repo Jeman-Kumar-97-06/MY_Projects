@@ -14,7 +14,11 @@ mong.connect(dbUri,{useNewUrlParser:true,useUnifiedTopology:true}).then(result=>
 })
 
 app.get('/',(req,res)=>{
-    res.render('index')
+    NormNote.find().then((result)=>{
+        res.render('index',{all_notes:result})
+    }).catch(err=>{
+        console.log(err)
+    })
 })
 
 app.get('/create-note',(req,res)=>{

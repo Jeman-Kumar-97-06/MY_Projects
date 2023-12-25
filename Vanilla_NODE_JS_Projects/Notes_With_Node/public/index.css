@@ -81,6 +81,10 @@ body{
     width:80px;
 }
 
+.each_note_content{
+    margin:20px;
+}
+
 footer{
     padding:3px 10px 3px 10px;
     position: absolute;
