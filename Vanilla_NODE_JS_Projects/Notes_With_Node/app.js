@@ -1,6 +1,7 @@
 const express = require('express');
 const mong    = require('mongoose');
 const app     = express();
+const NormNote = require('./models/normal_note');
 const dbUri   = "mongodb+srv://mrj06031997:yUU73fcquguPC3Su@netninjacluster.vih7jsc.mongodb.net/note-tuts?retryWrites=true&w=majority";
 app.set('view engine','ejs');
 app.use(express.static('public'))
@@ -26,8 +27,14 @@ app.get('/create-list',(req,res)=>{
 
 //Add new notes
 app.post('/notes-normal',(req,res)=>{
-    console.log(req.body);
+    const newNote = new NormNote(req.body);
+    newNote.save().then(()=>{
+        res.redirect('/');
+    }).catch(err=>{
+        console.log(err)
+    })
 })
+
 
 app.post('/notes-list',(req,res)=>{
     console.log(req.body);
