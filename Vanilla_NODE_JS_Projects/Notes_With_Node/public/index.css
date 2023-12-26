@@ -44,7 +44,11 @@ body{
 }
 
 .wrapper{
+    margin-top: 80px;
     min-height: 85vh;
+    position: fixed;
+    top:0;
+    z-index: -100;
 }
 
 .createNote{
@@ -96,7 +100,7 @@ body{
 
 footer{
     padding:3px 10px 3px 10px;
-    position: absolute;
+    position: fixed;
     bottom:0;
     background-color: #EEC759;
 }
