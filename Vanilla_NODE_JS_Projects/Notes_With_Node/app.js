@@ -2,6 +2,8 @@ const express = require('express');
 const mong    = require('mongoose');
 const app     = express();
 const NormNote = require('./models/normal_note');
+const ListNote = require('./models/list_note');
+const NoteList = require('./models/list_note');
 const dbUri   = "mongodb+srv://mrj06031997:yUU73fcquguPC3Su@netninjacluster.vih7jsc.mongodb.net/note-tuts?retryWrites=true&w=majority";
 app.set('view engine','ejs');
 app.use(express.static('public'))
@@ -15,10 +17,17 @@ mong.connect(dbUri,{useNewUrlParser:true,useUnifiedTopology:true}).then(result=>
 
 app.get('/',(req,res)=>{
     NormNote.find().then((result)=>{
-        res.render('index',{all_notes:result})
+        result.forEach(item=>{all_result.push(item)});
     }).catch(err=>{
-        console.log(err)
-    })
+        console.log('error in NormNotes\n'+err)
+    });
+    ListNote.find().then((result)=>{
+        result.forEach(item=>{all_result.push(item)});
+    }).catch(err=>{
+        console.log("error in ListNotes\n"+err)
+    });
+    console.log(all_result);
+    // res.render('index',{all_notes:all_result});
 })
 
 app.get('/create-note',(req,res)=>{
@@ -39,7 +48,16 @@ app.post('/notes-normal',(req,res)=>{
     })
 })
 
-
+//Add new List notes
 app.post('/notes-list',(req,res)=>{
-    console.log(req.body);
+    const newList = new NoteList(req.body);
+    newList.save().then(()=>{
+        res.redirect('/');
+    }).catch(err=>{
+        console.log(err);
+    })
+})
+
+app.get('/about',(req,res)=>{
+    res.render('about')
 })

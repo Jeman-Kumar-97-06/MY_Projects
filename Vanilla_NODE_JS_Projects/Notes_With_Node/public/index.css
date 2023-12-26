@@ -10,7 +10,9 @@ body{
 .head-on-top{
     width:100vw;
     background-color: #FFF7D4;
+    z-index:1;
     box-shadow:0px 0px 20px 0px rgb(20, 20, 20) ;
+    
 }
 .navbar{
     box-sizing: border-box;
@@ -44,16 +46,16 @@ body{
 }
 
 .wrapper{
-    margin-top: 80px;
-    min-height: 85vh;
+    height: 80vh;
     position: fixed;
-    top:0;
-    z-index: -100;
+    top:100px;
+    z-index: 0;
+    overflow-y: scroll;
 }
 
 .createNote{
-    width:500px;
-    height: 400px;
+    width:400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -67,7 +69,9 @@ body{
     padding:10px;
     border-radius: 10px;
 }
-
+#body{
+    font-size: 15px;
+}
 .listItemsList{
     background-color: white;
     list-style-type: none;
@@ -97,7 +101,9 @@ body{
 .each_note_content_title{
     font-style: italic;
 }
-
+.about_content{
+    margin:30px;
+}
 footer{
     padding:3px 10px 3px 10px;
     position: fixed;
