@@ -15,21 +15,26 @@ mong.connect(dbUri,{useNewUrlParser:true,useUnifiedTopology:true}).then(result=>
 })
 
 app.get('/',(req,res)=>{
-    let all_result = []
-    NormNote.find().then((result)=>{
+    let all_result = [];
+    NormNote.find().then(result=>{
         result.forEach(item=>{all_result.push(item)});
-        return all_result
-    }).catch(err=>{
-        console.log('error in NormNotes:\n'+err)
-    });
-    ListNote.find().then((result)=>{
+        return ListNote.find();
+    }).then((result)=>{
         result.forEach(item=>{all_result.push(item)});
-        return all_result
-    }).then(()=>{
-        res.render('index',{all_notes:all_result});
+        res.render('index',{all_notes:all_result})
     }).catch(err=>{
-        console.log("error in ListNotes:\n"+err)
+        console.log(err)
     });
+    // NormNote.find().then((result)=>{
+    //     result.forEach(item=>{all_result.push(item)});
+    // }).then(()=>{
+    //     ListNote.find().then((result)=>{
+    //         result.forEach(item=>{all_result.push(item)})
+    //     })
+    //     res.render('index',{all_notes:all_result});
+    // }).catch(err=>{
+    //     console.log('error in NormNotes:\n'+err)
+    // });
 })
 
 app.get('/create-note',(req,res)=>{
