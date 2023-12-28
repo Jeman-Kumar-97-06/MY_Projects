@@ -38,4 +38,42 @@ console.log('\nFinding index of Last match. prints "-1" if not found:')
 console.log(arr.lastIndexOf(5))
 
 //Mutator Functions
+var arr = ['Doom 1993','Doom II: Hell on Earch 1994','The Ultimate Doom 1995','Doom 64 1997','Doom 3 2004'];
+    //Slice function:-
+var arr2 = arr.slice(1,4)
+console.log(arr2)
+
+    //Splice function:-
+var arr = ['a','b','c','d','e'];
+arr.splice(3,2,9,10,11);
+console.log(arr);
+
+    //map() function:-
+var arr = [2,3,4];
+function fun(item){
+    return item**2;
+}
+
+var newArr = arr.map(fun);
+console.log(newArr);
+
+    //forEach() function:- don't return anything inside the callback function
+var arr = [2,3,4];
+var arrf = [];
+function fun(item){
+    arrf.push(item);
+}
+arr.forEach(fun);
+console.log(arrf);
+
+    //every() function :--
+function isEven(item){
+    return item%2==0;
+}
+
+var nums = [2,4,5,6,8,10,11];
+var even = nums.every(isEven);
+console.log(even) //prints true only if isEven returns true for every element.
+
+
 
