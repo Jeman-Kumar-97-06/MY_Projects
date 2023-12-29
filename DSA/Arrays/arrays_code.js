@@ -73,7 +73,26 @@ function isEven(item){
 
 var nums = [2,4,5,6,8,10,11];
 var even = nums.every(isEven);
+console.log('\nresult of every() function:')
 console.log(even) //prints true only if isEven returns true for every element.
 
+   //some() function :--
+var nums2 = [1,3,5,7,10,2,4];
+var even  = nums2.some(isEven);
+console.log('\nresult of some() function:')
+console.log(even) //prints true even if one of more of the elements  are even.
 
+  //reduce() function:--
+function add(accu,current){
+    return accu+current;
+}
+var nums = [1,2,3,4,5];
+var tot  = nums.reduce(add);
+console.log("\nresult of reduce() function:");
+console.log(tot);
 
+  //filter() function:--
+var numsc = [2,3,4,5,6,7,8,9];
+var evens = nums.filter(isEven);
+console.log('\nresult of fulter() function:');
+console.log(evens);//[2,4,6,8]
