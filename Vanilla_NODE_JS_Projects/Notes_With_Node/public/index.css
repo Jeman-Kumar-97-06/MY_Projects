@@ -39,7 +39,9 @@ body{
 
 .about,
 .create_note,
-.create_list
+.create_list,
+.tweet,
+.mail
 {
     text-decoration: none;
     color:black;

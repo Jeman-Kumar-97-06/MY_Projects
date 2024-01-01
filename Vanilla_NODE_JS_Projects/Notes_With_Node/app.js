@@ -25,17 +25,26 @@ app.get('/',(req,res)=>{
     }).catch(err=>{
         console.log(err)
     });
-    // NormNote.find().then((result)=>{
-    //     result.forEach(item=>{all_result.push(item)});
-    // }).then(()=>{
-    //     ListNote.find().then((result)=>{
-    //         result.forEach(item=>{all_result.push(item)})
-    //     })
-    //     res.render('index',{all_notes:all_result});
-    // }).catch(err=>{
-    //     console.log('error in NormNotes:\n'+err)
-    // });
 })
+
+app.get('/notes-normal/:id',(req,res)=>{
+    const id = req.params.id;
+    NormNote.findById(id).then(result=>{
+       console.log(result)
+       res.render('x_note',{'the_note':result.title})
+    }).catch(err=>{
+        console.log(err)
+    })
+})
+
+// app.get('/notes-list/:id',(req,res)=>{
+//     const id = req.params.id;
+//     ListNote.findById(id).then(result=>{
+//         res.render("each_note",{the_note:result})
+//     }).catch(err=>{
+//         console.log(err)
+//     })
+// })
 
 app.get('/create-note',(req,res)=>{
     res.render('create');
