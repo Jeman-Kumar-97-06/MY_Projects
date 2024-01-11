@@ -1,4 +1,5 @@
 function openCity(evt, cityName) {
+    console.log('ran this')
     // Declare all variables
     var i, tabcontent, tablinks;
   
