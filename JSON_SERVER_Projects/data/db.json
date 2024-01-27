@@ -1,0 +1,15 @@
+{
+    "posts":[
+        {"id":"1","title":"a title","body":"lorem inpouoiajslk afn ie lnna sdlkfj lkr al kjdlaf k akjerl ka lkdjfa lksfdj e ","likes":30},
+        {"id":"2","title":"another title","body":"lorem inpouoiajslk afn ie lnna sdlkfj lkr al kjdlaf k akjerl ka lkdjfa lasdfsadf 12309810295","likes":20},
+        {"id":"3","title":"Title 3","body":"lorem inpouoiajslk afn ie lnna sdlkfj lkr al kjdlaf k akjerl ka lkdjfa ","likes":20}
+    ],
+    "polls":[
+        {
+            "id":1,
+            "question":"do you prefer Vue or React?",
+            "answerA":"vue",
+            "answerB":"React"
+        }
+    ]
+}
