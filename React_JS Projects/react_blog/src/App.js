@@ -19,7 +19,12 @@ function App() {
   //useEffect to pull data from '../data/db.json'
   useEffect(()=>{
     setTimeout(()=>{
-      fetch('https://localhost:1234/blogs').then(res=>{
+      fetch('http://localhost:1234/blogs',{
+        "Access-Control-Allow-Origin":"*",
+        "Access-Control-Allow-Headers":"Content-Type, Authorization, X-Requested-With",
+        "Access-Control-Allow-Methods":"GET, POST, PUT, DELETE, OPTIONS"
+
+      }).then(res=>{
             if(!res.ok){
               throw Error("Custom Error By Doom_Guy_26 : Could'nt fetch data from db.json")
             };
