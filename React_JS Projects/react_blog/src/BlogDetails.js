@@ -5,7 +5,7 @@ const BlogDetails = () => {
     const {data:blog, error,isPending} = useFetch('http://localhost:1234/blogs/'+id);
     const handleClick = () => {
         fetch('http://localhost:1234/blogs/'+blog.id,{
-            method:"DELTE"
+            method:"DELETE"
         }).then(()=>{
             console.log("deleted")
         })

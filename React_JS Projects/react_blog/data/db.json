@@ -1,12 +1,6 @@
 {
   "blogs": [
     {
-      "title": "My New Website",
-      "body": "My New Website is Awesome.It runs on React. It is used to post Blogs",
-      "author": "mario",
-      "id": "1"
-    },
-    {
       "title": "Welcome party!",
       "body": "A welcome party serves as a beacon of warmth and camaraderie, igniting the spirit of inclusion and festivity. It is a time-honored tradition that transcends cultures and generations, embodying the essence of hospitality and celebration. Whether it's greeting newcomers to a community, embracing returning travelers, or simply gathering to mark a special occasion, a welcome party symbolizes the joy of connection and the beauty of human interaction.",
       "author": "Doom_Guy_26_97",
