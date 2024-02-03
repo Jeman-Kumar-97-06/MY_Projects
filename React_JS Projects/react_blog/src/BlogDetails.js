@@ -1,5 +1,6 @@
-import {useParams} from 'react-router-dom';
+import {useParams,redirect} from 'react-router-dom';
 import useFetch from './customUseFetchHook';
+
 const BlogDetails = () => {
     const {id} = useParams();
     const {data:blog, error,isPending} = useFetch('http://localhost:1234/blogs/'+id);
@@ -7,7 +8,7 @@ const BlogDetails = () => {
         fetch('http://localhost:1234/blogs/'+blog.id,{
             method:"DELETE"
         }).then(()=>{
-            console.log("deleted")
+            return redirect('/')
         })
     }
     return (
