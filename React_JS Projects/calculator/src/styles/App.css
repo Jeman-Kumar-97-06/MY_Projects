@@ -6,7 +6,15 @@ body{
   justify-content: center;
   align-items: center;
 }
-
+.inpt{
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
 .calculator{
-  display: flex;
+  display: grid;
+  width:260px;
+  grid-template-rows:50px 50px 50px 50px 50px 50px;
+  grid-template-columns: 50px 50px 50px 50px;
 }
