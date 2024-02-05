@@ -1,18 +1,43 @@
 import './styles/App.css';
+import {useState} from 'react';
 // import Button from '@mui/material/Button';
+
 const handleNums = (e) => {
   let clickedNum = e.target.value;
+  document.querySelector('.inpt').value+=clickedNum
 }
 const handleOps = (e) => {
   let op = e.target.innerText
+  if(op==='AC'){
+    document.querySelector('.inpt').value=''
+    return
+  }
+  document.querySelector('.inpt').value+=op
 } 
+const handleEq = () => {
+  const inptval = document.querySelector('.inpt').value;
+  const inpval2 = inptval.replace(/X/g,'*');
+  const res     = eval(inpval2);
+  document.querySelector('.inpt').value=res
+}
 function App() {
+  const [brac,setBrac] = useState(true);
+  const handleBrac = () =>{
+    if(brac){
+      document.querySelector('.inpt').value+='('
+      setBrac(false);
+    }
+    else{
+      document.querySelector('.inpt').value+=')'
+      setBrac(true);
+    }
+  }
   return (
     <div className="App">
       <div className="calculator">
         <input  className='inpt' type="text" />
-        <button className='ac'>AC</button>
-        <button className='brc'>()</button>
+        <button className='ac' onClick={handleOps}>AC</button>
+        <button className='brc' onClick={handleBrac}>()</button>
         <button className='per' onClick={handleOps}>% </button>
         <button className='divd' onClick={handleOps}>/ </button>
         <button className='num7' value='7' onClick={handleNums}>7 </button>
@@ -30,7 +55,7 @@ function App() {
         <button className='num0' value='0' onClick={handleNums}>0 </button>
         <button className='deci'>. </button>
         <button className='back'><span className="material-symbols-outlined">backspace</span></button>
-        <button className='eql'>= </button>
+        <button className='eql' onClick={handleEq}>= </button>
       </div>
     </div>
   );
