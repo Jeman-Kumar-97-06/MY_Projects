@@ -2,11 +2,17 @@ import './styles/App.css';
 import {useState} from 'react';
 // import Button from '@mui/material/Button';
 
+//What to do when a number is clicked:
 const handleNums = (e) => {
   let clickedNum = e.target.value;
   document.querySelector('.inpt').value+=clickedNum
 }
+
+//what to do when an operator is clicked:
 const handleOps = (e) => {
+  if(document.querySelector('.inpt').value.length === 0){
+    return;
+  }
   let op = e.target.innerText
   if(op==='AC'){
     document.querySelector('.inpt').value=''
@@ -14,22 +20,55 @@ const handleOps = (e) => {
   }
   document.querySelector('.inpt').value+=op
 } 
+
+//what to do when equal is clicked:
 const handleEq = () => {
+  if(document.querySelector('.inpt').value.length===0){
+    document.querySelector('.inpt').value='No Valid Expression to Evaluate!'
+  }
+  else 
+  {
   const inptval = document.querySelector('.inpt').value;
-  const inpval2 = inptval.replace(/X/g,'*');
+  const inpval0 = inptval.replace(/X/g,'*');
+  const inpval2 = inpval0.replace(/%/g,'*0.01*')
+  if(inpval2[inpval2.length-1]==='('){
+    return
+  }
+  
   const res     = eval(inpval2);
-  document.querySelector('.inpt').value=res
+  document.querySelector('.inpt').value=res}
 }
+
+//what to do when delete button is pressed:
+const handleX = () => {
+  let inptval = document.querySelector('.inpt');
+  let x = inptval.value.split('');
+  x.pop();
+  inptval.value = x.join('');
+  return;
+}
+
 function App() {
-  const [brac,setBrac] = useState(true);
+  const [brac,setBrac] = useState('(');
+  //what to do when bracket is clicked:
+  //when to add '(' to inpt:
+      //if the end of inpt is an operator
+
+  //when to add ')' to inpt:
+      // if the end of the inpt is not an operator
+      // if the end of the inpt 
   const handleBrac = () =>{
-    if(brac){
-      document.querySelector('.inpt').value+='('
-      setBrac(false);
+    let inptval = document.querySelector('.inpt');
+    if((brac==='(') && (['/','X','+','-',undefined].includes(inptval.value[inptval.value.length-1])))
+    {
+     console.log('ran this')
+     inptval.value += '(' 
+     setBrac(')')
     }
-    else{
-      document.querySelector('.inpt').value+=')'
-      setBrac(true);
+    else if ((brac===')')&& (['1','2','3','4','5','6','7','8','9','0'].includes(inptval.value[inptval.value.length-1]))){
+      console.log('ran 2')
+      inptval.value+=')'
+      setBrac('(')
     }
   }
   return (
@@ -54,7 +93,7 @@ function App() {
         <button className='add' onClick={handleOps}>+ </button>
         <button className='num0' value='0' onClick={handleNums}>0 </button>
         <button className='deci'>. </button>
-        <button className='back'><span className="material-symbols-outlined">backspace</span></button>
+        <button className='back' onClick={handleX}><span className="material-symbols-outlined">backspace</span></button>
         <button className='eql' onClick={handleEq}>= </button>
       </div>
     </div>
