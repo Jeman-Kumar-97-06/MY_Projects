@@ -11,7 +11,6 @@ const BlogList = (props) => {
                     <p className="blog-body">{blog.body}</p>
                     <h5 className="blog-author">-Written by : {blog.author}</h5>
                 </div>
-                
             ))}
         </div>
         )

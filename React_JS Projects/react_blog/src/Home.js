@@ -1,5 +1,4 @@
 import useFetch from './customUseFetchHook';
-
 import BlogList from './BlogList';
 const Home = () => {
     const {data:blogs,isPending,error} = useFetch('http://localhost:1234/blogs');

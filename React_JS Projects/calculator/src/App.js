@@ -1,6 +1,5 @@
 import './styles/App.css';
 import {useState} from 'react';
-// import Button from '@mui/material/Button';
 
 //What to do when a number is clicked:
 const handleNums = (e) => {
@@ -34,7 +33,6 @@ const handleEq = () => {
   if(inpval2[inpval2.length-1]==='('){
     return
   }
-  
   const res     = eval(inpval2);
   document.querySelector('.inpt').value=res}
 }
@@ -50,21 +48,21 @@ const handleX = () => {
 
 function App() {
   const [brac,setBrac] = useState('(');
-  //what to do when bracket is clicked:
-  //when to add '(' to inpt:
-      //if the end of inpt is an operator
 
-  //when to add ')' to inpt:
-      // if the end of the inpt is not an operator
-      // if the end of the inpt 
+  //what to do when bracket is clicked:
   const handleBrac = () =>{
     let inptval = document.querySelector('.inpt');
+    //when to add '(' to inpt:
+        //if the end of inpt is an operator
     if((brac==='(') && (['/','X','+','-',undefined].includes(inptval.value[inptval.value.length-1])))
     {
      console.log('ran this')
      inptval.value += '(' 
      setBrac(')')
     }
+    //when to add ')' to inpt:
+      // if the end of the inpt is not an operator
+      // if the end of the inpt
     else if ((brac===')')&& (['1','2','3','4','5','6','7','8','9','0'].includes(inptval.value[inptval.value.length-1]))){
       console.log('ran 2')
       inptval.value+=')'
@@ -76,7 +74,7 @@ function App() {
       <div className="calculator">
         <input  className='inpt' type="text" />
         <button className='ac' onClick={handleOps}>AC</button>
-        <button className='brc' onClick={handleBrac}>()</button>
+        <button className='brc' onClick={handleBrac}>( )</button>
         <button className='per' onClick={handleOps}>% </button>
         <button className='divd' onClick={handleOps}>/ </button>
         <button className='num7' value='7' onClick={handleNums}>7 </button>
