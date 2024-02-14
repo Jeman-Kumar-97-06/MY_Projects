@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Report</title>
+</head>
+<body>
+    <div class="weather_report">
+        <div class="left">
+            <h2>You Searched For : Tirupati </h2>
+            <p>5:05 PM, Mon, Nov 23, 2023</p>
+            <div class="main-temp">
+                <h1>72 F</h1>
+                <img src="http://cdn.weatherapi.com/weather/64x64/day/176.png" alt="weather_state">
+            </div>
+            
+            <p>Humitidy : 45%</p>
+            <p>Wind Speed : 189.2 km/j</p>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <div id="temp"></div>
+            </div>
+            <div class="right-bottom">
+                <div class="day1">
+                    <h4>Today</h4>
+                    <img src="http://cdn.weatherapi.com/weather/64x64/day/176.png" alt="">
+                    <p>Avg Temp: 11 C</p>
+                    <p>Humitidy: 35%</p>
+                </div>
+                <div class="day2">
+                    <h4>Feb 15</h4>
+                    <img src="http://cdn.weatherapi.com/weather/64x64/day/176.png" alt="">
+                    <p>Avg Temp: 11 C</p>
+                    <p>Humitidy: 35%</p>
+                </div>
+                <div class="day3">
+                    <h4>Feb 16</h4>
+                    <img src="http://cdn.weatherapi.com/weather/64x64/day/176.png" alt="">
+                    <p>Avg Temp: 11 C</p>
+                    <p>Humitidy: 35%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Drawing a graph -->
+    <script>
+        google.charts.load('current',{packages:['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+        
+        // Set Data
+        const data = google.visualization.arrayToDataTable([
+          ['', ''],
+          [50,7],[60,8],[70,8],[80,9],[90,9],
+          [100,9],[110,10],[120,11],
+          [130,14],[140,14],[150,15]
+        ]);
+        
+        // Set Options
+        const options = {
+          title: 'Temperature',
+          hAxis: {title: ''},
+          vAxis: {title: ''},
+          legend: 'none'
+        };
+        
+        // Draw
+        const chart = new google.visualization.LineChart(document.getElementById('temp'));
+        chart.draw(data, options);
+        
+        }
+        </script>
+</body>
+</html>

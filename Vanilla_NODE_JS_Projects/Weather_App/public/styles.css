@@ -1,0 +1,42 @@
+.weather_report{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:800px;
+    height:auto;
+    padding: 20px;
+}
+
+.temp{
+    width:400px;
+    margin:50px;
+    }
+.main-temp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.left{
+    width:200px;
+}
+
+.right{
+    width:500px
+}
+
+.right-top{
+
+}
+
+.right-bottom{
+    display: flex;
+    flex-direction: row;
+}
+
+.day1,.day2,.day3{
+    width:150px;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
