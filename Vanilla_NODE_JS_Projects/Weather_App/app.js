@@ -8,27 +8,55 @@ app.use(exp.urlencoded({extended:true}))
 app.get('/',(req,res)=>{
     res.render('index');
 })
-app.get('/test',(req,res)=>{
-    res.render('weather_report')
-})
+
 app.post('/get_weather_data',(req,res)=>{
     let location = req.body.location_;
     fetch(api_url+location).then(resp=>{
         return resp.json();
     }).then(data=>{
         const {name:name_of_loc,region:reg_n,country} = data.location;
-        const {temp_c,temp_f,condition:{text:about_current_weather,icon:weather_icon,code}} = data.current;
+        const {temp_c,temp_f,condition:{text:about_current_weather,icon:weather_icon,code},wind_kph,humidity} = data.current;
         const {forecastday} = data.forecast
-        let list_of_co      = [];
-        for (var x = 0;x++;x<forecastday.length){
-            let listx = [];
-            for (var y = 0;y++;y<forecastday[x].hour.length){
-                listx.push([forecastday[x].hour[y]['temp_f'],y])
-            }
-            
-            list_of_co.push(listx)
+        let day0      = forecastday[0].hour;
+        let day1      = forecastday[1].hour;
+        let day2      = forecastday[2].hour;
+
+        const getCoOr = (x)=>{
+            let co_Or = []
+            day0.forEach((item)=>{
+                    co_Or.push([item.temp_f])
+                                 })
+            return co_Or;        
+                        }
+    
+        let day0_coOr = getCoOr(day0);
+        let day1_coOr = getCoOr(day1);
+        let day2_coOr = getCoOr(day2);
+
+
+        let time = '';
+        let dat  = new Date();
+        let hrs  = dat.getHours();
+        let miSt = dat.getMinutes(); 
+        let hrSt = ''
+        let am_or_pm = '';
+        if(hrs>=12){
+            time = String(Math.abs(12-hrs))+':'+String(miSt)+' PM'
         }
-        console.log(list_of_co.length)
-        console.log(list_of_co[0])
+        else{
+            time = String(hrs)+":"+String(miSt)+" AM, IST"
+        }
+        res.render('weather_report',{
+                            loc:name_of_loc,
+                            temp_f:temp_f,
+                            icon:weather_icon,
+                            humid:humidity,
+                            wind_kph:wind_kph,
+                            fc_d : forecastday,
+                            time :time,
+                            day0_c: day0_coOr,
+                            day1_c: day1_coOr,
+                            day2_c: day2_coOr
+                                    });
     })
 })
