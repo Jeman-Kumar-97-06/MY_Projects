@@ -1,18 +1,23 @@
 const express = require('express');
 const mong    = require('mongoose');
+const obj_id  = require('mongodb').ObjectId;
 const app     = express();
 const NormNote = require('./models/normal_note');
 const ListNote = require('./models/list_note');
 const dbUri   = "mongodb+srv://mrj06031997:yUU73fcquguPC3Su@netninjacluster.vih7jsc.mongodb.net/note-tuts?retryWrites=true&w=majority";
+
 app.set('view engine','ejs');
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}));
+
 mong.connect(dbUri,{useNewUrlParser:true,useUnifiedTopology:true}).then(result=>{
     console.log('connected successfully to database');
     app.listen(3000,()=>{console.log('listening at 3000')});
 }).catch(err=>{
     console.log(err);
 })
+
+
 
 app.get('/',(req,res)=>{
     let all_result = [];
@@ -28,10 +33,9 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/notes-normal/:id',(req,res)=>{
-    const id = req.params.id;
-    NormNote.findById(id).then(result=>{
-       console.log(result)
-       res.render('x_note',{'the_note':result.title})
+    const id = new obj_id(req.params.id);
+    NormNote.findById({_id:id}).then(result=>{
+       res.render('x_note',{rss:result})
     }).catch(err=>{
         console.log(err)
     })
