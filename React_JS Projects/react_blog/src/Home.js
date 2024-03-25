@@ -1,3 +1,4 @@
+import React from 'react';
 import useFetch from './customUseFetchHook';
 import BlogList from './BlogList';
 const Home = () => {
