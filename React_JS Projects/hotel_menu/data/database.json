@@ -1,0 +1,109 @@
+{
+    "menu_items" : [
+        {
+            "item" : "Chicken escalope",
+            "price": "250",
+            "type" : ["Non-Veg"],
+            "id"   : 1,
+            "image": "chicken_escalope.jpg"
+        },
+        {
+            "item" : "Mutton Korma",
+            "price": "300",
+            "type" : ["Non-Veg"],
+            "id"   : 2,
+            "image": "Mutton_Korma.JPG"
+        },
+        {
+            "item" : "Pina Colada Pork Ribs",
+            "price": "500",
+            "type" : ["Non-Veg"],
+            "id"   : 3,
+            "image": "pinacolada_pork_ribs.jpg"
+        },
+        {
+            "item" : "Tandoori Lamb Chops",
+            "price": "650",
+            "type" : ["Non-Veg"],
+            "id"   : 4,
+            "image": "Lamb-Chops.jpg"
+        },
+        {
+            "item" : "Malabar Fish Biriyani",
+            "price": "500",
+            "type" : ["Non-Veg"],
+            "id"   : 5,
+            "image": "fish-biriyani.jpg"
+        },
+        {
+            "item" : "Keema Samosa with Yoghurt Dip",
+            "price": "420",
+            "type" : ["Non-Veg"],
+            "id"   : 6,
+            "image": "keema-samosas.jpg"
+        },
+        {
+            "item" : "Masala Channa",
+            "price": "90",
+            "type" : ["Non-Veg","Veg","Vegan"],
+            "id"   : 7,
+            "image": "chana-masala"
+        },
+        {
+            "item" : "Paneer Makhani Biriyani",
+            "price": "120",
+            "type" : ["Veg"],
+            "id"   : 8,
+            "image": "Paneer-Makhani-Biryani.jpg"
+        },
+        {
+            "item" : "Aamras Ki Kadhi",
+            "price": "100",
+            "type" : ["Veg"],
+            "id"   : 9,
+            "image": "aamras_ki_kadhi.jpg"
+        },
+        {
+            "item" : "Dahi Kebab",
+            "price": "200",
+            "type" : ["Veg"],
+            "id"   : 10,
+            "image": "DahiKebab.jpg"
+        },
+        {
+            "item" : "Mushroom Kofta in Tomato Gravy",
+            "price": "400",
+            "type" : ["Veg"],
+            "id"   : 11,
+            "image": "KoftainTomato.jpg"
+        },
+        {
+            "item" : "Stuffed Baby Eggplant",
+            "price": "100",
+            "type" : ["Veg"],
+            "id"   : 12,
+            "image": "Stuffed-Brinjal.jpg"
+        },
+        {
+            "item" : "Creamy Broccoli Vegan Pasta",
+            "price": "130",
+            "type" : ["Vegan","Veg"],
+            "id"   : 13,
+            "image": "vegan-broccoli-pasta.jpg"
+        },
+        {
+            "item" : "Butternut Squash Stuffed Shells",
+            "price": "130",
+            "type" : ["Vegan","Veg"],
+            "id"   : 14,
+            "image": "Butternut-Squash-Pasta-Shells-Stuffed.jpg"
+        },
+        {
+            "item" : "Spaghetti Bolognese",
+            "price": "300",
+            "type" : ["Veg","Vegan"],
+            "id"   : 15,
+            "image": "spaghetti-bolognese.jpg"
+        }
+    ]
+}
