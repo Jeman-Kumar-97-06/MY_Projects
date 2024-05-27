@@ -1,0 +1,13 @@
+<%- include('../partials/top_repeat.ejs')%>
+    <!-- The Whole Body -->
+    <main class="wrapper">
+        <form action="/notes-normal" method="POST" class="createNote" id="normal">
+            <label for="title">Note Title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="subject">Note Subject/Topic:</label>
+            <input type="text" id="subject" name="subject">
+            <textarea name="body" id="body" cols="30" rows="10" placeholder="Write Here" required></textarea>
+            <button id="submit_created">Submit</button>
+        </form>
+    </main>
+<%- include('../partials/bottom_repeat.ejs')%>

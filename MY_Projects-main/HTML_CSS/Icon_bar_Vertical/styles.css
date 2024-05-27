@@ -1,0 +1,30 @@
+body{
+    margin:0;
+}
+.icon-bar{
+    width:100%;
+    background-color: #555;
+    overflow: auto;
+}
+.icon-bar a span{
+    width:100%;
+    font-size: 40px;
+    transition: font-size 0.3s ease;
+}
+.icon-bar a{
+    float:left;
+    text-align :center;
+    width:20%;
+    padding:12px 0;
+    transition: all 0.3s ease;
+    color:white;    
+}
+
+.icon-bar a:hover{
+    background-color: #000;
+    font-size: 45px;
+    span {
+        font-size: 45px;
+        color:teal;
+    }
+}

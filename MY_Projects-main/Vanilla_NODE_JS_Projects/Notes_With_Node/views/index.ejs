@@ -1,0 +1,25 @@
+<%- include('../partials/top_repeat.ejs')%>
+
+    <!-- The Whole Body -->
+    <main class="wrapper">
+        <% for( let i = 0; i < all_notes.length; i++ ) { %>
+            <div class="each_note_content">
+                <h3 class="each_note_content_title"><%= all_notes[i].title %></h3>
+                <h4 class="each_note_content_subject"><%= all_notes[i].subject %></h4>
+                <% if(all_notes[i].body){ %>
+                    <p class="each_note_content_content"><%= all_notes[i].body %></p>
+                    <a href='/notes-normal/<%=all_notes[i].id%>' >Expand</a>
+                <%}else if(all_notes[i].listItems){%>
+                    <ul>
+                        <%for(var j=0;j<all_notes[i].listItems.length;j++){%>
+                            <input type="checkbox" id=<%= "item"+all_notes[i].listItems[j] %>>
+                            <label for=<%= "item"+all_notes[i].listItems[j] %> name=''><%=all_notes[i].listItems[j]%></label><br>
+                        <%}%>
+                    </ul>
+                    <a href='/notes-list/<%=all_notes[i].id%>' >Expand</a>
+                <%}%>
+            </div>
+        <% } %>
+    </main>
+
+<%- include('../partials/bottom_repeat.ejs')%>

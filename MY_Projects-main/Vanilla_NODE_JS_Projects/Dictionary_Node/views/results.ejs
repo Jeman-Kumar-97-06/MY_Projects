@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title><%= word_s %></title>
+</head>
+<body>
+<div class="top">
+    <head>
+        <h1 class="head_yo">Dictionary</h1>
+    </head>
+
+    <div class="search_for">
+        <form action="/" method="POST">
+            <input type="text" name="name">
+            <button type="submit">Search Meaning</button>
+        </form>
+    </div>
+</div>
+    
+
+
+    <% if (results) { %>
+        <div class="results">
+            <h2 class="searched_word"><%= results[0].word %>:</h2>
+            <% for( let x = 0; x < results.length; x++ ) { %>
+                <div class="eachResult">
+                    <h2 class="phonetics_head">Phonetics:</h2>    
+                    <div class="all_pho">
+                        <% for( let i = 0; i < results[x].phonetics.length; i++ ) { %>
+                            <div class="phonetics_each">
+                                <p><%=results[x].phonetics[i].text%></p>
+                                <audio class="phonetic_voice" controls src="<%= results[x].phonetics[i].audio %>"></audio>
+                            </div>
+                        <% } %>
+                    </div>
+                    
+                    <% for( let j = 0; j < results[x].meanings.length; j++ ) { %>
+                        <div class="meanings_each">
+                            <h2 class="part_of_speech">Part of Speech : <%= results[x].meanings[j].partOfSpeech %></h2>
+                            <% for( let k = 0; k < results[x].meanings[j].definitions.length; k++ ) { %>
+                                <div class="load_of_defs">
+                                    <h3>Definition:</h3>
+                                    <p><%= results[x].meanings[j].definitions[k].definition %></p>
+                                    <% if (results[x].meanings[j].definitions[k].example) { %>
+                                        <h3>Example:</h3>
+                                        <p><%= results[x].meanings[j].definitions[k].example %></p>
+                                    <% } %>      
+                                </div>
+                            <% } %>
+                            <% if (results[x].meanings[j].synonyms.length>0) { %>
+                                <h3>Similar words :</h3>
+                                <% for( let r = 0; r < results[x].meanings[j].synonyms.length; r++ ) { %>
+                                    <span><%= results[x].meanings[j].synonyms[r] %>,&#160;&#160;</span>
+                                <% } %>
+                            <% } %>
+                            
+                        </div>
+                        
+                    <% } %>
+                </div>
+            <% } %>
+          
+        </div>
+    <% } %>
+
+
+</body>
+</html>
