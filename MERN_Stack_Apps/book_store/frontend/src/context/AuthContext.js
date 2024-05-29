@@ -1,5 +1,4 @@
-//This code manipulates Global Authentication State Locally without the need for refreshing the page after signing up / logging in
-
+//This code manipulates Global Authentication State Locally without the need for refreshing the page after signing up / logging in.
 import {createContext,useReducer} from 'react';
 export const AuthContext = createContext();
 export const authReducer = (state,action) => {
