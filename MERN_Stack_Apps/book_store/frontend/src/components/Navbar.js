@@ -11,15 +11,15 @@ const Navbar = () => {
     return (
         <header>
             <div className='navbar_div'>
-                <Link to='/'><h1>Book Store</h1></Link>
+                <Link className='nav_link' to='/'><h3>Book Store</h3></Link>
 
                 {!user && <div className='if_not_logged_in'>
-                             <Link to='/login'><p>Login</p></Link>
+                             <Link className='nav_link' to='/login'><p>Login</p></Link>
                           </div>}
 
                 {user && <div className='if_logged_in'>
-                            <Link to='/cart'><p>{user.email}'s Cart</p></Link>
-                            <button onClick={handleLogout}>Logout</button>
+                            <Link className='nav_link'  to='/cart'><p>My Cart</p></Link>
+                            <button className='nav_link' onClick={handleLogout}>Logout</button>
                          </div>}
                 
             </div>

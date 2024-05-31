@@ -1,6 +1,7 @@
 //This code manipulates Global Authentication State Locally without the need for refreshing the page after signing up / logging in.
-import {createContext,useReducer} from 'react';
+import {createContext,useEffect,useReducer} from 'react';
 export const AuthContext = createContext();
+
 export const authReducer = (state,action) => {
     switch(action.type)
     {
@@ -16,6 +17,13 @@ export const authReducer = (state,action) => {
 export const AuthContextProvider = ({children}) => {
     //THE FOLLOWING LINE UPDATES THE 'USER' STATE LOCALLY AND UPDATES THE SITE.
     const [state,dispatch] = useReducer(authReducer,{user:null});
+    useEffect(()=>{
+        const user = JSON.parse(localStorage.getItem('user'));
+        if(user)
+            {
+                dispatch({type:'LOGIN',payload:user});
+            }
+    },[])
     return (
         <AuthContext.Provider value={{...state,dispatch}}>
             {children}

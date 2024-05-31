@@ -12,11 +12,15 @@ const Signup = () => {
         <form className='signup_page' onSubmit={handleSubmit}>
             <h3>Signup:</h3>
 
-            <label>Email:</label>
-            <input type='email' onChange={e=>setEmail(e.target.value)} value={email}/>
-
-            <label>Password:</label>
-            <input type='password' onChange={e=>setPassword(e.target.value)} value={password}/>
+            <div className='signup_email'>
+                <label className='signup_email'>Email:</label>
+                <input type='email' onChange={e=>setEmail(e.target.value)} value={email}/>
+            </div>
+            
+            <div className='signup_pwd'>
+                <label>Password:</label>
+                <input type='password' onChange={e=>setPassword(e.target.value)} value={password}/>
+            </div>
 
             <button type='submit' disabled={isLoading}>Sign Up</button>
             {error && <div className='error'>{error}</div>}
