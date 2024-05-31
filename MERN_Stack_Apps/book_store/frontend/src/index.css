@@ -25,6 +25,10 @@ code {
   margin:5px;
 }
 
+.if_logged_in{
+  margin-right:15px;
+}
+
 .navbar_div .nav_link{
   float:left;
   padding:12px;
@@ -35,6 +39,12 @@ code {
 
 .heading_home{
   margin-left: 7px;
+}
+
+.logout_btn{
+  background-color: black;
+  padding:4px;
+  margin-top: 15px;
 }
 
 .books{

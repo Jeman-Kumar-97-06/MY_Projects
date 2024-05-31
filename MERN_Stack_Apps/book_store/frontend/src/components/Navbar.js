@@ -8,6 +8,9 @@ const Navbar = () => {
     const handleLogout = () => {
         logout();
     }
+    const handleCart = () => {
+        return -1
+    }
     return (
         <header>
             <div className='navbar_div'>
@@ -18,8 +21,8 @@ const Navbar = () => {
                           </div>}
 
                 {user && <div className='if_logged_in'>
-                            <Link className='nav_link'  to='/cart'><p>My Cart</p></Link>
-                            <button className='nav_link' onClick={handleLogout}>Logout</button>
+                            <button className='nav_link' onClick={handleCart}>My Cart</button>
+                            <button className='nav_link logout_btn' onClick={handleLogout}>Logout</button>
                          </div>}
                 
             </div>
