@@ -19,7 +19,7 @@ const Home = () => {
             <h3 className='heading_home'>All Books :</h3>
             <div className='books'>
                 {books && books.map(bok=>(
-                    <BookDetail bok={bok}/>
+                    <BookDetail bok={bok} key={bok._id}/>
                 ))}
             </div>
         </div>
