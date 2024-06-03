@@ -1,19 +1,35 @@
 const CartModel = require('../models/cartModel');
+const BookModel = require('../models/bookModel');
 
 const getAllCartItems = async (req,res) => {
-    const items = await CartModel.find({}).sort({createdAt:-1});
-    res.status(200).json(items)
+    const {id:u_id}        = req.params;
+    //getting book_ids from cart db
+    const cart_items_books = await CartModel.find({user_id:u_id}).sort({createdAt:-1});
+    //getting book names and prices:
+    let books_in_cart    = [];
+    for (let i = 0; i < cart_items_books.length; i++) {
+        let x = await BookModel.findById(cart_items_books[i].book_id).sort({createdAt:-1})
+        let t = x.title;
+        let p = x.price;
+        books_in_cart.push({title:t,price:p})
+      } 
+    res.status(200).json(books_in_cart)
 }
 
 const createCartItem = async (req,res) => {
-    const {book_id,user_email} = req.body;
+    const {userid_yo:user_id,x:book_id} = req.body;
+    console.log(req.body);
+    
     try
     {
         const cartitem = await CartModel.create({book_id,user_id});
+        console.log("Success")
         res.status(200).json(cartitem);
+        
     }
     catch(err)
     {   
+        console.log("Fail")
         res.status(400).json({error:err.message});
     }
 }
