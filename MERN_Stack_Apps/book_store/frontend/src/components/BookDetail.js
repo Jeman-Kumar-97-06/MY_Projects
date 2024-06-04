@@ -9,11 +9,11 @@ const BookDetail = ({bok}) => {
         const userid_yo   = user.useridyo;
         const cartItem_yo = {userid_yo,x};
         //setting initial state of no of items to the number of items already in cart
-        const resp_c      = await fetch(`/book_store/cart/${userid_yo}`);
+        const resp_c      = await fetch(`/book_store/cart/${userid_yo}`,{headers:{'Authorization':`Bearer ${user.token}`}});
         const resp_c_js   = await resp_c.json();
         console.log(resp_c_js.length);
         //adding an item to cart
-        const response    = await fetch(`/book_store/cart/${userid_yo}`,{method:'POST',body:JSON.stringify({...cartItem_yo}),headers:{'Content-Type':"application/json"}});
+        const response    = await fetch(`/book_store/cart/${userid_yo}`,{method:'POST',body:JSON.stringify({...cartItem_yo}),headers:{'Content-Type':"application/json",'Authorization':`Bearer ${user.token}`}});
         if(!response.ok)
             {
                 console.log("Something Went Wrong!");

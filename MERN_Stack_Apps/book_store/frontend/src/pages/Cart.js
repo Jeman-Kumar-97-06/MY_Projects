@@ -8,7 +8,7 @@ const Cart = () => {
     const [total,setTotal] = useState(0);
     useEffect (()=>{
         const fetchItems = async () => {
-            const response = await fetch(`/book_store/cart/${user.useridyo}`);
+            const response = await fetch(`/book_store/cart/${user.useridyo}`,{headers:{"Authorization":`Beared ${user.token}`}});
             const json     = await response.json();
             if(response.ok)
                 {

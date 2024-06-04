@@ -18,18 +18,15 @@ const getAllCartItems = async (req,res) => {
 
 const createCartItem = async (req,res) => {
     const {userid_yo:user_id,x:book_id} = req.body;
-    console.log(req.body);
     
     try
     {
         const cartitem = await CartModel.create({book_id,user_id});
-        console.log("Success")
         res.status(200).json(cartitem);
         
     }
     catch(err)
     {   
-        console.log("Fail")
         res.status(400).json({error:err.message});
     }
 }

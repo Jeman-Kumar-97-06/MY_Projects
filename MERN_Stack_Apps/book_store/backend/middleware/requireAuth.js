@@ -1,5 +1,6 @@
 //This file recieves HTTP request with an authorization token inside the request body.
 //This is used to check if anyone is authorized, so that they can be allowed to go to all routes.
+const User        = require('../models/userModel');
 const jwt         = require('jsonwebtoken');
 const requireAuth = async (req,res,next) => {
     const {authorization} = req.headers;
