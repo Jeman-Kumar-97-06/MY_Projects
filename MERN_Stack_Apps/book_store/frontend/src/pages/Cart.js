@@ -21,7 +21,7 @@ const Cart = () => {
                 }
         }
         fetchItems();
-    },[]);
+    },[user]);
     return (
         <div className="user_cart_items_list">
             <h2>Check Out</h2>
