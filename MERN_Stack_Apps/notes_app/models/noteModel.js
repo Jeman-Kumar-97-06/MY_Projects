@@ -6,7 +6,7 @@ const noteSchema = new Schema({
         type: String,
         require : true
     },
-    note  : {
+    note_con : {
         type: String,
         require : true
     }
