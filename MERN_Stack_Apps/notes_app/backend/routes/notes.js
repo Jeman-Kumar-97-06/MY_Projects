@@ -7,7 +7,7 @@ const {
     deleteNote
 }             = require('../controllers/notesController');
 
-const router  = express.router();
+const router  = express.Router();
 
 //Route handler to get all notes:
 router.get('/',getNotes);
@@ -22,4 +22,6 @@ router.post('/',createNotes);
 router.delete('/:id',deleteNote);
 
 //Route handler to update a note:
-router.path('/:id',updateNote)
+router.patch('/:id',updateNote)
+
+module.exports = router;
