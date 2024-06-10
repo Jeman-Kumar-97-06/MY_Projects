@@ -93,7 +93,7 @@ const Cart = () => {
       <h4>Cart <span className="price" style={{color:'black'}}><i className="fa fa-shopping-cart"></i> <b>{cartI.length}</b></span></h4>
       {cartI && cartI.map(cI=>(<p><a href="#">{cI.title}</a> <span className="price">{cI.price}</span></p>))}
       <hr/>
-      <p>Total <span className="price" style={{color:"black"}}><b>{total}</b></span></p>
+      <p>Total <span className="price" style={{color:"black"}}><b>{Math.round(total*100)/100}</b></span></p>
     </div>
   </div>
 </div>

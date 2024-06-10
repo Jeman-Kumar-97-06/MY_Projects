@@ -11,27 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.navbar{
-  background-color: #83B4FF;
-  padding-top:10px;
-  padding-bottom: 10px;
-}
-
-.all_nav_links{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin:5px;
-}
-.remaining{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width:300px;
-}
-
-.navbar a{
-  text-decoration: none;
-  color:black;
-}
