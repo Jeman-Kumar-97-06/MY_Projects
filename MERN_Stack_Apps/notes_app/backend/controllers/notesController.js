@@ -5,6 +5,8 @@ const mongoose = require('mongoose') ;
 //Controller to get all notes:
 const getNotes = async (req,res) => {
     const notes = await Note.find({}).sort({createAt:-1});
+    //The following sends a success http response with code 200 and reponse body that has...
+    //... an array of 'note' type notes with each having their own 'title','note_con','_id'
     res.status(200).json(notes);
 }
 

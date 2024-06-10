@@ -1,10 +1,11 @@
 const List     = require('../models/listModel');
-
 const mongoose = require('mongoose') ;
 
 //Controller to get all list:
 const getLists = async (req,res) => {
     const lists = await List.find({}).sort({createAt:-1});
+    //The following sends a success http response with code 200 and reponse body that has...
+    //... an array of 'list' type notes with each having their own 'title','list_con','_id'
     res.status(200).json(lists);
 }
 
@@ -23,6 +24,8 @@ const getList  = async (req,res) => {
         {
             return res.status(400).json({error:"No list matching the 'id'!"});
         }
+    //if all of the above executes, this function will send a success http response with 200..
+    //..code with response body that has the requested 'list' obj with 'title','list_con','_id'
     res.status(200).json(list);
 }
 
@@ -32,6 +35,7 @@ const createLists = async (req,res) => {
     try
     {
         const list = await List.create({title,list_con});
+        //returns the created list as JSON object
         res.status(200).json(list)
     }
     catch(err)
@@ -53,6 +57,7 @@ const deleteList = async (req,res) => {
         {
             return res.status(400).json({error:"No list matching the 'id'!"});
         }
+    //returns the deleted 'list' note item.
     res.status(200).json(list);
 }
 
@@ -69,6 +74,8 @@ const updateList = async (req,res) => {
         {
             return res.status(400).json({error:"No note matching the 'id'!"});
         }
+    //doesn't return the updated list. It returns the 'list' note item as it was before being..
+    //..updated.
     res.status(200).json(list);
 }
 
