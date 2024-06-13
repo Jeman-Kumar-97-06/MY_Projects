@@ -251,6 +251,6 @@
     {
         "title1" : "SR 7.8",
         "title2" : "Control System Component Inventory",
-        "about"  : "The control system shall provide the capability to report the current list of installed components and their associated properties.",
+        "about"  : "The control system shall provide the capability to report the current list of installed components and their associated properties."
     }
 ]
