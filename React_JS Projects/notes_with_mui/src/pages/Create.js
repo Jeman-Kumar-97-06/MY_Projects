@@ -1,7 +1,13 @@
+import { Button } from '@mui/material';
+import Typography from '@mui/material/Typography';
+
 const Create = () => {
     return (
         <div>
-            <h1>Create Page</h1>
+            <Typography variant='h6' color='textSecondary' component='h2' gutterbottom>
+                Create a New Note
+            </Typography>
+            <Button type='submit ' variant='contained' color='secondary'>Default</Button>
         </div>
     )
 };
