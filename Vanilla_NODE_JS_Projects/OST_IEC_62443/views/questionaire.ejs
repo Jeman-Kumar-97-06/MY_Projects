@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISA/IEC 62443-3-3 Security Controls Assessment </title>
+    <style>
+        option::before{
+            content: ' ';
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    <form action="">
+    <form action="/sec_assess_repl" method="POST">
         <%data.forEach(dat=>{%>
             <div>
-                <label for="optionsFor"><%=`${dat.title1} ${dat.title2}`%></label><br>
-                <select name="optionsFor" id="">
+                <label for=<%="optionsFor"+dat.id%>><%=`${dat.title1} ${dat.title2}`%></label><br>
+                <select name=<%="optionsFor"+dat.id%> id="">
                     <option value="not_implemented">Not Implemented</option>
                     <option value="partially_implemented">Partially Implemented</option>
                     <option value="implemented">Implemented</option>
