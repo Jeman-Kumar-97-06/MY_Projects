@@ -1,14 +1,14 @@
-import { Button } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 const Create = () => {
     return (
-        <div>
-            <Typography variant='h6' color='textSecondary' component='h2' gutterbottom>
+        <Container>
+            <Typography variant='h6' color='textSecondary' component='h2' gutterbottom='true'>
                 Create a New Note
             </Typography>
-            <Button type='submit ' variant='contained' color='secondary'>Default</Button>
-        </div>
+            <Button onClick={()=>{console.log('you clicked submit')}} type='submit' variant='contained' color='secondary'>Submit</Button>
+        </Container>
     )
 };
 
