@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISA/IEC 62443-3-3 Security Controls Assessment </title>
     <style>
-        option::before{
-            content: ' ';
-            background-color: red;
+        select {
+
+background-color: #252525;
+color: #fff;
+border: none;
+border: 1px solid #595E57;
+padding: 5px;
+width: 150px;
+overflow:hidden;
+}
+        option{
+            padding: 5px;
+            color:red;
+        }
+        select option:hover{
+            background-color: rgb(0, 255, 21) !important;
         }
     </style>
 </head>
@@ -16,7 +29,7 @@
         <%data.forEach(dat=>{%>
             <div>
                 <label for=<%="optionsFor"+dat.id%>><%=`${dat.title1} ${dat.title2}`%></label><br>
-                <select name=<%="optionsFor"+dat.id%> id="">
+                <select name=<%="optionsFor"+dat.id%>>
                     <option value="not_implemented">Not Implemented</option>
                     <option value="partially_implemented">Partially Implemented</option>
                     <option value="implemented">Implemented</option>

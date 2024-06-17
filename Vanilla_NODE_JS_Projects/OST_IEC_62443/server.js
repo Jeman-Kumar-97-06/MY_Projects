@@ -14,7 +14,9 @@ app.get('/security_assessment',(req,res)=>{
 })
 
 app.post('/sec_assess_repl',(req,res)=>{
-    console.log(req.body)
+    console.log(typeof req.body);
+    console.log(JSON.stringify(req.body));
+    res.render('plots.ejs',{pl:JSON.stringify(req.body)})
 })
 
 app.listen(3000,()=>{console.log("listening to requests at 3000")});
