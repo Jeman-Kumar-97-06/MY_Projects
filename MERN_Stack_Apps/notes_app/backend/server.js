@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 app.use("/notes",noteRoutes);
 
 //Connecting to db & listening to requests:
-mongoose.connect(process.env.MONG_URI).then(()=>{
+mongoose.connect(process.env.MONGO_URI).then(()=>{
     app.listen(process.env.PORT,()=>{console.log(`Listening to requests at ${process.env.PORT}`)});
 }).catch(err=>{console.log(err)});
 
