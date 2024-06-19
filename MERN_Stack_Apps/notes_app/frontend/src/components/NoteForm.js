@@ -1,5 +1,9 @@
 import {useState} from 'react';
+import { useNoteContext } from '../hooks/useNoteContext';
+
 const NoteForm = () => {
+    const {dispatch} = useNoteContext();
+
     const [title,setTitle] = useState('')
     const [note_con,setNote_con]= useState('');
     const [error,setError] = useState(null);
@@ -10,7 +14,6 @@ const NoteForm = () => {
         const response = await fetch('/notes',{method:"POST",body:JSON.stringify(note),headers:{'Content-Type':'application/json'}})
         const json     = await response.json();
         if(!response.ok){
-
             setError(json.error); 
         }
         if(response.ok){
@@ -18,6 +21,7 @@ const NoteForm = () => {
             setNote_con('');
             setError(null);
             console.log('new workout added',json);
+            dispatch({type:"CREATE_NOTE",payload:json});
         }
     }
 
