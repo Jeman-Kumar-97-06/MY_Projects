@@ -5,7 +5,7 @@ import { useNoteContext } from '../hooks/useNoteContext';
 
 const Home = () => {
 
-    const [notes,dispatch] = useNoteContext();
+    const {notes,dispatch} = useNoteContext();
 
     useEffect(()=>{
         
@@ -14,11 +14,11 @@ const Home = () => {
             const json     = await response.json();
             if(response.ok)
                 {
-                    dispatch({type:'SET_NOTES',paylod:json});
+                    dispatch({type:'SET_NOTES',payload:json});
                 }
         };
         fetchNotes();
-    },[])
+    },[dispatch])
     return (
         <div className = 'home'>
             <div className='notes'>
