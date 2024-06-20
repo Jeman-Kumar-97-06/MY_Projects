@@ -1,15 +1,11 @@
-import { Button, Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-const Create = () => {
+export default function Create() {
     return (
-        <Container>
-            <Typography variant='h6' color='textSecondary' component='h2' gutterbottom='true'>
-                Create a New Note
+        <div>
+            <Typography variant='h1' color='primary' align='center'>
+                Create a note
             </Typography>
-            <Button onClick={()=>{console.log('you clicked submit')}} type='submit' variant='contained' color='secondary'>Submit</Button>
-        </Container>
+        </div>
     )
-};
-
-export default Create;
+}
