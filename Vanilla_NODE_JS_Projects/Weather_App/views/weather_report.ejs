@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Report</title>
+</head>
+<body>
+    <% const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; %>
+    <% const day  = new Date(); %>
+    <div class="weather_report">
+        <div class="left">
+            <form action="/get_weather_data" class="ch_" method="POST">
+                <label for="loc_input" class="inv">You Searched For</label>,<br><br>
+                <input type="text" id="loc_input" name="location_" value="<%=loc%>">
+                <input type="submit" value="Submit">
+            </form>
+            <p><%=time+', '%><%= days[day.getDay()]+",  " %><%=fc_d[0].date%></p>
+            <div class="main-temp">
+                <h1><%= temp_f %> F</h1>
+                <img src=<%= icon %> alt="weather_state">
+            </div>
+            <p><span class="inv">Humidity </span>: <%= humid %> %</p>
+            <p><span class="inv">Wind </span>: <%=wind_kph%> km/h</p>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <div id="temp"></div>
+            </div>
+            <div class="right-bottom">
+                <button class="button_0" onclick="drawChartYo('day0_co')">
+                    <div class="day1">
+                        <h4>Today</h4>
+                        <img src=<%= fc_d[0].day.condition.icon %> alt="">
+                        <p><span class="inv">Avg Temp</span>: <%= fc_d[0].day.avgtemp_f %>F</p>
+                        <p><span class="inv">Humidity</span>: <%= fc_d[0].day.avghumidity %>%</p>
+                    </div>
+                </button>
+                <button class='button_1' onclick="drawChartYo('day1_co')">
+                    <div class="day2">
+                        <h4><%=fc_d[1].date%></h4>
+                        <img src=<%= fc_d[1].day.condition.icon %> alt="">
+                        <p><span class="inv">Avg Temp</span>: <%= fc_d[1].day.avgtemp_f %>F</p>
+                        <p><span class="inv">Humidity</span>: <%= fc_d[1].day.avghumidity %>%</p>
+                    </div>
+                </button>
+                <button class="button_2" onclick="drawChartYo('day2_co')">
+                    <div class="day3">
+                        <h4><%=fc_d[2].date%></h4>
+                        <img src=<%= fc_d[2].day.condition.icon %> alt="">
+                        <p><span class="inv">Avg Temp</span>: <%= fc_d[2].day.avgtemp_f %>F</p>
+                        <p><span class="inv">Humidity</span>: <%= fc_d[2].day.avghumidity %>%</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Drawing a graph -->
+    <script>
+        function drawChartYo(x=[
+  ['Price', 'Size'],
+  [50,7],[60,8],[70,8],[80,9],[90,9],[100,9],
+  [110,10],[120,11],[130,14],[140,14],[150,15]
+  ]){
+        console.log(x)
+        google.charts.load('current',{packages:['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        let day0_te = "<%= day0_c %>".split(",");
+        let day1_te = "<%= day1_c %>".split(",");
+        let day2_te = "<%= day2_c %>".split(",");
+        function createCo(z){
+            let i = 0
+            let d = [['hr','Temp']]
+            z.forEach((item)=>{
+             d.push([i,Number(item)])
+             i++
+         })
+         return d
+        }
+        let day0_co = createCo(day0_te);
+        let day1_co = createCo(day1_te);
+        let day2_co = createCo(day2_te);
+
+        if(x==='day0_co'){
+            x=day0_co
+            
+        }
+        else if(x==='day1_co'){
+            x=day1_co
+        }
+        else if(x==='day2_co'){
+            x=day2_co
+        }
+        function drawChart() {
+            // Creating Co-Ordinates
+            
+            // Set Data
+            console.log(x)
+            const data = google.visualization.arrayToDataTable(x);
+            // Set Options
+            const options = {
+                title: 'Temperature in Farenhiet',
+                hAxis: {title: 'Hours'},
+                vAxis: {title: 'Temperature'},
+                legend: 'none'
+                            };
+            // Draw
+            const chart = new google.visualization.LineChart(document.getElementById('temp'));
+            chart.draw(data, options);
+                        }
+        }
+        drawChartYo();
+    </script>
+</body>
+</html>

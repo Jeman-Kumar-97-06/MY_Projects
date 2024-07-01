@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body{
+    font-family: "Cinzel", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:100vh;
+    margin:0;
+}
+.top{
+    background-color: #1A3263;
+    height:110px;
+    width:600px;
+    padding:20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+}
+
+.head_yo{
+    color:white;
+}
+
+.searched_word{
+    margin:0;
+}
+
+.search_for{
+    width:auto;
+}
+button{
+    background-color: #CBAF87;
+}
+.results{
+    background-color: #CBAF87;
+    position: absolute;
+    top:110px;
+    font-family: "Zilla Slab", serif;
+    width:600px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eachResult{
+    background-color:#1A3263 ;
+    width : 550px;
+    margin-bottom: 15px;
+}
+
+.phonetic_voice{
+    width:150px;
+    background-color: blue;
+}
+
+.all_pho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:550px;
+    height:150px;
+}
+
+.part_of_speech{
+    margin-top:0;
+}
+
+.phonetics_each{
+    background-color: #CBAF87;
+    padding:5px;
+    margin:5px;
+}
+.meanings_each{
+    background-color: #CBAF87;
+}
+.phonetics_head{
+    margin:2px auto 2px auto;
+    color:white;
+}

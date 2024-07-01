@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plots</title>
+    <script
+        type="text/javascript"
+        src="https://www.gstatic.com/charts/loader.js">
+    </script>
+    <style>
+        #pie_plot{
+            width:700px;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div id="plot"></div>
+    <div id="pie_plot"></div>
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawPieChart);
+        var tot = "<%=total%>";
+        var low = "<%=low%>";
+        var medium = "<%=medium%>";
+        var high = "<%=high%>"
+        var critical = "<%=critical%>";
+        var ignore = "<%=ignore%>";
+        console.log(low,medium,high,critical,ignore);
+        function drawChart(){
+            const data = google.visualization.arrayToDataTable([
+                ["risk level.","percentage."],
+                ["critical.",Math.round(Number(critical*(100/Number(tot))))],
+                ["high.",Math.round(Number(high*(100/Number(tot))))],
+                ["medium",Math.round(Number(medium*(100/Number(tot))))],
+                ["low",Math.round(Number(low*(100/Number(tot))))],
+                
+            ])
+            const options = {
+                title : "Risk Level"
+            };
+            const chart = new google.visualization.BarChart(document.getElementById("plot"));
+            chart.draw(data,options);
+        }
+        function drawPieChart(){
+            const data = google.visualization.arrayToDataTable([
+                ["risk level.","percentage."],
+                ["critical.",Math.round(Number(critical*(100/Number(tot))))],
+                ["high.",Math.round(Number(high*(100/Number(tot))))],
+                ["medium",Math.round(Number(medium*(100/Number(tot))))],
+                ["low",Math.round(Number(low*(100/Number(tot))))],
+                ['secure',Math.round(Number(ignore*(100/Number(tot))))]
+            ])
+            const options = {
+                title : "Risk Level"
+            };
+            const chart = new google.visualization.PieChart(document.getElementById("pie_plot"));
+            chart.draw(data,options);
+        }
+    </script>
+</body>
+</html>

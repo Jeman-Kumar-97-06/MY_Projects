@@ -1,0 +1,34 @@
+{
+  "details": [
+    {
+      "name": "Jeman",
+      "age": 27,
+      "gen": "male",
+      "id": "1"
+    },
+    {
+      "name": "Jeevan",
+      "age": 24,
+      "gen": "male",
+      "id": "2"
+    },
+    {
+      "name": "Surekha",
+      "age": 47,
+      "gen": "female",
+      "id": "3"
+    },
+    {
+      "id": "650f",
+      "name": "Batman",
+      "age": "40",
+      "gend": "jeman"
+    },
+    {
+      "id": "fca9",
+      "name": "Sup",
+      "age": "24",
+      "gen": "jeman"
+    }
+  ]
+}
