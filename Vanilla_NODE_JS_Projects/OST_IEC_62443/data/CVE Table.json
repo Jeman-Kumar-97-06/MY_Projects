@@ -1,0 +1,460 @@
+[
+ {
+  "Nodes List": "Sr No.",
+  "Column2": "mac_address",
+  "Column3": "ip",
+  "Column4": "type",
+  "Column5": "mac_vendor",
+  "Column6": "firmware_version",
+  "Column7": "protocols",
+  "Column8": "product_name"
+ },
+ {
+  "Nodes List": 1,
+  "Column2": "00:03:27:12:4e:74",
+  "Column4": "'-",
+  "Column5": "HMS Industrial Networks"
+ },
+ {
+  "Nodes List": 2,
+  "Column2": "00:0e:8c:f0:08:0a",
+  "Column3": "10.106.18.72",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column6": "V3.2.7",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL00-0AB0"
+ },
+ {
+  "Nodes List": 3,
+  "Column2": "00:0e:8c:f0:08:0a",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 4,
+  "Column2": "00:0e:8c:f5:3d:2a",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 5,
+  "Column2": "00:0e:8c:f6:35:8d",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 6,
+  "Column2": "00:0e:8c:f6:35:8d",
+  "Column3": "10.106.18.64",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.4",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL01-0AB0"
+ },
+ {
+  "Nodes List": 7,
+  "Column2": "00:0e:8c:f7:27:45",
+  "Column3": "10.106.18.61",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.12",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL00-0AB0"
+ },
+ {
+  "Nodes List": 8,
+  "Column2": "00:0e:8c:f7:27:45",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 9,
+  "Column2": "00:0e:8c:f7:2a:45",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 10,
+  "Column2": "00:0e:8c:f7:2a:45",
+  "Column3": "10.106.18.67",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.7",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL00-0AB0"
+ },
+ {
+  "Nodes List": 11,
+  "Column2": "00:0e:8c:f7:93:7d",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 12,
+  "Column2": "00:0e:8c:f7:93:7d",
+  "Column3": "10.106.18.65",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.4",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL00-0AB0"
+ },
+ {
+  "Nodes List": 13,
+  "Column2": "00:0e:8c:f7:fd:8a",
+  "Column3": "10.106.18.63",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.4",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL01-0AB0"
+ },
+ {
+  "Nodes List": 14,
+  "Column2": "00:0e:8c:f7:fd:8a",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 15,
+  "Column2": "00:0e:8c:f7:fd:b1",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 16,
+  "Column2": "00:0e:8c:f7:fd:b1",
+  "Column3": "10.106.18.71",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column6": "V3.2.7",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL01-0AB0"
+ },
+ {
+  "Nodes List": 17,
+  "Column2": "00:0e:8c:f7:fd:bd",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 18,
+  "Column2": "00:0e:8c:f7:fd:bd",
+  "Column3": "10.106.18.66",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.12",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL01-0AB0"
+ },
+ {
+  "Nodes List": 19,
+  "Column2": "00:0e:8c:fa:6b:54",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 20,
+  "Column2": "00:0e:8c:fa:6b:54",
+  "Column3": "10.106.18.74",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.4",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL01-0AB0"
+ },
+ {
+  "Nodes List": 21,
+  "Column2": "00:0e:8c:fa:6b:99",
+  "Column3": "10.106.18.73",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.4",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL01-0AB0"
+ },
+ {
+  "Nodes List": 22,
+  "Column2": "00:0e:8c:fa:6b:99",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 23,
+  "Column2": "00:1b:1b:2f:6a:b9",
+  "Column3": "10.106.18.62",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.7",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 318-3EL01-0AB0"
+ },
+ {
+  "Nodes List": 24,
+  "Column2": "00:1b:1b:2f:6a:b9",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 25,
+  "Column2": "00:a0:45:51:d2:08",
+  "Column4": "switch",
+  "Column5": "Phoenix Contact"
+ },
+ {
+  "Nodes List": 26,
+  "Column2": "00:a0:45:51:d2:2a",
+  "Column4": "switch",
+  "Column5": "Phoenix Contact",
+  "Column7": "lldp, stp"
+ },
+ {
+  "Nodes List": 28,
+  "Column2": "00:c0:b7:57:5d:11",
+  "Column3": "10.106.18.97",
+  "Column4": "'-",
+  "Column5": "Schneider Electric",
+  "Column7": "other"
+ },
+ {
+  "Nodes List": 30,
+  "Column2": "28:63:36:9e:b1:03",
+  "Column3": "10.106.18.130",
+  "Column4": "controller",
+  "Column5": "Siemens",
+  "Column6": "V3.2.12",
+  "Column7": "cotp, s7",
+  "Column8": "6ES7 315-2EH14-0AB0"
+ },
+ {
+  "Nodes List": 31,
+  "Column2": "28:63:36:9e:b1:03",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 32,
+  "Column2": "bc:30:5b:c4:90:7f",
+  "Column4": "OT_device",
+  "Column5": "Dell",
+  "Column7": "lldp, other, profinet-dcp"
+ },
+ {
+  "Nodes List": 33,
+  "Column2": "bc:30:5b:c4:90:7f",
+  "Column3": "10.106.18.100",
+  "Column4": "computer",
+  "Column5": "Dell",
+  "Column7": "browser, cotp, netbios-ns, s7, smb"
+ },
+ {
+  "Nodes List": 34,
+  "Column2": "bc:30:5b:e1:32:64",
+  "Column3": "10.106.18.77",
+  "Column4": "computer",
+  "Column5": "Dell",
+  "Column7": "browser, smb"
+ },
+ {
+  "Nodes List": 35,
+  "Column2": "bc:30:5b:e1:32:64",
+  "Column4": "'-",
+  "Column5": "Dell"
+ },
+ {
+  "Nodes List": 36,
+  "Column2": "c4:00:ad:40:0a:f8",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 37,
+  "Column2": "c4:00:ad:40:0a:f8",
+  "Column3": "10.106.18.187",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, netbios-ns, other, smb"
+ },
+ {
+  "Nodes List": 38,
+  "Column2": "c4:00:ad:40:0b:2b",
+  "Column3": "10.106.18.194",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, llmnr, netbios-ns, other, smb"
+ },
+ {
+  "Nodes List": 40,
+  "Column2": "c4:00:ad:40:0b:2b",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 41,
+  "Column2": "c4:00:ad:40:0b:41",
+  "Column3": "10.106.18.186",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, netbios-ns, other, smb, ssdp"
+ },
+ {
+  "Nodes List": 42,
+  "Column2": "c4:00:ad:40:0b:41",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 44,
+  "Column2": "c4:00:ad:40:0b:49",
+  "Column3": "10.106.18.189",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, igmp, llmnr, mdns, netbios-ns, other, smb, ssdp"
+ },
+ {
+  "Nodes List": 46,
+  "Column2": "c4:00:ad:40:0b:49",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 47,
+  "Column2": "c4:00:ad:40:0b:cd",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 48,
+  "Column2": "c4:00:ad:40:0b:cd",
+  "Column3": "10.106.18.191",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, netbios-ns, other, smb"
+ },
+ {
+  "Nodes List": 49,
+  "Column2": "c4:00:ad:40:0b:ea",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 50,
+  "Column2": "c4:00:ad:40:0b:ea",
+  "Column3": "10.106.18.185",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, netbios-ns, other, smb"
+ },
+ {
+  "Nodes List": 51,
+  "Column2": "c4:00:ad:40:0b:fa",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 52,
+  "Column2": "c4:00:ad:40:0b:fa",
+  "Column3": "10.106.18.190",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, http, netbios-ns, other, smb, ssdp"
+ },
+ {
+  "Nodes List": 53,
+  "Column2": "c4:00:ad:40:0c:0c",
+  "Column3": "10.106.18.188",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, mdns, netbios-ns, other, smb, ssdp"
+ },
+ {
+  "Nodes List": 54,
+  "Column2": "c4:00:ad:40:0c:0c",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 56,
+  "Column2": "c4:00:ad:cf:2b:40",
+  "Column4": "'-",
+  "Column5": "Advantech",
+  "Column7": "lldp"
+ },
+ {
+  "Nodes List": 57,
+  "Column2": "c4:00:ad:cf:2b:40",
+  "Column3": "10.106.18.184",
+  "Column4": "computer",
+  "Column5": "Advantech",
+  "Column7": "browser, http, igmp, llmnr, mdns, netbios-ns, other, smb, ssdp"
+ },
+ {
+  "Nodes List": 58,
+  "Column2": "cc:82:7f:3b:ac:c2",
+  "Column4": "'-",
+  "Column5": "Advantech"
+ },
+ {
+  "Nodes List": 60,
+  "Column2": "cc:82:7f:3b:ac:c2",
+  "Column3": "10.106.18.192",
+  "Column4": "'-",
+  "Column5": "Advantech",
+  "Column7": "llmnr, mdns, netbios-ns, other"
+ },
+ {
+  "Nodes List": 61,
+  "Column2": "e0:dc:a0:24:d7:8f",
+  "Column4": "OT_device",
+  "Column5": "Siemens",
+  "Column7": "profinet-dcp"
+ },
+ {
+  "Nodes List": 62,
+  "Column2": "f8:bc:12:ff:fc:08",
+  "Column4": "OT_device",
+  "Column5": "Dell",
+  "Column7": "lldp, profinet-dcp"
+ },
+ {
+  "Nodes List": 63,
+  "Column2": "f8:bc:12:ff:fc:08",
+  "Column3": "10.106.18.251",
+  "Column4": "computer",
+  "Column5": "Dell",
+  "Column7": "browser, netbios-ns, smb"
+ },
+ {
+  "Nodes List": 64,
+  "Column2": "ff:ff:ff:ff:ff:ff",
+  "Column3": "10.106.18.255",
+  "Column4": "broadcast",
+  "Column5": "Broadcast MAC",
+  "Column7": "browser, netbios-ns, other"
+ },
+ {
+  "Nodes List": 66,
+  "Column3": "10.106.18.13",
+  "Column4": "'-"
+ },
+ {
+  "Nodes List": 67,
+  "Column3": "10.106.18.102",
+  "Column4": "switch"
+ }
+]

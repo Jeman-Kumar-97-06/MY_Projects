@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <%-include('./partials/navbar.ejs')%>
+        <button><a href="/cve">Back</a></button>
+    </div>
+    
+    <table>
+        <tr>
+            <th>CVE</th>
+            <th>CVE Score</th>
+            <th>CWE Id</th>
+            <th>CWE Name</th>
+            <th>CVE Creation Time</th>
+            <th>Matching CPES</th>
+        </tr>
+        <% for( let i = 1; i < data.length; i++ ) { %>
+            <tr>
+                <td><%=data[i]["cve"] || "-"%></td>
+                <td><%=data[i]["cve_score"] || "-"%></td>
+                <td><%=data[i]["cwe_id"] || "-"%></td>
+                <td><%=data[i]["cwe_name"] || "-"%></td>
+                <td><%=data[i]["cve_creation_time"] || "-"%></td>
+                <td><%=data[i]["matching_cpes"] || "-"%></td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

@@ -3,6 +3,14 @@ const cors        = require('cors');
 const app     = express();
 const questions_data = require('./data/questionare.json');
 const assets_data = require('./data/Nodes list_Paint Shop.json');
+const cve_data = require('./data/CVE Table.json');
+const dat_for_324 = require('./data/3.2.4.json');
+const dat_for_327 = require('./data/3.2.7.json');
+const dat_for_3212 = require('./data/3.2.12.json');
+const dat_for_all_versions = require('./data/all_versions.json');
+
+const cv_obj = {"324" : dat_for_324,"327" : dat_for_327,"3212":dat_for_3212};
+
 
 app.use(cors());
 app.use(express.json());
@@ -27,7 +35,22 @@ app.get('/assets',(req,res)=>{
 })
 
 app.get('/cve',(req,res)=>{
-    res.render('cve.ejs')
+    var obbj = {}
+    for (let i = 0; i < dat_for_all_versions.length; i++) {
+        if (!obbj.hasOwnProperty(dat_for_all_versions[i]['cwe_name'])){
+            obbj[dat_for_all_versions[i]['cwe_name']] = 1;
+        } 
+        else{
+            obbj[dat_for_all_versions[i]['cwe_name']] += 1;
+        }
+     }
+    res.render('cve.ejs',{data:cve_data,name:'jeman',all_ver_dat_k:Object.keys(obbj),all_ver_dat_v:Object.values(obbj)});
+})
+
+app.get('/cv/:version',(req,res)=>{
+    const version = req.params.version;
+    const v       = version.slice(1,version.length).split('.').join('');
+    res.render('cv.ejs',{data:cv_obj[v]});
 })
 
 app.post('/sec_assess_repl',(req,res)=>{
