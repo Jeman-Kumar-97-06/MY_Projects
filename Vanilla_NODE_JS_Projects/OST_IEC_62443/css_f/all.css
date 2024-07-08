@@ -1,0 +1,136 @@
+body{
+    background-image: url('./OS_Back.jpg');
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Home Page styles */
+
+#dashb{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#dashb button{
+    padding : 10px;
+    width: 170px;
+    text-decoration: none;
+    border-radius: 0;
+    border-style: solid;
+    border-color: black;
+    position: relative;
+    box-shadow: 4px 4px grey;
+}
+
+#dashb button:active{
+    left:4px;
+    top:4px;
+    box-shadow: none;
+}
+
+/* Asset Styles */
+
+.asset_table{
+    border-collapse: collapse;
+    width: 400px;
+    overflow: scroll;
+}
+
+.asset_table td, .asset_table th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+/* #pie_plot
+{
+    width : 700px;
+    height: 700px;
+}
+
+table styles :--
+table
+{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 400px
+}
+
+td, th 
+{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) 
+{
+    background-color: #dddddd;
+}
+
+
+
+
+
+
+
+
+#plot
+{
+    min-width: 800px;
+    width:90%;
+}
+
+.all_plots
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.pie_and_table{
+margin-top:150px;
+display: flex;
+flex-direction: row;
+justify-content:space-around;
+width: 90vw;
+}
+
+.ipmodal{
+position: fixed; 
+z-index: 1; 
+padding-top: 100px;
+left: 0;
+top: 0;
+width: 100%; 
+height: 100%; 
+overflow: auto; 
+background-color: rgb(0,0,0); 
+background-color: rgba(0,0,0,0.4);
+}
+.ipmodal_content{
+    background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+}
+.close {
+color: #aaaaaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+} */

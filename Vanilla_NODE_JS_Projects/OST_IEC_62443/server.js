@@ -11,6 +11,7 @@ const dat_for_all_versions = require('./data/all_versions.json');
 
 const cv_obj = {"324" : dat_for_324,"327" : dat_for_327,"3212":dat_for_3212};
 
+app.use(express.static('css_f'));
 
 app.use(cors());
 app.use(express.json());
@@ -31,7 +32,23 @@ app.get('/active_scanner',(req,res)=>{
 })
 
 app.get('/assets',(req,res)=>{
-    res.render('assets_rend.ejs',{data:assets_data});
+    let cou = [];
+    let obje  = {};
+    for (let i = 0; i < assets_data.length; i++) {
+        if (!cou.includes(assets_data[i]['Column2']) && (assets_data[i]["Column2"]!=='-' && assets_data[i]['Column2']!=='mac_address')){
+            cou.push(assets_data[i]['Column2']);
+        }
+        if (!obje.hasOwnProperty(assets_data[i]['Column5']) && (assets_data[i]['Column5']!=="'-" && assets_data[i]['Column5']!=='type')){
+            obje[assets_data[i]['Column5']] = 0;
+        }
+    }
+    for (let k = 0; k < assets_data.length; k++) {
+        if (obje.hasOwnProperty(assets_data[k]['Column5'])){
+            obje[assets_data[k]['Column5']] += 1;
+        }
+    }
+    console.log(obje);
+    res.render('assets_rend.ejs',{data:assets_data,count:cou.length,type_c:obje});
 })
 
 app.get('/cve',(req,res)=>{

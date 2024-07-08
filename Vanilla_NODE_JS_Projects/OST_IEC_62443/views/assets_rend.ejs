@@ -1,14 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assets</title>
-</head>
+<%-include('./partials/up_and_down.ejs')%>
 <body>
     <%-include('./partials/navbar.ejs')%>
-    <h1>Assets:</h1>
-    <table>
+    <div class="assets_div">
+        <h2>All Devices</h2>
+        <table>
+            <tr>
+                <th>Mac Addresses : </th>
+                <td><%=count%></td>
+            </tr>
+        </table>
+
+        <h2>Device Types</h2>
+        <table class="dev_type_table">
+            <% for( let i = 0; i < Object.keys(type_c).length; i++ ) { %>
+                <tr>
+                    <th><%=Object.keys(type_c)[i]%></th>
+                    <td><%=Object.values(type_c)[i]%></td>
+                </tr>
+            <% } %>
+        </table>
+
+        <h2>Assets:</h2>
+    <table class="asset_table">
         <tr>
             <th>Sr.No</th>
             <th>Mac Address</th>
@@ -34,5 +47,6 @@
             </tr>
         <% } %>
     </table>
+    </div>
 </body>
 </html>

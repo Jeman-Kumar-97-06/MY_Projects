@@ -1,47 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .ipmodal{
-            display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-        .ipmodal_content{
-            background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-        }
-        /* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-    </style>
-</head>
+<%- include('./partials/up_and_down.ejs') %>
 <body>
+    <%- include('./partials/navbar.ejs')%>
     <h1>Active Scanner</h1>
     <div class="form_scanner_table">
         <form action="/action_page.php">
@@ -62,25 +21,25 @@
                 <td>1</td>
                 <td><button id="ip1">10.106.52.45</button></td>
                 <td>102</td>
-                <td><button>Details</button></td>
+                <td><a href="/cv/V3.2.4"><button>Details</button></a></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td><button id="ip2">10.106.76.109</button></td>
                 <td>102</td>
-                <td><button>Details</button></td>
+                <td><a href="/cv/V3.2.7"><button>Details</button></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td><button id="ip3">10.106.76.107</button></td>
                 <td>102</td>
-                <td><button>Details</button></td>
+                <td><a href="/cv/V3.2.12"><button>Details</button></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td><button id="ip4">10.106.76.106</button></td>
                 <td>102</td>
-                <td><button>Details</button></td>
+                <td><a href="/cv/V3.2.4"><button>Details</button></td>
             </tr>
           </table>
     </div> 
@@ -113,7 +72,7 @@
             <div class="scan_dat">
                 <p>Module : 6ES7 515-2AM01-0AB0</p>
                 <p>Basic Hardware : 6ES7 515-2AM01-0AB0</p>
-                <p>Version : 2.1.0</p>
+                <p>Version : 3.2.7</p>
                 <p>System Name : S71500/ET200MP station_1</p>
                 <p>Module Type : PLC_1</p>
                 <p>Serial Number : S C-J8MK36852017</p>
@@ -130,7 +89,7 @@
             <div class="scan_dat">
                 <p>Module : 6ES7 515-2AM01-0AB0</p>
                 <p>Basic Hardware : 6ES7 515-2AM01-0AB0</p>
-                <p>Version : 1.8.4</p>
+                <p>Version : 3.2.12</p>
                 <p>System Name : S71500/ET200MP station_1</p>
                 <p>Module Type : PLC_1</p>
                 <p>Serial Number : S C-H3SL98922016</p>
@@ -147,7 +106,7 @@
             <div class="scan_dat">
                 <p>Module : 6ES7 515-2AM01-0AB0</p>
                 <p>Basic Hardware :  6ES7 515-2AM01-0AB0</p>
-                <p>Version : 1.8.3</p>
+                <p>Version : 3.2.4</p>
                 <p>System Name : S71500/ET200MP station_1</p>
                 <p>Module Type : PLC_1</p>
                 <p>Serial Number : S C-H3S254022016</p>

@@ -1,57 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISA/IEC 62443-3-3 Security Controls Assessment </title>
-    <style>
-        body{
-            display:flex;
-            justify-content: center;
-            
-        }
-        select {
-
-background-color: #252525;
-color: #fff;
-border: none;
-border: 1px solid #595E57;
-padding: 5px;
-width: 150px;
-overflow:hidden;
-}
-        option{
-            padding: 5px;
-        }
-        select option:hover{
-            background-color: rgb(0, 255, 21) !important;
-        }
-
-    .all_qs{
-        width:50vw;
-    }
-    .sr_and_title{
-        color:brown
-    }
-    .main_head{
-        width:100%;
-        display: flex;
-        justify-content: center;
-    }
-    .submit_questionaire{
-        width:100%;
-        display: flex;
-        justify-content: center;
-    }
-    .submit_q_button{
-        width:150px;
-        height: 50px;
-        font-size: medium;
-        background-color: coral;
-    }
-    </style>
-</head>
+<%-include('./partials/up_and_down.ejs')%>
 <body>
+    <%-include('./partials/navbar.ejs')%>
     <form action="/sec_assess_repl" method="POST" class="all_qs">
         <div class="main_head">
             <h1>IEC 62443</h1>
