@@ -2,51 +2,57 @@
 <body>
     <%-include('./partials/navbar.ejs')%>
     <div class="assets_div">
-        <h2>All Devices</h2>
-        <table>
-            <tr>
-                <th>Mac Addresses : </th>
-                <td><%=count%></td>
-            </tr>
-        </table>
-
-        <h2>Device Types</h2>
-        <table class="dev_type_table">
-            <% for( let i = 0; i < Object.keys(type_c).length; i++ ) { %>
+        <div class="assets_div_1">
+            <div class="asset_div_1_all_dev">
+                <h2>All Devices:</h2>
+                <table>
+                    <tr>
+                        <th>Mac Addresses : </th>
+                        <td><%=count%></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="asset_div_1_all_types">
+                <h2>Device Types:</h2>
+                <table class="dev_type_table">
+                    <% for( let i = 0; i < Object.keys(type_c).length; i++ ) { %>
+                        <tr>
+                            <th><%=Object.keys(type_c)[i]%></th>
+                            <td><%=Object.values(type_c)[i]%></td>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>    
+        </div>
+        <div class="assets_div_2">
+            <h2>Assets:</h2>
+            <table class="asset_table">
                 <tr>
-                    <th><%=Object.keys(type_c)[i]%></th>
-                    <td><%=Object.values(type_c)[i]%></td>
+                    <th>Sr.No</th>
+                    <th>Mac Address</th>
+                    <th>Device Id</th>
+                    <th>IP Address</th>
+                    <th>Type</th>
+                    <th>Mac Vendor</th>
+                    <th>OS</th>
+                    <th>Protocols</th>
+                    <th>Product Name</th>
                 </tr>
-            <% } %>
-        </table>
-
-        <h2>Assets:</h2>
-    <table class="asset_table">
-        <tr>
-            <th>Sr.No</th>
-            <th>Mac Address</th>
-            <th>Device Id</th>
-            <th>IP Address</th>
-            <th>Type</th>
-            <th>Mac Vendor</th>
-            <th>OS</th>
-            <th>Protocols</th>
-            <th>Product Name</th>
-        </tr>
-        <% for( let i = 1; i < data.length; i++ ) { %>
-            <tr>
-                <td><%=data[i]["Nodes List"] || "-"%></td>
-                <td><%=data[i]["Column2"] || "-"%></td>
-                <td><%=data[i]["Column3"] || "-"%></td>
-                <td><%=data[i]["Column4"] || "-"%></td>
-                <td><%=data[i]["Column5"] || "-"%></td>
-                <td><%=data[i]["Column6"] || "-"%></td>
-                <td><%=data[i]["Column7"] || "-"%></td>
-                <td><%=data[i]["Column10"] || "-"%></td>
-                <td><%=data[i]["Column11"] || "-"%></td>
-            </tr>
-        <% } %>
-    </table>
+                <% for( let i = 1; i < data.length; i++ ) { %>
+                    <tr>
+                        <td><%=data[i]["Nodes List"] || "-"%></td>
+                        <td><%=data[i]["Column2"] || "-"%></td>
+                        <td><%=data[i]["Column3"] || "-"%></td>
+                        <td><%=data[i]["Column4"] || "-"%></td>
+                        <td><%=data[i]["Column5"] || "-"%></td>
+                        <td><%=data[i]["Column6"] || "-"%></td>
+                        <td><%=data[i]["Column7"] || "-"%></td>
+                        <td><%=data[i]["Column10"] || "-"%></td>
+                        <td><%=data[i]["Column11"] || "-"%></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
     </div>
 </body>
 </html>

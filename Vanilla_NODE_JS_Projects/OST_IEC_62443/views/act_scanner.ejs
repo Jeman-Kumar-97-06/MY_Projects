@@ -3,14 +3,15 @@
     <%- include('./partials/navbar.ejs')%>
     <h1>Active Scanner</h1>
     <div class="form_scanner_table">
-        <form action="/action_page.php">
+        <form action="#">
             <label for="ip_ad">IP to Scan:</label><br>
             <input type="text" id="ip_ad" name="ip_ad" ><br>
             <label for="port_num">Port to Scan:</label><br>
             <input type="text" id="port_num" name="port_num"><br><br>
-            <input type="submit" value="Submit">
+            <button type="submit">Submit</button>
           </form>
-          <table>
+          <h2>Previous 5 Scans : </h2>
+          <table class="scanner_table">
             <tr>
                 <th>Sr.No</th>
                 <th>IP Address</th>
