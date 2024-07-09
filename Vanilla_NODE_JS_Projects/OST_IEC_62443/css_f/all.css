@@ -249,6 +249,25 @@ body{
     width: 100%;
 }
 
+.cv_table {
+    background-color: white;
+    margin-top: 80px;
+    width : 990px;
+    border-collapse: collapse;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.5px;
+}
+.cv_table th{
+    background-color: #ecf3f9;
+}
+
+.cv_table th , .cv_table td {
+    border-style: solid;
+    border-color: black;
+    border-width: 0.5px;
+}
+
 #pie_plot
 {
     width : 700px;

@@ -8,6 +8,7 @@ const dat_for_324 = require('./data/3.2.4.json');
 const dat_for_327 = require('./data/3.2.7.json');
 const dat_for_3212 = require('./data/3.2.12.json');
 const dat_for_all_versions = require('./data/all_versions.json');
+const alerts_dat = require('./data/alerts.json');
 
 const cv_obj = {"324" : dat_for_324,"327" : dat_for_327,"3212":dat_for_3212};
 
@@ -25,6 +26,10 @@ app.get('/',(req,res)=>{
 
 app.get('/security_assessment',(req,res)=>{
     res.render('questionaire.ejs',{data:questions_data});
+})
+
+app.get('/alerts',(req,res)=>{
+    res.render('alerts_p.ejs',{data:alerts_dat})
 })
 
 app.get('/active_scanner',(req,res)=>{

@@ -323,7 +323,7 @@
   "Column6": "Dell",
   "Column7": "Windows 7 SP1 \/ Server 2008 R2 SP1",
   "Column9": "2024-03-29 15:01:12",
-  "Column10": "browser, cotp, netbios-ns, s7, smb"
+  "Column10": "cotp, netbios-ns, s7, smb"
  },
  {
   "Nodes List": 34,
@@ -334,7 +334,7 @@
   "Column6": "Dell",
   "Column7": "Windows XP",
   "Column9": "2024-03-29 15:00:49",
-  "Column10": "browser, smb"
+  "Column10": "smb"
  },
  {
   "Nodes List": 35,
@@ -359,7 +359,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 14:57:07",
-  "Column10": "browser, netbios-ns, other, smb"
+  "Column10": "netbios-ns, other, smb"
  },
  {
   "Nodes List": 38,
@@ -370,7 +370,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 15:23:06",
-  "Column10": "browser, llmnr, netbios-ns, other, smb"
+  "Column10": "llmnr, netbios-ns, other, smb"
  },
  {
   "Nodes List": 40,
@@ -388,7 +388,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 15:03:38",
-  "Column10": "browser, netbios-ns, other, smb, ssdp"
+  "Column10": "netbios-ns, other, smb, ssdp"
  },
  {
   "Nodes List": 42,
@@ -406,7 +406,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 14:59:28",
-  "Column10": "browser, igmp, llmnr, mdns, netbios-ns, other, smb, ssdp"
+  "Column10": "igmp, llmnr, mdns, netbios-ns, other, smb, ssdp"
  },
  {
   "Nodes List": 46,
@@ -431,7 +431,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 14:58:06",
-  "Column10": "browser, netbios-ns, other, smb"
+  "Column10": "netbios-ns, other, smb"
  },
  {
   "Nodes List": 49,
@@ -449,7 +449,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 14:55:54",
-  "Column10": "browser, netbios-ns, other, smb"
+  "Column10": "netbios-ns, other, smb"
  },
  {
   "Nodes List": 51,
@@ -467,7 +467,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 11 \/ 10 \/ Server",
   "Column9": "2024-03-29 15:02:07",
-  "Column10": "browser, http, netbios-ns, other, smb, ssdp"
+  "Column10": "http, netbios-ns, other, smb, ssdp"
  },
  {
   "Nodes List": 53,
@@ -478,7 +478,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 15:02:15",
-  "Column10": "browser, mdns, netbios-ns, other, smb, ssdp"
+  "Column10": "mdns, netbios-ns, other, smb, ssdp"
  },
  {
   "Nodes List": 54,
@@ -505,7 +505,7 @@
   "Column6": "Advantech",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-29 14:58:03",
-  "Column10": "browser, http, igmp, llmnr, mdns, netbios-ns, other, smb, ssdp"
+  "Column10": "http, igmp, llmnr, mdns, netbios-ns, other, smb, ssdp"
  },
  {
   "Nodes List": 58,
@@ -551,7 +551,7 @@
   "Column6": "Dell",
   "Column7": "Windows 10 \/ Server",
   "Column9": "2024-03-26 17:07:41",
-  "Column10": "browser, netbios-ns, smb"
+  "Column10": "netbios-ns, smb"
  },
  {
   "Nodes List": 64,
@@ -560,7 +560,7 @@
   "Column5": "broadcast",
   "Column6": "Broadcast MAC",
   "Column9": "1970-01-01 05:30:00",
-  "Column10": "browser, netbios-ns, other"
+  "Column10": "netbios-ns, other"
  },
  {
   "Nodes List": 66,
