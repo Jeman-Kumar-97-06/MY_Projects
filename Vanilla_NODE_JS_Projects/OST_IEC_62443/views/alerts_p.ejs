@@ -1,4 +1,26 @@
 <%-include('./partials/up_and_down.ejs')%>
 <body>
-    <%-incluce('./partials/navbar.ejs')%>
+    <%-include('./partials/navbar.ejs')%>
+    <div class="alerts_div">
+        <table class="alerts_table">
+            <tr>
+                <th>Message</th>
+                <th>Protocol</th>
+                <th>IP Src</th>
+                <th>IP Dst</th>
+                <th>PORT Src</th>
+                <th>PORT Dst</th>
+            </tr>
+            <% for( let i = 0; i < data.length; i++ ) { %>
+                <tr>
+                    <td><%=data[i]["msg"]%></td>
+                    <td><%=data[i]["protocol"]%></td>
+                    <td><%=data[i]["ip_src"]%></td>
+                    <td><%=data[i]["ip_dst"]%></td>
+                    <td><%=data[i]["port_src"]%></td>
+                    <td><%=data[i]["port_dst"]%></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
 </body>
