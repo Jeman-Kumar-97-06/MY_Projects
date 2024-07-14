@@ -1,10 +1,12 @@
 require('dotenv').config();
-const mongoose = require('mongoose');
-const exp      = require('express');
-const app      = exp();
+const mongoose   = require('mongoose');
+const exp        = require('express');
+const app        = exp();
 
-app.get('/',(req,res)=>{
-    res.json({mssg:"Welcom !"});
+const listRoutes = require('./routes/todolists');
+
+app.use('/api/todolists',listRoutes);
+
+mongoose.connect(process.env.MONGOURL).then(()=>{app.listen(process.env.PORT,()=>{console.log(`Listening at ${process.env.PORT}`)});}).catch((error)=>{
+    console.log(error);
 });
-
-app.listen(process.env.PORT,()=>{console.log(`Listening at ${process.env.PORT}`)});

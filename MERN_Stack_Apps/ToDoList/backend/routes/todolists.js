@@ -2,7 +2,7 @@ const exp    = require('express');
 const router = exp.Router();
 
 const {getLists,getList,createList,deleteList,updateList}
-             = require('./controllers/todoListControllers');
+             = require('../controllers/todoListControllers');
 
 router.get('/',getLists);
 
@@ -13,3 +13,5 @@ router.post('/',createList);
 router.delete('/:id',deleteList);
 
 router.patch('/:id',updateList);
+
+module.exports = router;
