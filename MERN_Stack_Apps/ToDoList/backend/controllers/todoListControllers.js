@@ -25,6 +25,7 @@ const getList = async (req,res) => {
 //Controller function to post a new list:
 const createList = async (req,res) => {
     const {title,list} = req.body;
+    console.log(title,list)
     try
     {
         const lT = await Todolist.create({title,list});
