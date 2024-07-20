@@ -24,16 +24,16 @@ const getList = async (req,res) => {
 
 //controller to create a new list
 const createList = async (req,res) => {
-    const {title,load,reps} = req.body;
+    const {title,list} = req.body;
     try
     {
-        const list_yo = await List.create({title,load,reps});
+        const list_yo = await List.create({title,list});
         res.status(200).json(list_yo);
     }
     catch(err)
     {
         res.status(400).json({error:err.message});
-    }   
+    }
 }
 
 //controller to delete a list

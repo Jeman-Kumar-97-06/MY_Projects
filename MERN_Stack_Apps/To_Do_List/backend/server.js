@@ -10,7 +10,7 @@ const todolistRoutes = require('./routes/todolistRoutes');
 app.use(cors());
 app.use(exp.json());
 
-app.use(express.urlencoded({extended:true}));
+// app.use(exp.urlencoded({extended:true}));
 
 app.use('/api/todolists',todolistRoutes);
 
