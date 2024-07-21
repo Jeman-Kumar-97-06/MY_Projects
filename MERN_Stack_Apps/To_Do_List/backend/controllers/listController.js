@@ -63,6 +63,6 @@ const updateList = async (req,res) => {
         return res.status(404).json({error:"No List found with the specified ID!"});
     }
     res.status(200).json(list_yo);
-}
+};
 
 module.exports = {createList,getLists,getList,updateList,deleteList};
