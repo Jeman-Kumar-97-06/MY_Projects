@@ -1,11 +1,18 @@
 import { useState } from "react";
 const ListDetails = ({l_e}) => {
 
-    const [list_it,setList_it] = useState(l_e.list);
-
+    const [listit,setListit] = useState(l_e.list);
+    const deleted_tasks = [];
     const updateList = (e) => {
-        const new_arr = list_it.splice(list_it.indexOf(e.target.id)-1,1);
-        console.log(new_arr)
+        if(e.target.checked){
+            deleted_tasks.push(e.target.id);
+            listit.splice(listit.indexOf(e.target.id),1);
+            setListit([...listit]);
+            console.log(deleted_tasks)
+        }
+        else{
+            console.log('unchecked')
+        }
     }
 
     return (
@@ -13,7 +20,7 @@ const ListDetails = ({l_e}) => {
             <h2>{l_e.title}</h2>
             <form>
                 {
-                    l_e.list.map((l_e_l)=>(
+                    listit.map((l_e_l)=>(
                         <div>
                             <input type="checkbox" id={l_e_l} onClick={e=>updateList(e)}/>
                             <label htmlFor={l_e_l}>{l_e_l}</label>
