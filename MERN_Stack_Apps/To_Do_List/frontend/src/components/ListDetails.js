@@ -36,13 +36,14 @@ const ListDetails = ({l_e}) => {
 
     const addNewTask = (e) => {
         e.preventDefault();
-        console.log(newtask);
-        listit.push(newtask);
-        setListit([...listit]);
-        // const upd_lis = {title:def_tit,list:listit,dellis:deltasks};
-        // fetch(`http://localhost:4000/api/todolists/${l_e._id}`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify(upd_lis)})
-        //     .then(()=>{console.log('updated successfully')})
-        //     .catch(err=>{console.log(err)})
+        if(newtask.length!=0){
+            listit.push(newtask);
+            setListit([...listit]);
+        }
+        else{
+            alert('Task String Length 0')
+        }
+        
     }
 
     //Run the function inside 'useEffect' every time there's a change in listit or deltasks
@@ -55,9 +56,11 @@ const ListDetails = ({l_e}) => {
 
     //Finally,              
     return (
-        <div className="each_lis" key={l_e._id} id={l_e._id}>
+        <div className="each_lis_detail" key={l_e._id} id={l_e._id}>
+            {/* Each List Title */}
             <h2>{l_e.title}</h2>
-            <form>
+            {/* Rendering Each Task : */}
+            <form className="each_task">
                 {
                     listit.map((l_e_l)=>(
                         <div>
@@ -65,16 +68,8 @@ const ListDetails = ({l_e}) => {
                             <label htmlFor={l_e_l}>{l_e_l}</label>
                         </div>
                                           ))
-                } 
-                
-                
-            </form>
-            <form onSubmit={addNewTask}>
-                    <input type="text" placeholder="Add New Task" onChange={e=>{setNewtask(e.target.value);}}/>
-                    <button type="submit">Save</button>
-                </form>
-            <br /><br />
-            <form>
+                }
+                <hr />
                 {
                     deltasks.map((l_e_l)=>(
                         <div>
@@ -84,9 +79,10 @@ const ListDetails = ({l_e}) => {
                                           ))
                 } 
             </form>
-
-            
-            
+            <form className="addNewTask" onSubmit={addNewTask}>
+                    <input type="text" placeholder="Add New Task" onChange={e=>{setNewtask(e.target.value);}}/>
+                    <button type="submit">Create New Task</button>
+            </form>          
         </div>
     )
 }

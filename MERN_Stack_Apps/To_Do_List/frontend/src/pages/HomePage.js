@@ -26,6 +26,7 @@ const HomePage = () => {
             .catch(err=>{console.log(err)})
     }
 
+    //What to do when 'Create' is clicked:
     const createList = (e) => {
         e.preventDefault();
         const new_create_list = {title:newtitle,list:[],dellis:[]}
@@ -36,19 +37,21 @@ const HomePage = () => {
 
     return (
         <div className="home_div">
-            <div>
+
+                {/* The following has the list creation form */}
                 <form className='createForm' onSubmit={createList}>
                     <input type='text'placeholder='Add Title First to Create a ToDoList' onChange={e=>{setNewtitle(e.target.value)}}/><br />
-                    <button type='submit'>Save</button>
+                    <button type='submit'>+</button>
                 </form>
+                
+                {/* The following has the code that renders each todolist */}
                 {lists && lists.map((l)=>(
-                    <div>
+                    <div className='each_list'>
                         <ListDetails key={l._id} l_e={l}/>
                         <button onClick={e=>{deleteTasksList(l._id)}}>Delete</button>
                     </div>
                     
                 ))}
-            </div>
         </div>
     )
 };
