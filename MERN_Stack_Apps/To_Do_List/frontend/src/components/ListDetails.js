@@ -1,34 +1,91 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const ListDetails = ({l_e}) => {
-
+    const def_tit = l_e.title;
     const [listit,setListit] = useState(l_e.list);
-    const deleted_tasks = [];
-    const updateList = (e) => {
+    const [deltasks,setDeltasks] = useState(l_e.dellis);
+    const [newtask,setNewtask] = useState('');
+
+    //what to do when a task is checked 'done'
+    const removefromList = (e) => {
         if(e.target.checked){
-            deleted_tasks.push(e.target.id);
+            //Add the checked task to list of 'deleted_tasks'
+            deltasks.push(e.target.id);
+            setDeltasks(deltasks);
+            //Remove the checked tak from the existing list of tasks and update the list
             listit.splice(listit.indexOf(e.target.id),1);
             setListit([...listit]);
-            console.log(deleted_tasks)
+            //Remove the checked mark
+            e.target.checked = false;
         }
         else{
             console.log('unchecked')
         }
     }
 
+    //what to do when a checked task is clicked again to undone
+    const addfromList = (e) => {
+        if (!e.target.checked)
+        {
+            listit.push(e.target.id);
+            setListit([...listit]);
+            deltasks.splice(deltasks.indexOf(e.target.id),1);
+            setDeltasks([...deltasks]);
+            
+        }
+    }
+
+    const addNewTask = (e) => {
+        e.preventDefault();
+        console.log(newtask);
+        listit.push(newtask);
+        setListit([...listit]);
+        // const upd_lis = {title:def_tit,list:listit,dellis:deltasks};
+        // fetch(`http://localhost:4000/api/todolists/${l_e._id}`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify(upd_lis)})
+        //     .then(()=>{console.log('updated successfully')})
+        //     .catch(err=>{console.log(err)})
+    }
+
+    //Run the function inside 'useEffect' every time there's a change in listit or deltasks
+    useEffect(()=>{
+        const upd_lis = {title:def_tit,list:listit,dellis:deltasks};
+        fetch(`http://localhost:4000/api/todolists/${l_e._id}`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify(upd_lis)})
+            .then(()=>{console.log('updated successfully')})
+            .catch(err=>{console.log(err)})
+                  },[listit,deltasks])
+
+    //Finally,              
     return (
-        <div className="each_lis">
+        <div className="each_lis" key={l_e._id} id={l_e._id}>
             <h2>{l_e.title}</h2>
             <form>
                 {
                     listit.map((l_e_l)=>(
                         <div>
-                            <input type="checkbox" id={l_e_l} onClick={e=>updateList(e)}/>
+                            <input type="checkbox" id={l_e_l} onClick={e=>removefromList(e)}/>
                             <label htmlFor={l_e_l}>{l_e_l}</label>
                         </div>
                                           ))
                 } 
+                
+                
             </form>
-            <button><a href="#">Delete</a></button>
+            <form onSubmit={addNewTask}>
+                    <input type="text" placeholder="Add New Task" onChange={e=>{setNewtask(e.target.value);}}/>
+                    <button type="submit">Save</button>
+                </form>
+            <br /><br />
+            <form>
+                {
+                    deltasks.map((l_e_l)=>(
+                        <div>
+                            <input type="checkbox" id={l_e_l} onClick={e=>addfromList(e)} defaultChecked/>
+                            <label htmlFor={l_e_l} style={{textDecoration:"line-through"}}>{l_e_l}</label>
+                        </div>
+                                          ))
+                } 
+            </form>
+
+            
             
         </div>
     )
