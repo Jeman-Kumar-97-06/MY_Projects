@@ -57,10 +57,13 @@ const ListDetails = ({l_e}) => {
     //Finally,              
     return (
         <div className="each_lis_detail" key={l_e._id} id={l_e._id}>
+
             {/* Each List Title */}
             <h2>{l_e.title}</h2>
+
             {/* Rendering Each Task : */}
             <form className="each_task">
+                {/* Rendering tasks that are un-checked */}
                 {
                     listit.map((l_e_l)=>(
                         <div>
@@ -70,6 +73,7 @@ const ListDetails = ({l_e}) => {
                                           ))
                 }
                 <hr />
+                {/* Rendering tasks that are completed ie., checked */}
                 {
                     deltasks.map((l_e_l)=>(
                         <div>
@@ -79,6 +83,8 @@ const ListDetails = ({l_e}) => {
                                           ))
                 } 
             </form>
+            
+            {/* Form to create a new task inside an existing ToDoList */}
             <form className="addNewTask" onSubmit={addNewTask}>
                     <input type="text" placeholder="Add New Task" onChange={e=>{setNewtask(e.target.value);}}/>
                     <button type="submit">Create New Task</button>
