@@ -18,7 +18,7 @@ const getNote = async (req,res) => {
     const note = await Note.findById(id);
     if (!note)
     {
-        return res.status(404).josn({error:"No matching note found with the given ID!"})
+        return res.status(404).json({error:"No matching note found with the given ID!"})
     }
     res.status(200).json(note);
 }
@@ -29,7 +29,7 @@ const createNote = async (req,res) => {
     try
     {
         const new_note = await Note.create({title,note_con});
-        res.status(200).json(workout);
+        res.status(200).json(new_note);
     }
     catch(err)
     {
