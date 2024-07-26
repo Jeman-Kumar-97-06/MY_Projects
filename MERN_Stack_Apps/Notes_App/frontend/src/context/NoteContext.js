@@ -6,7 +6,7 @@ export const NoteContext = createContext();
 export const noteReducer = (state,action) => {
     switch(action.type)
     {
-        case 'SETNOTE':
+        case 'SETNOTES':
             return {notes:action.payload};
         case 'CREATENOTE':
             return {notes:[action.payload,...state.notes]};
@@ -22,7 +22,7 @@ export const NoteContextProvider = ({children}) => {
 
     return (
         //the 'value' below stores the data that all 'children' can access.
-        <NoteContext.Provider value={{state,dispatch}}>
+        <NoteContext.Provider value={{...state,dispatch}}>
             {children}
         </NoteContext.Provider>
     )

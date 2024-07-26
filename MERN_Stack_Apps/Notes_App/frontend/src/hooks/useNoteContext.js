@@ -6,7 +6,7 @@ export const useNoteContext = () => {
 
     if(!context)
     {
-        
+        throw Error("useNoteConext must be used inside a component wrapped inside NoteContextProvider");
     }
 
     return context;
