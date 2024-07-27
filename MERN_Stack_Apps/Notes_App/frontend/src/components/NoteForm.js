@@ -29,7 +29,7 @@ const NoteForm = () => {
         <div className='createformdiv'>
             <form className="createform" onSubmit={handleSubmit}>
                 <input type="text" placeholder='Title for a new note' onChange={e=>{setTitle(e.target.value)}} value={title}/>
-                <textarea placeholder='Content of the new note' onChange={e=>{setNcon(e.target.value)}} value={ncon}></textarea>
+                <textarea rows="7" cols="40" placeholder='Content of the new note' onChange={e=>{setNcon(e.target.value)}} value={ncon}></textarea>
                 <button type='submit'>+</button>
             </form>
             {error && <p>{error}</p>}

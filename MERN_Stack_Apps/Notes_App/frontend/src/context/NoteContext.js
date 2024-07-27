@@ -10,6 +10,8 @@ export const noteReducer = (state,action) => {
             return {notes:action.payload};
         case 'CREATENOTE':
             return {notes:[action.payload,...state.notes]};
+        case "DELETENOTE":
+            return {notes:state.notes.filter((n)=>n._id !== action.payload._id)}
         default:
             return state;
     }
