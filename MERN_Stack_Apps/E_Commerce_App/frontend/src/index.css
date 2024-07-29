@@ -16,6 +16,7 @@ body{
   margin:0;
   width:100vw;
   height:100vh;
+  overflow: scroll;
 }
 
 .nav_all{
@@ -43,3 +44,43 @@ body{
   justify-content: space-between;
 }
 
+.home_div{
+  margin:auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.each_pro{
+  padding:10px;
+  width:230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.prod_img{
+  width:100%;
+}
+
+.details_det{
+  margin:60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img_div{
+  width:500px;
+  margin:50px;
+}
+.no_of_units{
+  width:100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.no_of_units button{
+  height: fit-content;
+}

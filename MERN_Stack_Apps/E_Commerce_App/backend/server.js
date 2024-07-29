@@ -15,7 +15,22 @@ const getProds = async (req,res) => {
     res.status(200).json(all_notes);
 };
 
+const getProd = async (req,res) => {
+    const {id} = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id))
+    {
+        return res.status(404).json({error:"Invaid ID!"});
+    }
+    const prodt = await Product.findById(id);
+    if(!prodt)
+    {
+        return res.status(404).json({error:"No Matching Product!"});
+    }
+    res.status(200).json(prodt)
+}
+
 app.get('/api/products/',getProds);
+app.get('/api/products/:id',getProd);
 
 //MongoAtlasDB connection
 mongoose.connect(process.env.MONGOURL).then(()=>{
