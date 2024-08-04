@@ -9,8 +9,10 @@ const cors     = require('cors');
 app.use(cors());
 app.use(exp.json());
 
-app.get('/',(req,res)=>{
-    res.render('index');
+app.get('/backend/questions', async (req,res)=>{
+    const data = await fetch(process.env.APIURL);
+    const json = await data.json();
+    res.status(200).json(json.results);
 })
 
 
