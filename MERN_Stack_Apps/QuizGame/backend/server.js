@@ -15,5 +15,4 @@ app.get('/backend/questions', async (req,res)=>{
     res.status(200).json(json.results);
 })
 
-
 mongoose.connect(process.env.MONGOURL).then(()=>{app.listen(process.env.PORT,()=>{console.log(`Listening at ${process.env.PORT}`)})}).catch(err=>{console.log(err)}); 
