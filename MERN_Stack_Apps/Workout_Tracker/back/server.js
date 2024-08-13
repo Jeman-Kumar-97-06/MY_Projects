@@ -4,12 +4,13 @@ const cors    = require('cors');
 
 const app     = express();
 
+
 //Route Handler 
-app.get('/',()=>{
-    
+app.get('/',(req,res)=>{
+    res.json({mssg:"Welcome to the app"})
 })
 
-app.listen(4000,()=>{
-    console.log('Listening at 4000');
+app.listen(process.env.PORT,()=>{
+    console.log(`Listening at ${process.env.PORT}`);
 });
  
