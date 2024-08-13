@@ -1,3 +1,6 @@
+//server.js acts as an API between DB and Client
+
+
 require('dotenv').config();
 const express = require('express');
 const cors    = require('cors');
