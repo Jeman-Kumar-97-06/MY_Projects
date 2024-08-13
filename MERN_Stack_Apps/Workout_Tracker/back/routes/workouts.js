@@ -1,4 +1,4 @@
-const exp = require('express');
+const express = require('express');
 const router = express.Router();
 router.get('/',()=>{
 
@@ -17,7 +17,7 @@ router.delete('/:id',()=>{
 })
 
 router.patch('/:id',()=>{
-    
+
 })
 
 module.exports = router;
