@@ -25,7 +25,7 @@ const getWorkout = async (req,res) => {
 
 //create a new workout :
 const createWorkout = async (req,res) => {
-    const {title,load,resp} = req.body;
+    const {title,load,reps} = req.body;
     //Try adding a new workout to the DB
     try{
         const new_workout = await Workout.create({title,load,reps});
