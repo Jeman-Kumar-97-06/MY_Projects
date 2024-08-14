@@ -13,6 +13,7 @@ const app     = express();
 //Middleware to accept req body in the form of json
 //[If you don't use this, req body submitted will be undefined]
 app.use(express.json());
+app.use(cors());
 
 //API Endpoints :--
 //GET   /workouts       Gets all workouts 
