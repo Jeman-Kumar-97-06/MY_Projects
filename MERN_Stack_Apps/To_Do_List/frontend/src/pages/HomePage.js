@@ -20,7 +20,8 @@ const HomePage = () => {
     },[lists]);
 
     //What to do when 'Delete' is clicked:
-    const deleteTasksList = (id) => {
+    const deleteTasksList = (id,e) => {
+        e.preventDefault();
         fetch(`http://localhost:4000/api/todolists/${id}`,{method:"DELETE",headers:{"Content-Type":"application/json"}})
             .then(()=>{console.log('Deleted successfully')})
             .catch(err=>{console.log(err)})
@@ -48,7 +49,7 @@ const HomePage = () => {
                 {lists && lists.map((l)=>(
                     <div className='each_list'>
                         <ListDetails key={l._id} l_e={l}/>
-                        <button onClick={e=>{deleteTasksList(l._id)}}>Delete</button>
+                        <button onClick={e=>{deleteTasksList(l._id,e)}}>Delete</button>
                     </div>
                     
                 ))}
