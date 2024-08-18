@@ -1,5 +1,6 @@
 import {useEffect,useState} from 'react';
-import ListinDetail from './ListinDetail';
+import ListinDetail from '../components/ListinDetail';
+import NewToDoList from '../components/NewToDoList';
 const Home = () => {
     const [lists,setLists] = useState([]);
     const fetchLists = async () => {
@@ -20,10 +21,9 @@ const Home = () => {
     return (
         <div className='home_page'>
             <h1>Home Page</h1>
+            <NewToDoList/>
             {lists && lists.map(l=>(
-                <div>
-                    <ListinDetail key={l._id} list={l}/>
-                </div>
+                <ListinDetail key={l._id} list={l}/>
             ))}
         </div>
     )
