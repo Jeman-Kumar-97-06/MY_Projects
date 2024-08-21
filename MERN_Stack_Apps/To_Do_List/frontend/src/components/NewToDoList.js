@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const NewToDoList = () => {
+const NewToDoList = ({fL}) => {
     const [title,setTitle] = useState('');
     //const [list,setList]   = useState([]);
     const [error,setError] = useState(null);
@@ -18,6 +18,7 @@ const NewToDoList = () => {
             setError(null);
             setTitle('');
             console.log('added')
+            fL();
         }
     }
     return (

@@ -12,7 +12,6 @@ const Home = () => {
         }
     }
     useEffect(()=>{
-        
         fetchLists();
     },[lists.length])
 
@@ -21,9 +20,9 @@ const Home = () => {
     return (
         <div className='home_page'>
             <h1>Home Page</h1>
-            <NewToDoList/>
+            <NewToDoList fL={fetchLists}/>
             {lists && lists.map(l=>(
-                <ListinDetail key={l._id} list={l}/>
+                <ListinDetail key={l._id} list={l} fL={fetchLists}/>
             ))}
         </div>
     )
