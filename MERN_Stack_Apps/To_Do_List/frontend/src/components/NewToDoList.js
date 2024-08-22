@@ -25,10 +25,13 @@ const NewToDoList = ({fL}) => {
         <form className="new_todo_list" onSubmit={handleSubmit}>
             <h4>Add New List:</h4>
 
-            <label>Title:</label>
-            <input type='text' onChange={e=>setTitle(e.target.value)} value={title}/>
+            <div className="input-submit">
+                <label className="tasklist-title">Title:</label>
+                <input type='text' onChange={e=>setTitle(e.target.value)} value={title}/>
 
-            <button type="submit">+</button>
+                <button type="submit" className="tasklist-title-submit">+</button>
+            </div>
+            
 
             {error && <p>{error}</p>}
 

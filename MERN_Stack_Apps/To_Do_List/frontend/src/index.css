@@ -13,5 +13,90 @@ code {
 }
 
 body{
-  background-color: rgb(70, 67, 67);
+  background-color:white;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #079e67;
+  color: white;
+}
+
+.home_page{
+  margin-left: 20px;
+}
+
+.list_in_det {
+  background-color: #079e67;
+  width: fit-content;
+  padding: 15px;
+  margin:20px 0 20px 0;
+  border-radius: 5px;
+}
+
+.add_task_btn {
+  margin:5px;
+  cursor: pointer;
+  background-color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-color:black;
+  color:white;
+}
+
+.del_task_btn {
+  background-color: red;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding:4px;
+  cursor: pointer;
+  margin:8px 8px 8px 0;
+}
+
+.new_todo_list{
+  background-color: #333;
+  margin: 0 20px 20px 0;
+  width:auto;
+  padding:15px;
+  color:white;
+}
+
+.new_todo_list input{
+  font-size: larger;
+}
+
+.tasklist-title{
+  margin-right: 10px;
+}
+
+.tasklist-title-submit{
+  margin-left: 10px;
+  height:30px;
+  width: 30px;
+}
+
+.input-submit{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

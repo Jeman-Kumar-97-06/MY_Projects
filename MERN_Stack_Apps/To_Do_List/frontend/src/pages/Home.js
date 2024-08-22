@@ -3,6 +3,8 @@ import ListinDetail from '../components/ListinDetail';
 import NewToDoList from '../components/NewToDoList';
 const Home = () => {
     const [lists,setLists] = useState([]);
+
+    //Definition of function that fetches the all task lists
     const fetchLists = async () => {
         console.log('ran this')
         const resp = await fetch('/api/todolists');
@@ -11,6 +13,8 @@ const Home = () => {
             setLists(json);
         }
     }
+
+    
     useEffect(()=>{
         fetchLists();
     },[lists.length])
@@ -19,7 +23,7 @@ const Home = () => {
 
     return (
         <div className='home_page'>
-            <h1>Home Page</h1>
+            <h2>Welcome User!</h2>
             <NewToDoList fL={fetchLists}/>
             {lists && lists.map(l=>(
                 <ListinDetail key={l._id} list={l} fL={fetchLists}/>

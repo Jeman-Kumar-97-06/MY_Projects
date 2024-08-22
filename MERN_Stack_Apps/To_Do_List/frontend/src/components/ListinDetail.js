@@ -59,8 +59,8 @@ const ListinDetail = ({list,fL}) => {
 
     //RETURN STATEMENT
     return (
-        <div>
-            <h2>{list.title}</h2>
+        <div className='list_in_det'>
+            <h2 className="list_title">{list.title}</h2>
             {/* Rendering list of tasks */}
             <div>
                 {listoftasks.map(l=>(
@@ -86,11 +86,11 @@ const ListinDetail = ({list,fL}) => {
             {/* Form to add new task */}
             <form onSubmit={addNewTask}>
                 <input type="text" value={new_task} onChange={e=>setNew_task(e.target.value)}/>
-                <button type="submit">Add Task</button>
+                <button type="submit" className="add_task_btn">Add Task</button>
                 {error && <p>{error}</p>}
             </form>
 
-            <button onClick={e=>{handleDel(list._id)}}>Delete</button>
+            <button onClick={e=>{handleDel(list._id)}} className="del_task_btn">Delete</button>
         </div>
     )
 }
