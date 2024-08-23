@@ -29,12 +29,13 @@ const getQuestions = async (req,res) => {
             let all_ans = [...element.incorrect_answers,element.correct_answer];
             shuffle(all_ans);
             delete element.incorrect_answers;
-            element.all_answers = all_ans;
+            element.all_answers  = all_ans;
+            element.given_answer = [];
         });
         const new_ques_set = await Quest.create({queslist:json.results,score:0});
         return res.status(200).json(new_ques_set);
     }
-    else{
+    else if (json.response_code!==0){
         console.log("No questions! Try Again after sometime")
     }
 }
@@ -51,18 +52,4 @@ const updateScore = async (req,res) => {
     res.status(200).json(updated_score);
 }
 
-const updateWorkout = async (req,res) => {
-    const {id} = req.params;
-    //Check ID validity to prevent API crash:
-    if (!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error:"The ID is Invalid!"});
-    }
-    const workout_to_update = await Workout.findOneAndUpdate({_id:id},{...req.body});
-    if (!workout_to_update){
-        return res.status(404).json({error:"No match found with the specified ID"});
-    };
-    res.status(200).json(workout_to_update);
-}
-
-
-module.exports = {getQuestions};
+module.exports = {getQuestions,updateScore};

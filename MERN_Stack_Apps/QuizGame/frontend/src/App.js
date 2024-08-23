@@ -7,6 +7,17 @@ function App() {
 
   const [sc,setSc] = useState(0);
 
+  const userOps = {};
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log(userOps)//Start from here dumbfuck
+  }
+
+  const setClicked = async (name,value) => {
+    userOps[name] = value;
+  }
+
   useEffect(()=>{
     const fetchQuestions = async () => {
       const resp = await fetch('http://localhost:4000/backend/questions/');
@@ -21,22 +32,20 @@ function App() {
 
   return (
     <div className="App">
-      {qs && qs.map((q)=>(
-        <div>
-          
-          <form>
+      <form className="form_of_questions" onSubmit={handleSubmit}>
+        {qs && qs.map((q)=>(
+          <div>
             <h3>{q.question}</h3>
-              {q.incorrect_answers.map(x=>(
+              {q.all_answers.map(x=>(
                 <div>
-                  <input type="radio" id="age1" name="age" value="30"/>
-                  <label for="age1">{x}</label><br></br>
+                  <input type="radio" id={x} name={`selected_opfor_${qs.indexOf(q)+1}`} onClick={e=>setClicked(e.target.name,e.target.value)} value={x}/>
+                  <label htmlFor={x}>{x}</label><br></br>
                 </div>
-              ))}
-              <button type="submit">submit</button>
-          </form>
-          
-        </div>
-      ))}
+               ))}
+          </div>
+                            ))}
+         <button type='submit'>submit</button>
+      </form>
     </div>
   );
 }

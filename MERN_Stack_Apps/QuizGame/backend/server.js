@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { getQuestions } = require("./controllers/quizControllers");
+const { getQuestions,updateScore } = require("./controllers/quizControllers");
 const exp      = require('express');
 const app      = exp();
 
