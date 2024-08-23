@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 
+
 function App() {
 
   const [qs,setQs] = useState(null);
+
+  const [sc,setSc] = useState(0);
 
   useEffect(()=>{
     const fetchQuestions = async () => {
@@ -10,7 +13,7 @@ function App() {
       const json = await resp.json();
       if (resp.ok)
       {
-        setQs(json);
+        setQs(json.queslist);
       }
     }
     fetchQuestions();
@@ -20,6 +23,7 @@ function App() {
     <div className="App">
       {qs && qs.map((q)=>(
         <div>
+          
           <form>
             <h3>{q.question}</h3>
               {q.incorrect_answers.map(x=>(
