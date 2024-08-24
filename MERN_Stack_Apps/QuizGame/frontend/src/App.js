@@ -11,11 +11,12 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(userOps)//Start from here dumbfuck
+    console.log(userOps)
   }
 
   const setClicked = async (name,value) => {
-    userOps[name] = value;
+    const vals = value.split(' ') 
+    userOps[name] = {'ans':vals[0],'correct_ans':vals[1]}
   }
 
   useEffect(()=>{
@@ -38,7 +39,7 @@ function App() {
             <h3>{q.question}</h3>
               {q.all_answers.map(x=>(
                 <div>
-                  <input type="radio" id={x} name={`selected_opfor_${qs.indexOf(q)+1}`} onClick={e=>setClicked(e.target.name,e.target.value)} value={x}/>
+                  <input type="radio" id={x} name={`selected_opfor_${qs.indexOf(q)+1}`} onClick={e=>setClicked(e.target.name,e.target.value)} value={x+' '+q.correct_answer}/>
                   <label htmlFor={x}>{x}</label><br></br>
                 </div>
                ))}
