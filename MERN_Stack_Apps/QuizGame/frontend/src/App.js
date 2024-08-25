@@ -11,7 +11,16 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(userOps)
+    const score = 0;
+    for (let i = 0; i < Object.keys(userOps).length; i++) {
+      const element = userOps[Object.keys(userOps)[i]];
+      if (element.ans===element.correct_ans){
+        score+=1
+      }
+    }
+    setSc(score);
+    document.querySelector('.form_of_questions').style.display = 'none';
+    document.querySelector('.score_div').style.display='inline-block';
   }
 
   const setClicked = async (name,value) => {
@@ -20,12 +29,14 @@ function App() {
   }
 
   useEffect(()=>{
+    document.querySelector('.score_div').style.display = 'none';
     const fetchQuestions = async () => {
       const resp = await fetch('http://localhost:4000/backend/questions/');
       const json = await resp.json();
       if (resp.ok)
       {
         setQs(json.queslist);
+        document.querySelector('.loading').style.display = 'none';
       }
     }
     fetchQuestions();
@@ -33,8 +44,8 @@ function App() {
 
   return (
     <div className="App">
-      <form className="form_of_questions" onSubmit={handleSubmit}>
-        {qs && qs.map((q)=>(
+      { qs && <form className="form_of_questions" onSubmit={handleSubmit}>
+        {qs.map((q)=>(
           <div>
             <h3>{q.question}</h3>
               {q.all_answers.map(x=>(
@@ -46,7 +57,11 @@ function App() {
           </div>
                             ))}
          <button type='submit'>submit</button>
-      </form>
+      </form>}
+      <h3 className="loading">Loading...</h3>
+      <div className="score_div">
+        <h2>{sc}</h2>
+      </div>
     </div>
   );
 }
