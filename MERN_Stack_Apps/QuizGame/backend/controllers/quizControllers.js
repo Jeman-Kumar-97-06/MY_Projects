@@ -23,7 +23,6 @@ const getQuestions = async (req,res) => {
     const question_api = await fetch(process.env.APIURL);
     const json         = await question_api.json();
     if(json.response_code===0){
-        const deleted      = await Quest.deleteMany({score:0});
         const raw_dat      = await json.results;
         await raw_dat.forEach(element => {
             let all_ans = [...element.incorrect_answers,element.correct_answer];
@@ -35,10 +34,6 @@ const getQuestions = async (req,res) => {
         const new_ques_set = await Quest.create({queslist:json.results,score:0});
 
         return res.status(200).json(new_ques_set);
-    }
-    else if (json.response_code!==0){
-        console.log('ran this')
-        getQuestions(req,res);
     }
 }
 

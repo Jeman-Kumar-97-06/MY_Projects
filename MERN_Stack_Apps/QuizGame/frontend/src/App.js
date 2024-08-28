@@ -11,7 +11,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const score = 0;
+    let score = 0;
     for (let i = 0; i < Object.keys(userOps).length; i++) {
       const element = userOps[Object.keys(userOps)[i]];
       if (element.ans===element.correct_ans){
