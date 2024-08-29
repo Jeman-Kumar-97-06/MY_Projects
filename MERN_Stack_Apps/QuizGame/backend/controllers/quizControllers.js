@@ -29,7 +29,7 @@ const getQuestions = async (req,res) => {
             shuffle(all_ans);
             delete element.incorrect_answers;
             element.all_answers  = all_ans;
-            element.given_answer = [];
+            element.given_answer = []; 
         });
         const new_ques_set = await Quest.create({queslist:json.results,score:0});
 
