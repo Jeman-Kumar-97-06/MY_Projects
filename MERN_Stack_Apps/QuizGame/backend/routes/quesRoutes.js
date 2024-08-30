@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-    getQuestions
+    getQuestions,
 }             = require('../controllers/questControllers');
 
 const router  = express.Router();
