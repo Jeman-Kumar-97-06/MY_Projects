@@ -35,17 +35,19 @@ const Home = () => {
             <form className='questions' onSubmit={handleAnswersSubmit}>
                 {/* Rendering each question */}
                 {qs && qs.map(q=>(
-                    <div className='each_q' key={q._id}>
-                        <h4>{q.question}</h4>
-                        {/* Rendering each option */}
-                        {q.all_options.map(option=>(
-                            <div className='each_option'>
-                                <input type="radio" id={option} name={`question${qs.indexOf(q)}`} value={option} onClick={e=>handleOptionSelect(e,q.correct_option)}/>
-                                <label htmlFor={option}>{option}</label>
-                            </div>
+                        <div className='each_q' key={q._id}>
+                            <h4>{q.question}</h4>
+                            {/* Rendering each option */}
+                            {q.all_options.map(option=>(
+                                <div className='each_option'>
+                                    <input type="radio" id={option} name={`question${qs.indexOf(q)}`} value={option} onClick={e=>handleOptionSelect(e,q.correct_option)}/>
+                                    <label htmlFor={option}>{option}</label>
+                                </div>
                                                     ))}
-                    </div>
-                                ))}
+                        </div>
+                                ))
+                        
+                       }
                 <button type='submit'>Submit</button>
             </form>
         </div>
