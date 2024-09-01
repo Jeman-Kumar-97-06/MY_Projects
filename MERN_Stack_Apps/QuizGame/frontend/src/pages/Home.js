@@ -2,7 +2,8 @@ import {useState,useEffect} from 'react';
 
 const Home = () => {
 
-    const [qs,setQs] = useState(null);
+    const [qs,setQs]           = useState(null);
+    const [loading,setLoading] = useState('Loading...');
 
     const selectedOptions = {};
 
@@ -26,6 +27,7 @@ const Home = () => {
             const resp = await fetch('http://localhost:4000/api/questions/');
             const json = await resp.json();
             setQs(json);
+            setLoading('');
         }
         fetchQuestions();
     },[])
@@ -34,7 +36,7 @@ const Home = () => {
         <div className='home_page'>
             <form className='questions' onSubmit={handleAnswersSubmit}>
                 {/* Rendering each question */}
-                {qs && qs.map(q=>(
+                {qs && <div> {qs.map(q => (
                         <div className='each_q' key={q._id}>
                             <h4>{q.question}</h4>
                             {/* Rendering each option */}
@@ -47,8 +49,11 @@ const Home = () => {
                         </div>
                                 ))
                         
-                       }
-                <button type='submit'>Submit</button>
+                                }
+                                <button type='submit'>Submit</button>
+                                </div>
+                            }
+                {loading && <div>{loading}</div>}
             </form>
         </div>
     )
