@@ -21,7 +21,7 @@ const Home = () => {
                 score+=1
             }
         })
-        console.log(score);
+        document.querySelector(".questions").style.display = 'none';
     }
 
     useEffect(()=>{

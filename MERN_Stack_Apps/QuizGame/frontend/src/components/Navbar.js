@@ -2,7 +2,7 @@ const Navbar = () => {
     return (
         <div className="nav_bar_comp">
             <div className="nav1_2">
-                <a href='#'>Computer_Quiz.</a>
+                <a href='/'>Computer_Quiz.</a>
             </div>
             <div className="nav2_2">
                 <a href='#'>High_Score.</a>
