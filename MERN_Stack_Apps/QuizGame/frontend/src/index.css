@@ -2,11 +2,13 @@ body {
   margin: 0;
   width:100vw;
   height:100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-size: larger;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #96CEB4;
 }
 
 code {
@@ -22,13 +24,32 @@ code {
   justify-content: space-between;
   padding:20px;
   box-sizing: border-box;
-  background-color: gray;
+  background-color: #FFEEAD;
+}
+
+.nav_bar_comp a{
+  text-decoration: none;
+  color: #A02334;
+}
+
+.nav1_2 a{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .nav2_2 a{
   margin:15px;
 }
 
-.home_page{
-  background-color: darkgray;
+.quest{
+  color: #A02334;
+}
+
+.questions{
+  margin-left: 25px;
+}
+
+.ans_sub_btn{
+  margin-top: 30px ;
 }
