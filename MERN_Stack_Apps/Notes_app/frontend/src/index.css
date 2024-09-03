@@ -34,18 +34,60 @@ code {
   margin-left:20px;
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 500px;
   h3{
     font-size: larger;
 
   }
 }
+.new_note textarea ,.new_note input{
+  padding:8px;
+  font-size: larger;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.new_note label{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+button {
+  width: 80px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  border-style: solid;
+  border-color: black;
+  font-size: large;
+  cursor: pointer;
+  box-shadow: 3px 3px 2px gray;
+  position: relative;
+}
+
+button:active{
+  left:3px;
+  top:3px;
+  box-shadow: none;
+}
+
+.new_note button{
+  background-color: #C1D8C3;
+}
+
+.del_note_btn{
+  background-color: rgb(231, 118, 118);
+}
 
 .all_notes{
+  width:100vw;
   margin-left:20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .nt_det{
-  max-width:500px;
+  max-width:450px;
   background-color: #F7F7F8;
   padding:25px;
   border-radius: 10px;

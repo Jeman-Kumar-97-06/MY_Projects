@@ -14,7 +14,7 @@ const NoteDetails = ({nt}) => {
             <h4>{nt.title}</h4>
             <hr/>
             <p>{nt.body}</p>
-            <button onClick={handleDel}>Delete</button>
+            <button onClick={handleDel} className="del_note_btn">Delete</button>
         </div>
     )
 }

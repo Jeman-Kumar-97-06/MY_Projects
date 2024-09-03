@@ -30,7 +30,7 @@ const NoteForm = () => {
             <label>Title:</label>
             <input type="text" onChange = {e=>{setTitle(e.target.value)}} value={title}/>
             <label>Body:</label>
-            <textarea onChange={e=>{setBody(e.target.value)}} value={body}/>
+            <textarea onChange={e=>{setBody(e.target.value)}} value={body} rows='4'/>
             <button type='submit'>Submit</button>
             {error && <div>{error}</div>}
         </form>
