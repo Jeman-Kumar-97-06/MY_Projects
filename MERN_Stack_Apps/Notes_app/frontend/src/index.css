@@ -102,37 +102,22 @@ p:focus, h4:focus{
   border: none;
 }
 
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
+.nt_det input, .nt_det textarea{
+  border:none;
+  outline:none;
   text-decoration: none;
-  cursor: pointer;
+  background-color: #F7F7F8;
+}
+
+.nt_det input {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.nt_det textarea{
+  font-size: x-large;
+  resize:none;
+  margin-top:10px;
+  height:fit-content ;
+  min-height: 150px;
 }
