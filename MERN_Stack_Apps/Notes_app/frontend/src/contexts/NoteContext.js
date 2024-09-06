@@ -17,8 +17,12 @@ export const noteReducer = (state,action) => {
                 notes : state.notes.filter(n=>n._id !== action.payload._id)
             }
         case "UPDATE_NOTE":
+            const note_upd  = state.notes.filter(note=>note._id ===  action.payload._id);
+            const note_indx = state.notes.indexOf(note_upd[0]);
+            state.notes.splice(note_indx,1,action.payload)
+            console.log(note_indx)
             return {
-                notes : state.notes.filter(n=>n._id === action.payload._id)
+                notes : state.notes
             }
         default:
             return state

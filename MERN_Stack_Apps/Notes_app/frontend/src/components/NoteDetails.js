@@ -19,20 +19,17 @@ const NoteDetails = ({nt}) => {
 
 
     const handleUpdate  = async () => {
-        const update_n = {title,body};
+        const update_n = {_id:nt._id,title,body};
         const resp     = await fetch(`/api/notes/${nt._id}`,{method:"PATCH",body:JSON.stringify(update_n),headers:{'Content-Type':'application/json'}});
         const json     = await resp.json();
-        console.log(json);
-        // if(!resp.ok){
-        //     setError(json.error);
-        // }
-        // if(resp.ok){
-        //     setError(null);
-        //     console.log('note updated!')
-        //     setTitle('');
-        //     setBody(nt.body);
-        //     dispatch({type:'CREATE_NOTE',payload:json});
-        // }
+        if(!resp.ok){
+             setError(json.error);
+        }
+        if(resp.ok){
+            setError(null);
+            console.log('note updated!')
+            dispatch({type:'UPDATE_NOTE',payload:update_n});
+        }
     }
 
     return (
