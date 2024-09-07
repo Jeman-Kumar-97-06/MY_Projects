@@ -59,3 +59,10 @@ code {
   border-color: black;
   box-shadow: 5px 5px black;
 }
+
+.score_div{
+  margin-left:20px;
+  font-family: "Press Start 2P", system-ui;
+  color: #A02334;
+  align-self: center;
+}

@@ -7,6 +7,8 @@ const Home = () => {
     const [qs,setQs]           = useState(null);
     const [loading,setLoading] = useState('Loading...');
 
+    const [score,setScore]     = useState(null);
+
     const selectedOptions = {};
 
     const handleOptionSelect = (e,corr) => {
@@ -21,6 +23,7 @@ const Home = () => {
                 score+=1
             }
         })
+        setScore(score);
         document.querySelector(".questions").style.display = 'none';
     }
 
@@ -57,6 +60,9 @@ const Home = () => {
                             }
                 {loading && <div>{loading}</div>}
             </form>
+            {score && <div className='score_div'>
+                    <h2>Your Score is : {score}</h2>
+            </div>}
         </div>
     )
 }
