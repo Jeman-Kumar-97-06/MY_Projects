@@ -25,9 +25,12 @@ const Home = () => {
         <div className='home_page'>
             <h2>Welcome User!</h2>
             <NewToDoList fL={fetchLists}/>
-            {lists && lists.map(l=>(
-                <ListinDetail key={l._id} list={l} fL={fetchLists}/>
-            ))}
+            <div className='all_lists'>
+                {lists && lists.map(l=>(
+                    <ListinDetail key={l._id} list={l} fL={fetchLists}/>
+                ))}
+            </div>
+            
         </div>
     )
 }
