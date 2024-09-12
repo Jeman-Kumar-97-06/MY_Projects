@@ -4,9 +4,9 @@ const WorkoutDetails = ({wrkt}) => {
     const {dispatch} = useWorkoutContext();
     const handleClick = async () => {
         const response = await fetch('/api/workouts/'+wrkt._id,{method:"DELETE"});
-        const json     = response.json();
+        const json     = await response.json();
         if(response.ok){
-
+            dispatch({type:"DELETE_WORKOUT",payload:json})
         }
     }
     return (
@@ -15,7 +15,7 @@ const WorkoutDetails = ({wrkt}) => {
             <p><strong>Load (kg) : </strong>{wrkt.load}</p>
             <p><strong>Reps :</strong>{wrkt.reps}</p>
             <p>{wrkt.createdAt}</p>
-            <span onClick={handleClick}>Delete</span>
+            <button onClick={handleClick}>Delete</button>
         </div>
     )
 }
