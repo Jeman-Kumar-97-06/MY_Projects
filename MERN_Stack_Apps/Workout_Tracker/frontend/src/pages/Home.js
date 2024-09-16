@@ -2,21 +2,26 @@ import { useEffect} from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutContext } from "../hooks/useWorkoutContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Home = () => {
+
+    const {user}              = useAuthContext();
 
     const {workouts,dispatch} = useWorkoutContext();
     // "proxy":"http://localhost:4000",
     useEffect(()=>{
         const fetchWorkouts = async () => {
-            const resp = await fetch('/api/workouts/');
+            const resp = await fetch('/api/workouts/',{headers:{'Authorization':`Beared ${user.token}`}});
             const json = await resp.json();
             console.log(json);
             if (resp.ok){
                 dispatch({type:"SET_WORKOUTS",payload:json});
             }
         }
-        fetchWorkouts()
+        if (user) {
+            fetchWorkouts()
+        }
     },[dispatch]);
 
     return (
