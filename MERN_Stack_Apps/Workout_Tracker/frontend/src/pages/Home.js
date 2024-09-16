@@ -22,7 +22,7 @@ const Home = () => {
         if (user) {
             fetchWorkouts()
         }
-    },[dispatch]);
+    },[user,dispatch]);
 
     return (
         <div className="home">
