@@ -3,12 +3,12 @@ const Navbar = () =>{
     return (
         <div className='navbar_comp'>
             <div className="nav1_2">
-                <a href='#'>Notes</a>
+                <Link to='/'>Notes</Link>
             </div>
             <div className="nav2_2">
-                <a href='#'>Login</a>
-                <a href='#'>Sign Up</a>
-                <a href='#'>Logout</a>
+                <Link to='/login'>Login</Link>
+                <Link to='/signup'>Signup</Link>
+                <Link to='#'>Logout</Link>
             </div>
         </div>
     )

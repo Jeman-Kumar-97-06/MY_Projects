@@ -122,3 +122,14 @@ p:focus, h4:focus{
   min-height: 150px;
 }
 
+.login, .signup{
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.login input, .signup input {
+  font-size: larger;
+  margin-top: 20px;
+}
