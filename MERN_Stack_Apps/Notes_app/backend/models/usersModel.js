@@ -38,4 +38,23 @@ userSchema.statics.signup = async function(email,password) {
     return user;
 }
 
+userSchema.statics.login = async function(email,password) {
+    //Check if all the necessary fields are filled:
+    if (!email || !password) {
+        throw Error("All Fields must be filled!")
+    }
+    //We don't need to validate email/password cuz the signup function takes care of it to begin with.
+    //Now we find the user with matching email:
+    const user = await this.findOne({email});
+    if (!user){
+        throw Error('Incorrect Email!')
+    }
+    //Following line matches the password we typed with the hash we saved in database to see if the password is correct
+    const match = await bcrypt.compare(password,user.password); //Returns a boolean
+    if (!match) {
+        throw Error('Incorrect Password!');
+    }
+    return user;
+}
+
 module.exports = mongoose.model('NoteUser',userSchema);
