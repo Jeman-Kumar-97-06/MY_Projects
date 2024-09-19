@@ -7,7 +7,11 @@ const {
     patchNote
 }         = require('../controllers/noteControllers');
 
+const requireAuth = require('../middleware/requireAuth');
+
 const router = exp.Router();
+
+router.use(requireAuth);
 
 router.get('/',getNotes);
 

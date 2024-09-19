@@ -133,3 +133,7 @@ p:focus, h4:focus{
   font-size: larger;
   margin-top: 20px;
 }
+
+.usr_email{
+  margin-right: 20px;
+}

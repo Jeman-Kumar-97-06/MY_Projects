@@ -1,16 +1,25 @@
 import { useState } from "react"
 import { useNoteContext } from "../hooks/useNoteContext";
+import {useAuthContext} from '../hooks/useAuthContext';
 const NoteForm = () => {
     const [title,setTitle] = useState('');
     const [body,setBody]   = useState('');
     const [error,setError] = useState(null);
 
+    const {user}           = useAuthContext();
+
     const {dispatch}       = useNoteContext();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        //Don't at all run the code from Line 21 if no user is logged in:
+        if (!user) {
+            setError('You must be logged in!')
+            return ;
+        }
+
         const new_note = {title,body};
-        const resp     = await fetch('/api/notes',{method:"POST",body:JSON.stringify(new_note),headers:{'Content-Type':'application/json'}});
+        const resp     = await fetch('/api/notes',{method:"POST",body:JSON.stringify(new_note),headers:{'Content-Type':'application/json','Authorization':`Bearer ${user.token}`}});
         const json     = await resp.json();
         if(!resp.ok){
             setError(json.error);

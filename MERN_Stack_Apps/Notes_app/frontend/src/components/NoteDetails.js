@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNoteContext } from "../hooks/useNoteContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const NoteDetails = ({nt}) => {
 
@@ -9,8 +10,15 @@ const NoteDetails = ({nt}) => {
     const [error,setError] = useState(null);
 
     const {dispatch} = useNoteContext();
+
+    const {user}     = useAuthContext();
+
     const handleDel = async () => {
-        const resp = await fetch('/api/notes/'+nt._id,{method:'DELETE'});
+        if (!user) {
+            setError("You must be logged in")
+            return;
+        }
+        const resp = await fetch('/api/notes/'+nt._id,{method:'DELETE',headers:{'Authorization':`Bearer ${user.token}`}});
         const json = await resp.json();
         if(resp.ok){
             dispatch({type:"DELETE_NOTE",payload:json})
@@ -19,8 +27,12 @@ const NoteDetails = ({nt}) => {
 
 
     const handleUpdate  = async () => {
+        if (!user) {
+            setError("You must be logged in");
+            return;
+        }
         const update_n = {_id:nt._id,title,body};
-        const resp     = await fetch(`/api/notes/${nt._id}`,{method:"PATCH",body:JSON.stringify(update_n),headers:{'Content-Type':'application/json'}});
+        const resp     = await fetch(`/api/notes/${nt._id}`,{method:"PATCH",body:JSON.stringify(update_n),headers:{'Content-Type':'application/json','Authorization':`Bearer ${user.token}`}});
         const json     = await resp.json();
         if(!resp.ok){
              setError(json.error);
@@ -38,6 +50,7 @@ const NoteDetails = ({nt}) => {
             <textarea onChange={e=>{document.querySelector('#updateBtn'+nt._id).style.display='inline-block';setBody(e.target.value)}} value={body}/><br/>
             <button onClick={handleDel} className="del_note_btn">Delete</button>
             <button id={`updateBtn${nt._id}`}onClick={handleUpdate} style={{display:'none'}}>Update</button>
+            {error && <div className="error">{error}</div>}
         </div>
     )
 }
