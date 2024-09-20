@@ -3,7 +3,9 @@ const mong = require('mongoose');
 
 //get all notes :
 const getNotes = async (req,res) => {
-    const all_notes = await Note.find({}).sort({createdAt:-1});
+    const user_id  = req.user._id;
+
+    const all_notes = await Note.find({user_id}).sort({createdAt:-1});
     res.status(200).json(all_notes)
 }
 //get a single note:
@@ -22,7 +24,8 @@ const getNote = async (req,res) => {
 const createNote = async (req,res) => {
     const {title,body} = req.body;
     try{
-        const new_note = await Note.create({title,body});
+        const user_id  = req.user._id;
+        const new_note = await Note.create({title,body,user_id});
         res.status(200).json(new_note);
     }
     catch(error){
