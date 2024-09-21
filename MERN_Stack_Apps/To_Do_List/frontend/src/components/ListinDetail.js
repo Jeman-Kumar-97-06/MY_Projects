@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { useListContext } from "../hooks/useListContext";
 
-const ListinDetail = ({list,fL}) => {
+const ListinDetail = ({list}) => {
 
 
     const [listoftasks,setListoftasks]       = useState(list.list);
@@ -10,12 +11,14 @@ const ListinDetail = ({list,fL}) => {
 
     const [error,setError]                   = useState(null);
 
+    const {dispatch}                   = useListContext();
+
     //DELETES A WHOLE LIST WHEN CLICKED ON DELETE BUTTON
     const handleDel = async (id) => {
         const resp = await fetch('/api/todolists/'+id,{method:'DELETE'});
+        const json = await resp.json();
         if(resp.ok){
-            console.log("Deleted Successfully");
-            fL();
+            dispatch({type:"DELETE_LIST",payload:json})
         }
     }
 
@@ -26,14 +29,15 @@ const ListinDetail = ({list,fL}) => {
             const resp        = await fetch('/api/todolists/'+list._id,{method:'PATCH',body:JSON.stringify(updatedList),headers:{'Content-Type':'application/json'}});
             const json        = resp.json();
             if (resp.ok){
-                fL();
+                setError(null);
+                dispatch({type:"UPDATE_LIST",payload:json})
             }
             if (!resp.ok){
                 setError(json.error);
             }
         }
         getupdatedList();
-    },[listofdeltasks,listoftasks])
+    },[listofdeltasks,listoftasks,dispatch,list._id,list.title])
 
     //THE FOLLOWING FUNCTION ADDS A NEW TASK TO AN EXISTING LIST
     const addNewTask = async (e) => {
@@ -63,7 +67,7 @@ const ListinDetail = ({list,fL}) => {
             <h2 className="list_title">{list.title}</h2>
             {/* Rendering list of tasks */}
             <div>
-                {listoftasks.map(l=>(
+                {listoftasks && listoftasks.map(l=>(
                     <div>
                         <input type="checkbox" id={l} value={l} onChange={removeTask} />
                         <label htmlFor={l}>{l}</label>
@@ -74,7 +78,7 @@ const ListinDetail = ({list,fL}) => {
                 <hr/>
             {/* Rendering list of del tasks */}
             <div>
-                {listofdeltasks.map(dl=>(
+                {listofdeltasks && listofdeltasks.map(dl=>(
                     <div>
                         <input type="checkbox" id={dl} value={dl} onChange={readdTask} checked/>
                         <label htmlFor={dl} style={{textDecoration:"line-through"}} >{dl}</label>

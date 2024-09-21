@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const jwt  = require('jsonwebtoken');
 
+
 //Function to generate a JWT:
 //To Generate a JWT we need a unique piece of data that belongs to the user as a reference.
 //Here we are going to use his/her _id:
@@ -36,3 +37,5 @@ const signupUser = async (req,res) => {
         res.status(400).json({error:error.message});
     }
 }
+
+module.exports = {loginUser,signupUser};

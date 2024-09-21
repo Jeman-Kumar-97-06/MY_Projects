@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useListContext } from "../hooks/useListContext";
 
 const NewToDoList = ({fL}) => {
     const [title,setTitle] = useState('');
     //const [list,setList]   = useState([]);
     const [error,setError] = useState(null);
 
-    //FUNCTION TO SUBMIT A NEW TASKLIST
+    const {dispatch}       = useListContext();
+
+    //FUNCTION TO CREATE A NEW TASKLIST
     const handleSubmit = async (e) => {
         e.preventDefault();
         const new_list = {title};
@@ -17,8 +20,7 @@ const NewToDoList = ({fL}) => {
         if(resp.ok){
             setError(null);
             setTitle('');
-            console.log('added')
-            fL();
+            dispatch({type:"CREATE_LIST",payload:json})
         }
     }
     return (
