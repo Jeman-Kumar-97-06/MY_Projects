@@ -10,7 +10,7 @@ export const listReducer = (state,action) => {
             }
         case "CREATE_LIST":
             return {
-                lists : [action.payload , ...state]
+                lists : [action.payload , ...state.lists]
             }
         case "DELETE_LIST":
             return {
