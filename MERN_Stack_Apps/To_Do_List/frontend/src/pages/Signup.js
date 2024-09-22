@@ -1,11 +1,14 @@
 import {useState} from 'react';
+import {useSignup} from '../hooks/useSignup';
 
 const Signup = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('');
-    
-    const handleSignup = async () => {
+    const {signup,isloading,error} = useSignup();
+
+    const handleSignup = async (e) => {
         e.preventDefault();
+        await signup(email,password);
     }
 
     return (
@@ -18,7 +21,9 @@ const Signup = () => {
             <label>Password:</label>
             <input type="password" onChange={e=>{setPassword(e.target.value)}} value={password}/>
 
-            <button type='submit'>Signup</button>
+            <button type='submit' disabled={isloading}>Signup</button>
+
+            {error && <div className='error'>{error}</div>}
         </form>
     )
 };

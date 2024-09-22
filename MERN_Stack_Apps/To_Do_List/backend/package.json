@@ -17,6 +17,7 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.1",
+    "react-router-dom": "^6.26.2",
     "validator": "^13.12.0"
   }
 }
