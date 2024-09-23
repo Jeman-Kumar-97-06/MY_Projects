@@ -12,19 +12,21 @@ const Navbar = () => {
 
     return (
         <div className='topnav'>
-            <div className="active">
+            <div className="home">
                 <Link to='/'>To Do List</Link>
             </div>
-                {!user && (<div>
+            <div className="second_nav">
+            {!user && (<div className="first">
                             <Link to='/login'>Login</Link>
                             <Link to='/signup'>Signup</Link>
                           </div>
                             )
                 }
-                {user && (<div>
+                {user && (<div className="second">
                             <span className="usr_email">{user.email}</span>
                             <button onClick={handleLogout}>Logout</button>
                           </div>)}
+            </div>
             </div>
     )
 }

@@ -25,7 +25,6 @@ const Home = () => {
 
     return (
         <div className='home_page'>
-            <h2>Welcome User!</h2>
             <NewToDoList/>
             <div className='all_lists'>
                 {lists && lists.map(l=>(
