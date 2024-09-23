@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useListContext } from "../hooks/useListContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const ListinDetail = ({list}) => {
 
+    const {user}                             = useAuthContext();
 
     const [listoftasks,setListoftasks]       = useState(list.list);
     const [listofdeltasks,setListofdeltasks] = useState(list.dellis);
@@ -11,11 +13,11 @@ const ListinDetail = ({list}) => {
 
     const [error,setError]                   = useState(null);
 
-    const {dispatch}                   = useListContext();
+    const {dispatch}                         = useListContext();
 
     //DELETES A WHOLE LIST WHEN CLICKED ON DELETE BUTTON
-    const handleDel = async (id) => {
-        const resp = await fetch('/api/todolists/'+id,{method:'DELETE'});
+    const handleDel = async () => {
+        const resp = await fetch('/api/todolists/'+list._id,{method:'DELETE',headers:{'Authorization':`Bearer ${user.token}`}});
         const json = await resp.json();
         if(resp.ok){
             dispatch({type:"DELETE_LIST",payload:json})
@@ -26,7 +28,7 @@ const ListinDetail = ({list}) => {
     useEffect(()=>{
         const getupdatedList = async () => {
             const updatedList = {title:list.title,list:listoftasks,dellis:listofdeltasks};
-            const resp        = await fetch('/api/todolists/'+list._id,{method:'PATCH',body:JSON.stringify(updatedList),headers:{'Content-Type':'application/json'}});
+            const resp        = await fetch('/api/todolists/'+list._id,{method:'PATCH',body:JSON.stringify(updatedList),headers:{'Content-Type':'application/json','Authorization':`Bearer ${user.token}`}});
             const json        = resp.json();
             if (resp.ok){
                 setError(null);
@@ -37,7 +39,7 @@ const ListinDetail = ({list}) => {
             }
         }
         getupdatedList();
-    },[listofdeltasks,listoftasks,dispatch,list._id,list.title])
+    },[listofdeltasks,listoftasks,dispatch,list._id,user])
 
     //THE FOLLOWING FUNCTION ADDS A NEW TASK TO AN EXISTING LIST
     const addNewTask = async (e) => {
@@ -94,7 +96,7 @@ const ListinDetail = ({list}) => {
                 {error && <p>{error}</p>}
             </form>
 
-            <button onClick={e=>{handleDel(list._id)}} className="del_task_btn">Delete</button>
+            <button onClick={handleDel} className="del_task_btn">Delete</button>
         </div>
     )
 }

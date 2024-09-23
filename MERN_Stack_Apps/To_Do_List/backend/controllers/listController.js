@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 
 //controller to get all the lists
 const getLists =  async (req,res) => {
-    const lists = await List.find({}).sort({createdAt:-1});
+    const user_id = req.user._id;
+    const lists = await List.find({user_id}).sort({createdAt:-1});
     res.status(200).json(lists);
 }
 
@@ -27,7 +28,8 @@ const createList = async (req,res) => {
     const {title,list} = req.body;
     try
     {
-        const list_yo = await List.create({title,list});
+        const user_id = req.user._id
+        const list_yo = await List.create({title,list,user_id});
         res.status(200).json(list_yo);
     }
     catch(err)

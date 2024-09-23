@@ -2,19 +2,24 @@ import {useEffect} from 'react';
 import ListinDetail from '../components/ListinDetail';
 import NewToDoList from '../components/NewToDoList';
 import {useListContext} from '../hooks/useListContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 const Home = () => {
+    const {user}           = useAuthContext();
     const {lists,dispatch} = useListContext();
+
     useEffect(()=>{
         const fetchLists = async () => {
             console.log('ran this')
-            const resp = await fetch('/api/todolists');
+            const resp = await fetch('/api/todolists',{headers:{'Authorization':`Bearer ${user.token}`}});
             const json = await resp.json();
             if(resp.ok){
                 dispatch({type:"SET_LISTS",payload:json});
             }
         }
-        fetchLists();
-    },[dispatch])
+        if (user) {
+            fetchLists();
+        }
+    },[dispatch,user])
 
      
 

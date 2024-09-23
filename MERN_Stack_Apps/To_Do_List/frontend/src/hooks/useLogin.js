@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import { useAuthContext } from './useAuthContext';
-
 export const useLogin = () => {
     const [error,setError] = useState(null);
     const [isloading ,setIsloading] = useState(false);
@@ -16,9 +15,11 @@ export const useLogin = () => {
         const json = await resp.json();     
         if (!resp.ok) {
             setIsloading(false);
+            console.log('ran this')
             setError(json.error);
         }     
         if (resp.ok) {
+            
             localStorage.setItem('user',JSON.stringify(json));
             dispatch({type:"LOGIN",payload:json});
             setIsloading(false);
