@@ -11,7 +11,7 @@ const Navbar = () =>{
     return (
         <div className='navbar_comp'>
             <div className="nav1_2">
-                <Link to='/'>Notes</Link>
+                <Link to='/'>Take - Notes</Link>
             </div>
             <div className="nav2_2">
                 {!user && (<div>
