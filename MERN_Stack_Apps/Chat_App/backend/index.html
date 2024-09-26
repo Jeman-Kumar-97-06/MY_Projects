@@ -21,9 +21,32 @@
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
-    <script src="/socket.io/socket.io.js"></script>
-<script>
-  const socket = io();
-</script>
+
+    <script src="/socket.io/socket.io.js"></script> 
+    <script>
+      const socket = io();
+      const form   = document.querySelector('#form');
+      const input  = document.getElementById('input');
+      const msgs   = document.querySelector('#messages');
+      //Sending messages from client [socket] to server
+      //When you type something in the chat form and submit:
+      form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        if(input.value){
+          //a custom event 'chat msg' to send and receive message
+          //The chat message is being sent from the client [socket] to server.
+          socket.emit('chat msg',input.value);
+          input.value='';
+        }
+      })
+
+      //All sockets recieving message from 'server':
+      socket.on('chat msg',(msg)=>{
+          const item = document.createElement('li');
+          item.textContent = msg;
+          msgs.appendChild(item);
+          window.scrollTo(0,document.body.scrollHeight);
+      })
+    </script>
   </body>
 </html>
