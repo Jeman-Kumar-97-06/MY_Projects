@@ -22,9 +22,9 @@ const getPost = async (req,res) => {
 
 //controller to create a post
 const createPost = async (req,res) => {
-    const {post_body,post_image,post_usr,post_usr_img} = req.body;
+    const {post_body,post_image,post_likes,post_usr,post_usr_img} = req.body;
     try{
-        const new_post  = await Post.create({post_body,post_image,post_usr,post_usr_img});
+        const new_post  = await Post.create({post_body,post_image,post_likes,post_usr,post_usr_img});
         res.status(200).json(new_post);
     } catch (error) {
         res.status(400).json({error:error.message});
