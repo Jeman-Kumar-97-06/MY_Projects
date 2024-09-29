@@ -9,6 +9,9 @@ const {
     updatePost,
     getMyPosts
 }             = require('../controllers/postControllers');
+const requAuth = require('./middleware/requireAuth');
+
+router.use(requAuth);
 
 router.get('/',getPosts);
 
