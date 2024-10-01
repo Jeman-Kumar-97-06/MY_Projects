@@ -14,7 +14,10 @@ const Home = () => {
                 dispatch({type:"SET_POSTS",payload:json});
             }
         }
-        fetchPosts();
+        if(user){
+            fetchPosts();
+        }
+        
     },[dispatch,user])
     return (
         <div className="home_div">
