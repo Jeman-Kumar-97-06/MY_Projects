@@ -1,13 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 body {
+  width:100vw;
+  height: auto;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #FCFAEE;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Navbar Styles */
+.nav_div {
+  width:100w;
+  margin:0;
+  background-color: #384B70;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:25px;
+}
+
+.nav_div a {
+  text-decoration: none;
+  color:white;
+  cursor: pointer;
+}
+
+.nav_div a:active {
+  text-decoration: none;
+}
+
+.login_signup_logout_div div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width:150px;
+}
+
+.login_signup_logout_div button {
+  background-color: #FCFAEE;
+}
+
+.app_title_div a
+{
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bolder;
+  font-style: normal;
+}
+
+/* Login Styles */
+
+.login_div {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login_div form{
+  display:flex;
+  flex-direction: column;
+  width: 400px;
+  height:300px;
+}
+
+.login_div input {
+  width: auto;
+  margin-top:5px;
+  font-size: large;
+}
+
+.login_div label {
+  margin-top: 15px;
+}
+
+.login_div button {
+  width: 60px;
+  margin : auto;
+}
+
+/* Signup Styles */
+.signup_div {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup_div form{
+  display:flex;
+  flex-direction: column;
+  width: 400px;
+  height:300px;
+}
+
+.signup_div input, .signup_div textarea {
+  width: auto;
+  margin-top:5px;
+  font-size: large;
+}
+
+.signup_div label {
+  margin-top: 15px;
+}
+
+.signup_div button {
+  width: 60px;
+  margin : auto;
+}
+
+.usr_name {
+  color:white;
+}
+
+/* Home Page Styles */
+.home_div {
+  min-width:400px;
+  max-width: fit-content;
+  margin-top:20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Search People Div Styles */
+.search_usr_div {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:5px;
+}
+
+.search_usr_div input {
+  width: 320px ;
+  font-size: large;
+  padding:4px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #384B70;
+}
+
+.search_usr_div button {
+  width:60px;
+  background-color: #384B70;
+  color:white;
+  border-radius: 3px; 
+}
+
+/* New Post Form Styles */
+.new_post_div{
+  width: 400px;
+  margin: 50px 5px 50px 5px;
+  display : flex;
+  flex-direction: column;
+}
+
+.new_post_div button {
+  background-color: #384B70;
+  color:white;
+  margin-top: 10px;
+  width : 50px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.new_post_body_div {
+  border-radius: 3px;
+  border-style: solid;
+  border-color:#384B70;
+  resize:none;
+  font-size:x-large;
+}
+
+/* All Posts */
+.all_posts{
+  width:400px;
+  display : flex;
+  flex-direction: column;
+}
+
+.post_detail_div textarea{
+  width: 400px;
+  resize: none;
+  border: none;
+  outline:none;
+  background-color: #FCFAEE;
+  font-size: x-large;
+}
+
+.post_detail_div .material-symbols-outlined {
+  cursor: pointer;
+}
+
+.fav_del_upd_post{
+  display:flex;
+  flex-direction: row;
+  width:fit-content;
+  justify-content: space-between;
+}
+
+.fav_del_upd_post span{
+  margin-right:8px;
+}
+
+.likes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error{
+  margin-top:15px;
+  color: #B8001F;
+}
+

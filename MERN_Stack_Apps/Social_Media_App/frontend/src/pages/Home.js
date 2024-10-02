@@ -47,18 +47,22 @@ const Home = () => {
         <div className="home_div" onSubmit={createPost}>
             <form className="search_usr_div">
                 <input type="text" placeholder="Search People"/>
+                <button type='submit'>Search</button>
             </form>
-    
-            <form className='new_post_div'>
-                <textarea className='new_post_body_div' cols="30" rows="10" onChange={e=>{setBody(e.target.value)}} value={body}/>
-                <button type="submit">Post</button>
-                {error && <div className="error">{error}</div>}
-            </form>
-            {posts && posts.map(
-                p => (<PostInDetail post={p}/>)
-            )}
-            
-        </div>
+            <div className='new_post_and_detail'>
+                <form className='new_post_div'>
+                    <textarea className='new_post_body_div' cols="30" rows="5" placeholder="Write something to post" onChange={e=>{setBody(e.target.value)}} value={body}/>
+                    <button type="submit">Post</button>
+                    {error && <div className="error">{error}</div>}
+                </form>
+                <h3>Feed:</h3>
+                <div className="all_posts">
+                    {posts && posts.map(
+                        p => (<PostInDetail post={p}/>)
+                    )}
+                </div>
+            </div>
+        </div> 
     )
 }
 

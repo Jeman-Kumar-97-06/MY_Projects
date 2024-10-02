@@ -15,6 +15,10 @@ const PostInDetail = ({post}) => {
             setError("You must be logged in")
             return;
         }
+        if (user.user._id !== post.usr){
+            alert("You can't delete other users' posts");
+            return;
+        }
         const resp = await fetch('/api/posts/'+post._id,{method:'DELETE',headers:{'Authorization':`Bearer ${user.token}`}});
         const json = await resp.json();
         if(resp.ok){
@@ -45,10 +49,19 @@ const PostInDetail = ({post}) => {
         <div className="post_detail_div">
             <textarea onChange={e=>{document.querySelector('#updateBtn'+post._id).style.display='inline-block';setBody(e.target.value)}} value={body}/><br/>
             <p>{post.img}</p>
-            <p>{post.likes}</p>
-            <button onClick={handleDel} className="del_note_btn">Delete</button>
-            <button id={`updateBtn${post._id}`} onClick={handleUpdate} style={{display:'none'}}>Update</button>
+            
+            <div className="fav_del_upd_post">
+                <div className="likes">
+                    <span>{post.likes}</span>
+                    <span class="material-symbols-outlined">favorite</span>
+                </div>
+                <span onClick={handleDel} className="del_note_btn" class="material-symbols-outlined">delete</span>
+                <span id={`updateBtn${post._id}`} style={{display:'none'}} onClick={handleUpdate} class="material-symbols-outlined">upload</span>
+            </div>
+            
             {error && <div className="error">{error}</div>}
+            
+            <hr/>
             {/* <p>{post.body}</p>
             
             

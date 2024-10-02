@@ -15,7 +15,8 @@ const Signup = () => {
     }
 
     return (
-        <form className="signup" onSubmit={handleSignup}>
+        <div className='signup_div'>
+            <form onSubmit={handleSignup}>
             <h3>Signup:</h3>
             <label>Username</label>
             <input type='text' onChange={e=>{setUsername(e.target.value)}} value={username}/>
@@ -25,10 +26,12 @@ const Signup = () => {
             <input type='password' onChange={e=>{setPassword(e.target.value)}} value={password}/>
             <label>Image</label>
             <input type='text' onChange={e=>{setProfilepic(e.target.value)}} value={profilepic}/>
-            <textarea type='text' onChange={e=>{setAbout(e.target.value)}} value={about}/>
+            <label>About</label>
+            <textarea type='text' rows="5" onChange={e=>{setAbout(e.target.value)}} value={about}/>
             <button type='submit' disabled={isloading}>Sign Up</button>
             {error && <div className="error">{error}</div>}
         </form>
+        </div>
     )
 };
 

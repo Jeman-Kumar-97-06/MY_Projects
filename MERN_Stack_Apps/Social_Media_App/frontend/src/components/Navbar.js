@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <div className="nav_div">
             <div className="app_title_div">
-                <Link to='/'>Social-Media</Link>
+                <Link to='/'>Social Media</Link>
             </div>
             <div className="login_signup_logout_div">
                 {!user && (<div>
@@ -20,7 +20,7 @@ const Navbar = () => {
                             )
                 }
                 {user && (<div>
-                            <span className="usr_email">{user.user.name}</span>
+                            <span className="usr_name">{user.user.name}</span>
                             <button onClick={handleLogout}>Logout</button>
                           </div>)}
             </div>
