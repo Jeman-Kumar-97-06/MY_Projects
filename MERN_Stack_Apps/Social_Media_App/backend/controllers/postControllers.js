@@ -73,7 +73,7 @@ const updatePost = async (req,res) => {
     if (!post_to_update) {
         return res.status(404).json({error:"No Post with the matching ID!"});
     }
-    res.status(200).json(post_to_del);
+    res.status(200).json(post_to_update);
 }
 
 module.exports = {getPosts,getMyPosts,getAnotherUserPosts,getPost,createPost,deletePost,updatePost};

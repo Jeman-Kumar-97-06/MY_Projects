@@ -13,7 +13,7 @@ export const postReducer = (state,action) => {
         case "UPDATE_POST":
             const post_upd = state.posts.filter(p=>p._id === action.payload._id);
             const post_idx = state.posts.indexOf(post_upd[0]);
-            state.posts.splic(post_idx,1,action.payload);
+            state.posts.splice(post_idx,1,action.payload);
             return {
                 posts : state.posts
             }

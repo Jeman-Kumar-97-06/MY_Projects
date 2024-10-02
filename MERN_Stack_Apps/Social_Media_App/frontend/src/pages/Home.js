@@ -45,6 +45,10 @@ const Home = () => {
 
     return (
         <div className="home_div" onSubmit={createPost}>
+            <form className="search_usr_div">
+                <input type="text" placeholder="Search People"/>
+            </form>
+    
             <form className='new_post_div'>
                 <textarea className='new_post_body_div' cols="30" rows="10" onChange={e=>{setBody(e.target.value)}} value={body}/>
                 <button type="submit">Post</button>
