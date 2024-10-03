@@ -11,27 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.ep_card{
-  width:300px;
-  height:500px;
-}
-.ep_card img{
-  width:250px;
-}
-
-.product_description{
-  height:40px;
-  overflow: auto;
-}
-
-.show_more_btn{
-  color:#f00;
-  cursor: pointer;
-}
-
-.products{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
