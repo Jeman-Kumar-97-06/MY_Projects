@@ -10,9 +10,10 @@ const {
 //Get all products:
 router.get('/',getAllProducts);
 
-router.post('/',createProd)
+//Create a product:
+router.post('/',createProd);
 
-//Get a product:
+//Get a product by it's id:
 router.get('/:id',getProduct);
 
 module.exports = router;
