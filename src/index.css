@@ -5,9 +5,99 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F5F5;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.nav_div{
+  background-color: #FADFA1;
+  padding:10px;
+  width:100vw;
+  position: fixed;
+  top:0;
+  z-index: 99 !important;
+}
+
+.home_div{
+  margin-top:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.all_prods{
+  width:1000px;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+/* Each Product Card Styles */
+.card{
+  width:250px;
+  height: 470px;
+  margin-left:70px;
+  margin-bottom: 50px;
+  border-style: solid;
+  border-color: gray;
+  border-width: .5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.prod_image{
+  height:270px;
+  background-color: #FFF4EA;
+  display: flex;
+  justify-content: center;
+}
+
+.prod_dets{
+  background-color: #7EACB5;
+  height:200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.prod_dets button{
+  padding:5px;
+  background-color: #C96868;
+  border-style: solid;
+  border-color:black;
+  border-width: 0.5px;
+  box-shadow: 3px 3px 3px black;
+  position: relative;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+.prod_dets button:active{
+  left:3px;
+  top:3px;
+  box-shadow: none;
+}
+
+.price{
+  margin-left:10px;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.prod_dets h4{
+  margin-left:10px;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.prod_author{
+  margin-left:10px;
+}
+
+.card img {
+  width:auto
 }
