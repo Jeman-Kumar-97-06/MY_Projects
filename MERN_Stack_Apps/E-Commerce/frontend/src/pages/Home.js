@@ -16,7 +16,15 @@ const Home = () => {
         fetchAllProds();
     },[dispatch])
     return (
-        <div className="home_div">
+        <div className="home_div">            
+            <div class="dropdown">
+                <button class="dropbtn">Category</button>
+                <div class="dropdown-content">
+                    <a href="#">Educational</a>
+                    <a href="#">Science Fiction</a>
+                    <a href="#">Comedy</a>
+                </div>
+            </div>
             <div className="all_prods">
                 {products && products.map(prod=>(
                     <ProductDetails prod={prod}/>
