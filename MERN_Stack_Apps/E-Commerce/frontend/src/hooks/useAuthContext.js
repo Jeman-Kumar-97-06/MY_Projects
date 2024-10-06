@@ -7,4 +7,4 @@ export const useAuthContext = () => {
         throw Error("useAuthContext must be used inside a component that has access to AuthContext");
     }
     return context
-}
+};
