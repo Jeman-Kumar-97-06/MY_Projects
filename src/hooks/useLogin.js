@@ -9,7 +9,9 @@ export const useLogin = () => {
     const login = async (email,password) => {
         setIsloading(true);
         setError(null);
-        const resp = await fetch('/api/users/login',{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email,password})});
+        const resp = await fetch('/api/users/login',{method:"POST",
+                                                     headers:{"Content-Type":"application/json"},
+                                                     body:JSON.stringify({email,password})});
         const json = await resp.json();
         if (!resp.ok){
             setIsloading(false);
@@ -17,7 +19,7 @@ export const useLogin = () => {
         }
         if (resp.ok){
             localStorage.setItem('user',JSON.stringify(json));
-            dispatch({type:"LOGIN",payload:JSON});
+            dispatch({type:"LOGIN",payload:json});
             setIsloading(false);
         };
     }
