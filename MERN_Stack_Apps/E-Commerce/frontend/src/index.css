@@ -154,3 +154,10 @@ code {
 .card img {
   width:auto
 }
+
+/* Login styles */
+.login_div{
+  margin-top:100px;
+  margin-left:auto;
+  margin-right:auto;
+}

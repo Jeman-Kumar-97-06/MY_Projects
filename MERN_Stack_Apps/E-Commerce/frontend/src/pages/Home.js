@@ -20,14 +20,14 @@ const Home = () => {
             <div class="dropdown">
                 <button class="dropbtn">Category</button>
                 <div class="dropdown-content">
-                    <a href="#">Educational</a>
-                    <a href="#">Science Fiction</a>
-                    <a href="#">Comedy</a>
+                    <p>Educational</p>
+                    <p>Science Fiction</p>
+                    <p>Comedy</p>
                 </div>
             </div>
             <div className="all_prods">
                 {products && products.map(prod=>(
-                    <ProductDetails prod={prod}/>
+                    <ProductDetails prod={prod} key={prod._id}/>
                 ))}
             </div>
         </div>
