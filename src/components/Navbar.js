@@ -20,7 +20,7 @@ const Navbar = () => {
             )}
             {user && (
                 <div>
-                    <button>{user.user.name}'s cart</button>
+                    <Link to='/cart'>{user.user.name}'s cart</Link>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             )}
