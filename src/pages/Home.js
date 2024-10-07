@@ -1,19 +1,23 @@
 import { useEffect } from "react";
 import { useProductsContext } from "../hooks/useProductsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 import ProductDetails from '../components/ProductDetail'
 
 const Home = () => {
     const {products,dispatch} = useProductsContext();
+    const {user}              = useAuthContext();
     
     useEffect(()=>{
         const fetchAllProds = async () => {
-            const resp  = await fetch('/api/products');
+            const resp  = await fetch('/api/products',{headers:{"Authorization":`Bearer ${user.token}`}});
             const prods = await resp.json();
             if (resp.ok) {
                 dispatch({type:"SET_PRODS",payload:prods});
             }
         }
-        fetchAllProds();
+        if (user) {
+            fetchAllProds();
+        }
     },[dispatch])
     return (
         <div className="home_div">            
