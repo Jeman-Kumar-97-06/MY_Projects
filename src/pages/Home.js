@@ -18,12 +18,12 @@ const Home = () => {
         if (user) {
             fetchAllProds();
         }
-    },[dispatch])
+    },[dispatch,user])
     return (
         <div className="home_div">            
-            <div class="dropdown">
-                <button class="dropbtn">Category</button>
-                <div class="dropdown-content">
+            <div className="dropdown">
+                <button className="dropbtn">Category</button>
+                <div className="dropdown-content">
                     <p>Educational</p>
                     <p>Science Fiction</p>
                     <p>Comedy</p>
