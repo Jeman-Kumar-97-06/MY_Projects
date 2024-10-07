@@ -7,6 +7,10 @@ const {
     createProd
 }             = require('../controllers/productControllers')
 
+const requireAuth = require('../middleware/requireAuth');
+
+router.use(requireAuth);
+
 //Get all products:
 router.get('/',getAllProducts);
 

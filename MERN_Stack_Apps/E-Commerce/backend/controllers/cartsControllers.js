@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Carts    = require('../models/cartModel');
 const Product  = require('../models/productModel');
+const User     = require('../models/userModel');
+const jwt      = require('jsonwebtoken');
 
 //Get cart items by user_id:--
 const getCart = async (req,res) => {
@@ -15,4 +17,15 @@ const getCart = async (req,res) => {
     res.status(200).json(cart)
 }
 
-module.exports = {getCart};
+const createCart = async (req,res) => {
+    const {pt} = req.body
+    // const exists = await Carts.findOne({user_id:req.user._id});
+    // if (exists){
+    //     const old_prod = exists.products;
+    // }
+    // else {
+    //     const new_cart = await Carts.create({products:[],user_id:req.user._id})
+    // }
+}
+
+module.exports = {getCart,createCart};

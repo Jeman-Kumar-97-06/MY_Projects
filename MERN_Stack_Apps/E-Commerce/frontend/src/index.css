@@ -88,6 +88,19 @@ code {
   flex-wrap: wrap;
 }
 
+/* Add to cart form */
+.add_cart_form{
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+.add_cart_form input{
+  width: 50px;
+  margin-bottom: 5px;
+}
+
 /* Each Product Card Styles */
 .card{
   width:250px;
