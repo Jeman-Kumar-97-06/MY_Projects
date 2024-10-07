@@ -10,7 +10,7 @@ const requireAuth = require('../middleware/requireAuth');
 router.use(requireAuth);
 
 //Get a cart by user_id:
-router.get('/:id',getCart);
+router.get('/',getCart);
 
 router.post('/',createCart);
 

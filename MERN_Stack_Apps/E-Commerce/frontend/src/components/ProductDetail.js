@@ -4,6 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const ProductDetails = ({prod}) => {
     const {user}                 = useAuthContext();
     const [quantity,setQuantity] = useState(1);
+    const [error,setError]       = useState(null);
     const handleAdd = async (e) => {
         e.preventDefault()
         const pt  = {};
@@ -12,7 +13,15 @@ const ProductDetails = ({prod}) => {
                                                headers:{"Content-Type":"application/json",'Authorization':`Beared ${user.token}`},
                                                body:JSON.stringify({pt})
                                                })
-        
+        const json = await resp.json();
+        if(!resp.ok){
+            setError(json.error);
+            window.alert(error);
+        }
+        if(resp.ok){
+           setError(null);
+        }
+        setQuantity(1)
     }
     return (
         <div className="card">
