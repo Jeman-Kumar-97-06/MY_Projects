@@ -11,15 +11,15 @@ const Navbar = () => {
 
     return (
         <div className="nav_div">
-            <Link to='/'>Navbar</Link>
+            <Link to='/' className='book_store'>Book-Store</Link>
             {!user && (
-                <div>
+                <div className='remain_nav'>
                     <Link to='/login'>Login</Link>
                     <Link to='/signup'>Signup</Link>
                 </div>
             )}
             {user && (
-                <div>
+                <div className='remain_nav'>
                     <Link to='/cart'>{user.user.name}'s cart</Link>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
