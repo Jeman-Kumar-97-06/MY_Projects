@@ -17,8 +17,9 @@ const gotPrompt = async (req,res) => {
     const {prompt} = req.body;
     try{
         const user_id  = req.user._id;
-        if (prompt!==''){
-            const new_prompt = await Prompt.create({prompt,user_id});
+        const exists   = await Prompt.findOne({prompt:prompt.toLowerCase()});
+        if (prompt!=='' && !exists){
+            const new_prompt = await Prompt.create({prompt:prompt.toLowerCase(),user_id});
         }
         
     }

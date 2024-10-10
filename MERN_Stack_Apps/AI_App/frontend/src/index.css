@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +6,142 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #EEF7FF;
+  font-family: "Chivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.error{
+  color:rgb(153, 86, 86);
+  margin-top: 15px;
+}
+
+/* Navbar Styles */
+.nav_comp{
+  background-color: #4D869C;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:15px;
+}
+
+.nav_comp a{
+  text-decoration: none;
+  color:black;
+}
+
+.nav_comp button {
+  border:none;
+  background-color:#4D869C;
+  margin-right:20px;
+  cursor: pointer;
+}
+
+.remaining_nav div{
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Home Page Styles */
+.home_page{
+  width:500px;
+  height: auto;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top : 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home_page input{
+  font-size:larger;
+  border-radius: 50px;
+  padding:7px;
+  border-color: black;
+  border-style: solid;
+  border-width: 0.1px;
+}
+
+.form_button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.home_page button{
+  margin-left: 7px;
+  border-style: solid;
+  border-width: 0.2px;
+  border-radius: 50px;
+  border-color: black;
+  background-color: #7AB2B2;
+  cursor: pointer;
+}
+
+.recents{
+  padding:10px;
+  
+}
+
+.recent_prompts{
+  overflow-y: scroll;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.2px;
+  border-radius: 20px;
+  padding:15px;
+  margin-top: 50px;
+}
+
+.prompt_response{
+  height:300px;
+  margin-top:25px;
+  overflow-y: scroll;
+}
+
+.prompt_res{
+  margin-top: 45px;
+  border-width:0.2px;
+  border-color: black;
+  border-radius: 25px;
+}
+
+/* Login Page Styles */
+.login_page{
+  width:420px;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login_form{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login_form label{
+  margin-top: 10px;
+}
+
+.login_form button{
+  margin-top: 10px;
+  width:50px;
+  border:none;
+  background-color: #EEF7FF;
+  align-self: center;
+  cursor: pointer;
 }
