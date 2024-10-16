@@ -4,7 +4,6 @@ const mong = require('mongoose');
 //get all notes :
 const getNotes = async (req,res) => {
     const user_id  = req.user._id;
-
     const all_notes = await Note.find({user_id}).sort({createdAt:-1});
     res.status(200).json(all_notes)
 }
