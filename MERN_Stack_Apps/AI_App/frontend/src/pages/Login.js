@@ -18,7 +18,7 @@ const Login = () => {
                 <input type='email' value={email} onChange={e=>{setEmail(e.target.value)}}/>
                 <label>Password:</label>
                 <input type='password' value={password} onChange={e=>{setPassword(e.target.value)}}/>
-                <button type='submit' disabled={isloading}><span class="material-symbols-outlined">login</span></button>
+                <button type='submit' disabled={isloading} className="login_btn">login</button>
                 {error && <div className="error">{error}</div>}
             </form>
         </div>

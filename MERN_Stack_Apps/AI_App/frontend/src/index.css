@@ -140,8 +140,6 @@ code {
 .login_form button{
   margin-top: 10px;
   width:50px;
-  border:none;
-  background-color: #EEF7FF;
   align-self: center;
   cursor: pointer;
 }
