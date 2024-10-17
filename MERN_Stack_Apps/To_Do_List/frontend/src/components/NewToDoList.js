@@ -21,9 +21,10 @@ const NewToDoList = ({fL}) => {
             setError(json.error);
         }
         if(resp.ok){
+            console.log(json)
             setError(null);
+            dispatch({type:"CREATE_LIST",payload:json});
             setTitle('');
-            dispatch({type:"CREATE_LIST",payload:json})
         }
     }
     return (

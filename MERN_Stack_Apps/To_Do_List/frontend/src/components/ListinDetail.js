@@ -27,9 +27,19 @@ const ListinDetail = ({list}) => {
     //sends PATCH request and fetches updated data again.
     useEffect(()=>{
         const getupdatedList = async () => {
-            const updatedList = {title:list.title,list:listoftasks,dellis:listofdeltasks};
-            const resp        = await fetch('/api/todolists/'+list._id,{method:'PATCH',body:JSON.stringify(updatedList),headers:{'Content-Type':'application/json','Authorization':`Bearer ${user.token}`}});
-            const json        = resp.json();
+            console.log("ran this")
+            const updatedList = {list:listoftasks,dellis:listofdeltasks};
+            const resp        = await fetch('/api/todolists/'+list._id,
+                                            {
+                                             method:'PATCH',body:JSON.stringify(updatedList),
+                                             headers:{
+                                                      'Content-Type':'application/json',
+                                                      'Authorization':`Bearer ${user.token}`
+                                                      }
+                                            }
+                                            );
+            const json        = await resp.json();
+            
             if (resp.ok){
                 setError(null);
                 dispatch({type:"UPDATE_LIST",payload:json})
