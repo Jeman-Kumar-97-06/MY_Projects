@@ -10,7 +10,7 @@ const uRt     = require('./routes/users');
 
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({credentials:true}));
 
 
 app.use('/api/users',uRt);
