@@ -27,6 +27,7 @@ const CartDets = () => {
                 <th>Product Name</th>
                 <th>Product Quantity</th>
                 <th>Product Price</th>
+                <th></th>
             </tr>
             {cartitems && cartitems.map(ci=>(
                 <tr>
@@ -36,6 +37,8 @@ const CartDets = () => {
                     <td><input type='number' value={Object.values(ci)[0]}/></td>
                     {/* The following is book prices */}
                     <td>{Number(prices[Object.keys(ci)[0]])*Object.values(ci)[0]}</td>
+                    {/* The following is just a DELET btn */}
+                    <td><button>Delete</button></td>
                 </tr>
             ))}
         </table>
