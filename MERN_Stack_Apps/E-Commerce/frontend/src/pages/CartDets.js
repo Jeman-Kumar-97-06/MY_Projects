@@ -1,4 +1,5 @@
 
+import CartItem from "../components/CartItem";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect, useState } from "react";
 const CartDets = () => {
@@ -30,20 +31,9 @@ const CartDets = () => {
                 <th></th>
             </tr>
             {cartitems && cartitems.map(ci=>(
-                <tr>
-                    {/* The following is book names */}
-                    <td>{Object.keys(ci)[0]}</td>
-                    {/* The following is books quantity */}
-                    <td><input type='number' value={Object.values(ci)[0]}/></td>
-                    {/* The following is book prices */}
-                    <td>{Number(prices[Object.keys(ci)[0]])*Object.values(ci)[0]}</td>
-                    {/* The following is just a DELET btn */}
-                    <td><button>Delete</button></td>
-                </tr>
+                <CartItem key={ci._id} ci={ci} prices={prices}/>
             ))}
         </table>
-        <button className="update_cart_btn">Update Cart</button>
-        <button className="update_cart_btn">Checkout</button>
         </div>
     )
 };
