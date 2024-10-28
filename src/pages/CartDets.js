@@ -29,6 +29,7 @@ const CartDets = () => {
                 <th>Product Quantity</th>
                 <th>Product Price</th>
                 <th></th>
+                <th></th>
             </tr>
             {cartitems && cartitems.map(ci=>(
                 <CartItem key={ci._id} ci={ci} prices={prices}/>
