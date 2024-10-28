@@ -10,6 +10,8 @@ const CartItem = ({ci,prices}) => {
                     <td><input type='number' value={quantity} onChange={(e)=>{setQuantity(e.target.value)}}/></td>
                     {/* The following is book prices */}
                     <td>{Number(prices[Object.keys(ci)[0]])*Object.values(ci)[0]}</td>
+                    {/* The following is just a Update btn */}
+                    <td><button>Update</button></td>
                     {/* The following is just a DELET btn */}
                     <td><button>Delete</button></td>
         </tr>
