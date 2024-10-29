@@ -33,7 +33,7 @@ const CartDets = () => {
                 <th></th>
             </tr>
             {cartitems && cartitems.map(ci=>(
-                <CartItem key={ci._id} ci={ci} prices={prices}/>
+                <CartItem key={ci.prod_name} ci={ci} prices={prices}/>
             ))}
         </table>
         </div>
