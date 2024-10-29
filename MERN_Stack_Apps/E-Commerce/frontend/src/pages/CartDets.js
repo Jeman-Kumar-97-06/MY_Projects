@@ -12,6 +12,7 @@ const CartDets = () => {
             const resp  = await fetch('/api/carts',{headers:{"Authorization":`Bearer ${user.token}`}});
             const cart  = await resp.json();
             if (resp.ok) {
+                console.log(cart)
                 setCartitems(cart.cart[0].products)
                 setPrices(cart.prices)
             }

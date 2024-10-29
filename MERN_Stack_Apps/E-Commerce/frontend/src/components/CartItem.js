@@ -1,7 +1,6 @@
 import { useState } from "react"
 const CartItem = ({ci,prices}) => {
     const [quantity,setQuantity]   = useState(Object.values(ci)[0]);
-    console.log(ci)
     return (
         <tr>
                     {/* The following is book names */}

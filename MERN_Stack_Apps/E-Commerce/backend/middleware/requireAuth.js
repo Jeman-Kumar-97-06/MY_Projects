@@ -1,6 +1,7 @@
 const jwt  = require('jsonwebtoken');
 const User = require('../models/userModel');
 
+// A Middleware function that adds user_id to the request object that the server recieves.
 const requireAuth = async (req,res,next) => {
     const {authorization} = req.headers;
     if (!authorization){

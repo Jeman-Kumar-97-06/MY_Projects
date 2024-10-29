@@ -20,8 +20,10 @@ const getCart = async (req,res) => {
     res.status(200).json({cart,prices})
 }
 
+//Add a Product to the user's cart:--
 const createCart = async (req,res) => {
     const {pt} = req.body
+    console.log(pt)
     const m_key = Object.keys(pt)[0]
     const exists = await Carts.findOne({user_id:req.user._id});
     if (exists){
