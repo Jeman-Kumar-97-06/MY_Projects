@@ -34,7 +34,8 @@ const CartDets = () => {
             ))}
             <tr>
                 <td>Total</td>
-                <tc></tc>
+                <td>Tot Quan</td>
+                <td>Tot Price</td>
             </tr>
         </table>
         </div>
