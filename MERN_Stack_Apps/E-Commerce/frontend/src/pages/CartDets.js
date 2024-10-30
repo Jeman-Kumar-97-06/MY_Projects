@@ -6,7 +6,6 @@ const CartDets = () => {
     const {user} = useAuthContext();
     const [cartitems,setCartitems] = useState(null);
 
-
     useEffect(()=>{
         const fetchCart = async () => {
             const resp  = await fetch('/api/carts',{headers:{"Authorization":`Bearer ${user.token}`}});
@@ -33,6 +32,10 @@ const CartDets = () => {
             {cartitems && cartitems.map(ci=>(
                 <CartItem key={ci.prod_name} ci={ci}/>
             ))}
+            <tr>
+                <td>Total</td>
+                <tc></tc>
+            </tr>
         </table>
         </div>
     )
