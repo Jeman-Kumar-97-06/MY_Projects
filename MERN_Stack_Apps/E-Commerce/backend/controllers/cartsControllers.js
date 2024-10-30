@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Carts    = require('../models/cartModel');
 const Product  = require('../models/productModel');
 const jwt      = require('jsonwebtoken');
-const _        = require('lodash');
 
 //Get cart items by user_id:--
 const getCart = async (req,res) => {
@@ -12,6 +11,21 @@ const getCart = async (req,res) => {
     }
     const resps = cart[0].products
     res.status(200).json({resps})
+}
+
+const updateCart = async (req,res) => {
+    //Item sent to update:
+    const item_in_req = req.body;
+    //User who sent the request:
+    const user_sent   = req.user._id;
+    console.log(req.body)
+    const old_items = await Carts.findOne({user_id:req.user._id});
+    console.log(old_items)
+    //Find the matching item:
+    
+    console.log("Name of book nigga:")
+    console.log(req.body.prod_name)
+
 }
 
 //Add a Product to the user's cart:--
@@ -63,4 +77,6 @@ const createCart = async (req,res) => {
     }
 }
 
-module.exports = {getCart,createCart};
+
+
+module.exports = {getCart,createCart,updateCart};
