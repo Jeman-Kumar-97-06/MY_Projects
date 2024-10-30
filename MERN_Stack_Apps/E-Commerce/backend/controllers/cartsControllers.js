@@ -16,16 +16,18 @@ const getCart = async (req,res) => {
 const updateCart = async (req,res) => {
     //Item sent to update:
     const item_in_req = req.body;
-    //User who sent the request:
-    const user_sent   = req.user._id;
-    console.log(req.body)
-    const old_items = await Carts.findOne({user_id:req.user._id});
-    console.log(old_items)
-    //Find the matching item:
+    //Existing Items in cart:
+    const items_obj = await Carts.findOne({user_id:req.user._id});
+    const old_items = items_obj.products
+    //Find the matching item and replacing it with the updated item sent by user:
+    for (let i = 0; i < old_items.length; i++) {
+        if (old_items[i]['prod_name']===item_in_req.prod_name){
+            old_items[i] = item_in_req;
+        }
+    }
     
-    console.log("Name of book nigga:")
-    console.log(req.body.prod_name)
-
+    const updated_cart = await Carts.findOneAndUpdate({user_id:req.user._id},{products:old_items});
+    res.status(200).json("updated successfully");
 }
 
 //Add a Product to the user's cart:--

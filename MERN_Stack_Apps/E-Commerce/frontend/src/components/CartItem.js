@@ -6,7 +6,7 @@ const CartItem = ({ci}) => {
     const [quantity,setQuantity]   = useState(ci.quantity);
 
     const updateCart = async () => {
-        ci.quantity = quantity;
+        ci.quantity = Number(quantity);
         const resp = await fetch('/api/carts',{method:'PATCH',body:JSON.stringify(ci),headers:{"Content-Type":'application/json',"Authorization":`Bearer ${user.token}`}});
     }
 
