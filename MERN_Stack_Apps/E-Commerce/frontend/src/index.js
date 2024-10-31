@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import { ProductsContextProvider } from './contexts/ProductsContext';
 import { AuthContextProvider } from './contexts/AuthContext';
+import { CartContextProvider } from './contexts/CartContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <CartContextProvider>
     <AuthContextProvider>
     <ProductsContextProvider>
       <App />
     </ProductsContextProvider>
-    </AuthContextProvider>  
+    </AuthContextProvider>
+    </CartContextProvider>  
   </React.StrictMode>
 );
