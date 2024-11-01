@@ -1,5 +1,6 @@
 {
-  "proxy":"https://my-projects-nkvs.onrender.com",
+  
+  "proxy":"https://localhost:4000",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
