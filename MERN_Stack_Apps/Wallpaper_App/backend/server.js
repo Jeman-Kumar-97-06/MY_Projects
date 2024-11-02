@@ -10,4 +10,4 @@ const app      = express();
 
 mongoose.connect(process.env.MONGOURL).then(()=>{
     app.listen(process.env.PORT,()=>{console.log("Connected to DB and listening to requests")})
-}).catch((error)=>{console.log(error)})
+}).catch((error)=>{console.log(error)});
