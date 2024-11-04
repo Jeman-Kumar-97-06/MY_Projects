@@ -7,6 +7,10 @@ const {
     uploadWalls,
 }             = require('../controllers/wallControllers');
 
+const requireAuth = require('../middleware/requireAuth');
+
+router.use(requireAuth);
+
 router.get('/',getWalls);
 
 router.get('/:id',getWall)
