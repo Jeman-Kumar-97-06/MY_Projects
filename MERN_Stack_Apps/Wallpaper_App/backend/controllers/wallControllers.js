@@ -28,12 +28,16 @@ const getWall = async (req,res) => {
     res.status(200).json(wallpaper)
 }
 
-const uploadWalls = () => {
-    
+const uploadWalls = async (req,res) => {
+    const {wall} = req.body;
+    try{
+        const user_id  = req.user._id;
+        const new_wall = await Wall.create({wall:wall,user_id:user_id});
+        res.status(200).json(new_wall);
+    } catch (err) {
+        res.status(404).json({error:err.message})
+    }
 }
 
-const updateWalls = () => {
 
-}
-
-module.exports = {getWalls,uploadWalls,updateWalls}
+module.exports = {getWalls,getWall,uploadWalls};
