@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Wall     = require('../models/wallModel');
 const workoutModel = require('../../../Workout_Tracker/backend/models/workoutModel');
 
+//Send all the wallpapers to the client
 const getWalls = async (req,res) => {
     const all_walls = await Wall.find({});
     if (!all_walls){
@@ -10,6 +11,7 @@ const getWalls = async (req,res) => {
     res.status(200).json(all_walls);
 }
 
+//Send a specified wallpaper
 const getWall = async (req,res) => {
     const {id} = req.params;
 
@@ -28,6 +30,7 @@ const getWall = async (req,res) => {
     res.status(200).json(wallpaper)
 }
 
+//Letting an Authenticated User Upload wallpaper
 const uploadWalls = async (req,res) => {
     const {wall} = req.body;
     try{
