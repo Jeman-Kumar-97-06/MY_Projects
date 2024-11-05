@@ -13,7 +13,7 @@ router.use(requireAuth);
 
 router.get('/',getWalls);
 
-router.get('/:id',getWall)
+router.get('/:id',getWall);
 
 router.post('/',uploadWalls);
 
