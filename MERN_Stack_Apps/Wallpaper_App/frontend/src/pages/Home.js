@@ -21,7 +21,13 @@ const Home = () => {
 
     return (
         <div className="home_page">
-
+            {
+                walls && walls.map(wall=>(
+                    <div>
+                        <h1>{wall.wall}</h1>
+                    </div>
+                ))
+            }
         </div>
     );
 };
