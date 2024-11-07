@@ -3,12 +3,14 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { useAuthContext } from './hooks/useAuthContext';
+import Topform from './components/Topform';
 
 function App() {
   const {user} = useAuthContext();
   return (
     <div className="App">
       <BrowserRouter>
+        <Topform/>
         <Routes>
           <Route exact path='/' element={user ? <Home/> : <Navigate to = '/login'/>}/>
           <Route exact path='/login' element={!user ? <Login/> : <Navigate to = '/'/>}/>
