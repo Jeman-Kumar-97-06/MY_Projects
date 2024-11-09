@@ -1,6 +1,6 @@
 const express = require('express');
 const multer   = require('multer');
-
+import fetch,{fileFromSync} from 'node-fetch';
 const router  = express.Router();
 
 const {
