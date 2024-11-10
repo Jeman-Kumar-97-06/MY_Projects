@@ -5,7 +5,6 @@ import {useAuthContext} from '../hooks/useAuthContext';
 const Topform = () => {
     const {dispatch}           = useWallsContext();
     const {user}               = useAuthContext();
-    const [newwall,setNewwall] = useState('');
     const [error,setError]     = useState(null);
 
     const handleSubmit = async (e) => {
@@ -18,7 +17,14 @@ const Topform = () => {
         const formData  = new FormData();
         formData.append('wall_pic',fileInput);
         const response = await fetch('/api/walls/',{method:'POST',body:formData,headers:{'Authorization':`Beared ${user.token}`}});
-        console.log('done')
+        const json     = await response.json();
+        if (!response.ok){
+            setError(json.error);
+        }
+        if (response.ok){
+            setError(null);
+            dispatch({type:"UPLOAD_WALLS",payload:json});
+        }
     }
 
     return (
@@ -26,6 +32,7 @@ const Topform = () => {
             <h4>Upload Wallpaper:</h4>
             <input type="file" id='wall_pic' name='wall_pic'/>
             <button type="submit">Submit</button>
+            {error && <div className='error'>{error}</div>}
         </form>
     )
 }

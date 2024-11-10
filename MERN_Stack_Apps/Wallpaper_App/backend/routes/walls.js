@@ -18,13 +18,6 @@ const storage = multer.diskStorage(
 
 const upload = multer({storage:storage});
 
-// app.post('/api/upload_wall',upload.single('profile_pic'),(req,res)=>{
-//     console.log(req.file.path);
-//     return res.redirect('/');
-// })
-
-router.post('/',upload.single('wall_pic'),uploadWalls);
-
 const requireAuth = require('../middleware/requireAuth');
 
 router.use(requireAuth);
@@ -33,6 +26,6 @@ router.get('/',getWalls);
 
 router.get('/:id',getWall);
 
-
+router.post('/',upload.single('wall_pic'),uploadWalls);
 
 module.exports = router;

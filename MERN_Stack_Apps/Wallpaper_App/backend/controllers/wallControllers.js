@@ -31,16 +31,14 @@ const getWall = async (req,res) => {
 
 //Letting an Authenticated User Upload wallpaper
 const uploadWalls = async (req,res) => {
-    console.log(req.body);
-    console.log(req.file);
-    // const {wall} = req.body;
-    // try{
-    //     const user_id  = req.user._id;
-    //     const new_wall = await Wall.create({wall:wall,user_id:user_id});
-    //     res.status(200).json(new_wall);
-    // } catch (err) {
-    //     res.status(404).json({error:err.message})
-    // }
+    const {path} = req.file;
+    try{
+        user_id = req.user._id;
+        const new_wall = await Wall.create({wall:path,user_id:user_id});
+        res.status(200).json(new_wall);
+    } catch (err) {
+        res.status(404).json({error:err.message})
+    }
 }
 
 
