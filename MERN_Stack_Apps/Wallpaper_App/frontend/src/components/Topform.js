@@ -14,13 +14,17 @@ const Topform = () => {
             setError('You must be Logged In!');
             return;
         }
-        const new_file = fileInput.files[0]
+        const fileInput = document.getElementById('wall_pic').files[0];
+        const formData  = new FormData();
+        formData.append('wall_pic',fileInput);
+        const response = await fetch('/api/walls/',{method:'POST',body:formData,headers:{'Authorization':`Beared ${user.token}`}});
+        console.log('done')
     }
 
     return (
-        <form action="/api/walls" method="POST" enctype="multipart/form-data">
+        <form id="upload_form" onSubmit={handleSubmit} encType="multipart/form-data">
             <h4>Upload Wallpaper:</h4>
-            <input type="file" name="profile_pic"/>
+            <input type="file" id='wall_pic' name='wall_pic'/>
             <button type="submit">Submit</button>
         </form>
     )

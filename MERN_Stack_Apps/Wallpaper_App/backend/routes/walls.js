@@ -1,6 +1,5 @@
 const express = require('express');
 const multer   = require('multer');
-import fetch,{fileFromSync} from 'node-fetch';
 const router  = express.Router();
 
 const {
@@ -24,7 +23,7 @@ const upload = multer({storage:storage});
 //     return res.redirect('/');
 // })
 
-router.post('/',upload.single('profile_pic'),uploadWalls);
+router.post('/',upload.single('wall_pic'),uploadWalls);
 
 const requireAuth = require('../middleware/requireAuth');
 
