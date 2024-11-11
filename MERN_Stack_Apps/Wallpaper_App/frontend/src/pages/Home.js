@@ -24,6 +24,7 @@ const Home = () => {
             {
                 walls && walls.map(wall=>(
                     <div>
+                        <img src={wall.wall}/>
                         <h1>{wall.wall}</h1>
                     </div>
                 ))
