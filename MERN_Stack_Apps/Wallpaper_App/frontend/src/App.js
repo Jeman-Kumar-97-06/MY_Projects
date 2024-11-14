@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar/>
-        <Topform/>
+        {user && <Topform/>}
         <Routes>
           <Route exact path='/' element={user ? <Home/> : <Navigate to = '/login'/>}/>
           <Route exact path='/login' element={!user ? <Login/> : <Navigate to = '/'/>}/>
