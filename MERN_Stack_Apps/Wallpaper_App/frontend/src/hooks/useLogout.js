@@ -1,13 +1,13 @@
 import { useAuthContext } from "./useAuthContext";
-import {useProductsContext} from './useProductsContext';
+import {useWallsContext} from './useWallsContext';
 
 export const useLogout = () => {
     const {dispatch} = useAuthContext();
-    const {dispatch:prodContext} = useProductsContext();
+    const {dispatch:wallContext} = useWallsContext();
     const logout = () => {
         localStorage.removeItem('user');
         dispatch({type:"LOGOUT"});
-        prodContext({type:"SET_PRODS",payload:null});
+        wallContext({type:"SET_PRODS",payload:null});
     }
     return {logout};
 };

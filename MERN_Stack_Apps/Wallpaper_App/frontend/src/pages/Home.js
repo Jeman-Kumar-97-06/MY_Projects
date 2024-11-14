@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useWallsContext } from "../hooks/useWallsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
+import WallDetails from '../components/WallDetails';
 
 const Home = () => {
     const {walls,dispatch} = useWallsContext();
@@ -23,10 +24,7 @@ const Home = () => {
         <div className="home_page">
             {
                 walls && walls.map(wall=>(
-                    <div>
-                        <img src={wall.wall}/>
-                        <h1>{wall.wall}</h1>
-                    </div>
+                    <WallDetails key={wall._id} wall={wall}/>
                 ))
             }
         </div>
