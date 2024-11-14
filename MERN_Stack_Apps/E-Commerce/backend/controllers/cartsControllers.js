@@ -34,7 +34,6 @@ const updateCart = async (req,res) => {
 const createCart = async (req,res) => {
     //The request body : example : {Dune : 3}
     const {pt} = req.body
-    console.log(pt)
     //The id of the user who sent the request
     const user_id = req.user._id;
     //Name of the Product:
@@ -59,9 +58,7 @@ const createCart = async (req,res) => {
         for (let i = 0; i < old_prod.length; i++) {
             const element = old_prod[i];
             const key     = element.prod_name;
-            console.log(key)
             if (m_key == key){
-                console.log(pt[m_key])
                 element.quantity += pt[m_key];
                 found = true;
             }
