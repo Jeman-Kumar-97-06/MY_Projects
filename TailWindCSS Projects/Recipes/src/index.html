@@ -35,7 +35,7 @@
         </div>
         <!-- End of Nav Wrapper -->
         <!-- Main Content -->
-        <main class="px-16 py-6">
+        <main class="px-16 py-6 bg-gray-100">
             <!-- A div with login and signup links -->
             <div class="flex justify-center md:justify-end">
                 <a href="#" class="text-primary">Log In</a>
@@ -57,17 +57,47 @@
             <div>
                 <h4 class="font-bold mt-10 pb-2 border-b border-gray-200">Latest Recipes</h4>
                 <!-- Latest Recipes Wrapper -->
-                <div class="mt-8">
+                <div class="mt-8 grid grid-cols-3">
                     <!-- All Latest Recipe Cards go here -->
-                    <div>
+                    <div class="card">
                         <!-- Recipe's Image -->
-                        <img src="img/stew.jpg" alt="bean-chilli-stew"/>
+                        <img src="img/stew.jpg" alt="bean-chilli-stew" class="w-full h-32 sm:h-48 object-cover"/>
                         <!-- Recipe's details -->
-                        <div>
-                            <span>5 Bean Chilli Stew</span>
-                            <span>Recipe by Mario</span>
+                        <div class="m-4">
+                            <span class="font-bold">5 Bean Chilli Stew</span>
+                            <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+                        </div>
+                        <div class="badge">
+                            <span>25 mins</span>
                         </div>
                     </div>
+
+                    <div class="card">
+                        <!-- Recipe's Image -->
+                        <img src="img/noodles.jpg" alt="noodles" class="w-full h-32 sm:h-48 object-cover"/>
+                        <!-- Recipe's details -->
+                        <div class="m-4">
+                            <span class="font-bold">Veg Noodles</span>
+                            <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+                        </div>
+                        <div class="badge">
+                            <span>25 mins</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <!-- Recipe's Image -->
+                        <img src="img/curry.jpg" alt="curry" class="w-full h-32 sm:h-48 object-cover"/>
+                        <!-- Recipe's details -->
+                        <div class="m-4">
+                            <span class="font-bold">Curry</span>
+                            <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+                        </div>
+                        <div class="badge">
+                            <span>25 mins</span>
+                        </div>
+                    </div>
+
                 </div>
 
                 <h4 class="font-bold mt-10 pb-2 border-b border-gray-200">Most Popular Recipes</h4>
