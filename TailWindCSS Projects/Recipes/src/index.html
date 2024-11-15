@@ -7,9 +7,9 @@
     <title>Recipies</title>
 </head>
 <body class="text-gray-600 font-body">
-    <div> <!--content wrapper-->
+    <div  class="grid md:grid-cols-3"> <!--content wrapper-->
         <!-- Nav Wrapper -->
-        <div>
+        <div class="md:col-span-1">
             <!-- Start Nav -->
             <nav>
                 <!-- Div inside Nav -->
@@ -35,11 +35,11 @@
         </div>
         <!-- End of Nav Wrapper -->
         <!-- Main Content -->
-        <main class="px-16 py-6 bg-gray-100">
+        <main class="px-16 py-6 bg-gray-100 md:col-span-2">
             <!-- A div with login and signup links -->
             <div class="flex justify-center md:justify-end">
-                <a href="#" class="text-primary">Log In</a>
-                <a href="#" class="text-primary ml-2">Sign Up</a>
+                <a href="#" class="btn text-primary border-primary md:border-2">Log In</a>
+                <a href="#" class="btn text-primary ml-2 border-primary md:border-2">Sign Up</a>
             </div>
 
             <!-- <div class="flex items-end">
@@ -57,7 +57,7 @@
             <div>
                 <h4 class="font-bold mt-10 pb-2 border-b border-gray-200">Latest Recipes</h4>
                 <!-- Latest Recipes Wrapper -->
-                <div class="mt-8 grid grid-cols-3">
+                <div class="mt-8 grid lg:grid-cols-3 gap-10">
                     <!-- All Latest Recipe Cards go here -->
                     <div class="card">
                         <!-- Recipe's Image -->
@@ -107,7 +107,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <div class="bg-secondary-100 text-secondary-200">Load more...</div>
+                    <div class="btn bg-secondary-100 text-secondary-200">Load more...</div>
                 </div>
             </div>
         </main>
