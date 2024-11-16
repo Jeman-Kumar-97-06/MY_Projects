@@ -6,6 +6,7 @@ const {
     getWalls,
     getWall,
     uploadWalls,
+    downloadWalls,
 }             = require('../controllers/wallControllers');
 
 //Recieving Requests to save a uploaded wallpaper:
@@ -27,5 +28,7 @@ router.get('/',getWalls);
 router.get('/:id',getWall);
 
 router.post('/',upload.single('wall_pic'),uploadWalls);
+
+router.get('/download/:id',downloadWalls);
 
 module.exports = router;

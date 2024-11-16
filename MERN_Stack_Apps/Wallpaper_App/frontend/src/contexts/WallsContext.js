@@ -7,7 +7,7 @@ export const wallsReducer = (state,action)  => {
         case "SET_WALLS":
             return {walls : action.payload};
         case "UPLOAD_WALLS":
-            return {walls : [action.payload,...state.walls]}
+            return {walls : [action.payload,...state.walls]};
         default :
             return state;
     }

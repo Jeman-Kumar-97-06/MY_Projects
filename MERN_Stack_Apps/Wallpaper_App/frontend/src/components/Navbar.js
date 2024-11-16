@@ -23,7 +23,7 @@ const Navbar = () => {
             
             {user && (
                 <div className="nav_2">
-                    <a href="#">{user.email}</a>
+                    <a href="#">{user.name}'s uploads</a>
                     <button onClick={handleLogout}>Logout</button>
                     <button><span class="material-icons">contrast</span></button>
                 </div>

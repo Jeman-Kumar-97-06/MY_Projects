@@ -41,7 +41,22 @@ const uploadWalls = async (req,res) => {
     }
 }
 
+// Letting an Authenticated User Download Wallpaper
+const downloadWalls = async (req,res) => {
+    const {id} = req.params;
+     //See if the 'id' is of proper format:
+    if (!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error:"The ID isn't valid!"})
+    }
 
+    const wallpaper = await Wall.findById(id);
 
+    res.download(wallpaper.wall, wallpaper.wall, (error) => {
+		if (error) {
+            console.log(error)
+			res.status(500).json({error:error.message})
+		}
+	})
+}
 
-module.exports = {getWalls,getWall,uploadWalls};
+module.exports = {getWalls,getWall,uploadWalls,downloadWalls};
