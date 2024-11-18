@@ -50,7 +50,7 @@ const downloadWalls = async (req,res) => {
     }
 
     const wallpaper = await Wall.findById(id);
-
+    //Sending image response to the client: 
     res.download(wallpaper.wall, wallpaper.wall, (error) => {
 		if (error) {
             console.log(error)

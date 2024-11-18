@@ -24,7 +24,7 @@ const Home = () => {
         <div className="home_page">
             {
                 walls && walls.map(wall=>(
-                    <WallDetails key={wall._id} wall={wall}/>
+                    wall && <WallDetails key={wall._id} wall={wall}/>
                 ))
             }
         </div>

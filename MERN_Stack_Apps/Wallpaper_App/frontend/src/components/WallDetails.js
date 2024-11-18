@@ -12,8 +12,17 @@ const WallDetails = ({wall}) => {
             return;
         }
         const resp = await fetch('http://localhost:4000/api/walls/download/'+wall._id,{headers:{'Authorization':`Bearer ${user.token}`}});
-        const json = await resp.json();
-        
+        const blob = await resp.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        // the filename you want
+        a.download = "download";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
     }
     return (
         <div className='wall_details'>
