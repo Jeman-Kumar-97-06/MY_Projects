@@ -27,7 +27,7 @@ const WallDetails = ({wall}) => {
     return (
         <div className='wall_details'>
             <img src={wall.wall} id='each_wall_img' alt="wallpaper_missing :("/>
-            <button onClick={handleDownload}><span className="material-icons">download</span></button>
+            <button id='download_button' onClick={handleDownload}><span className="material-icons">download</span></button>
         </div>
     )
 };

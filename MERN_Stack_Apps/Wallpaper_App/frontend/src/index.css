@@ -1,4 +1,5 @@
 body {
+  background-color: #C9E6F0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -15,14 +16,14 @@ code {
 /* Navbar Styles */
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #FBF8EF;
   display:flex;
   justify-content: space-between;
 }
 
 .topnav a, .topnav button{
   float: left;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -32,8 +33,8 @@ code {
 .topnav button {
   text-decoration: none;
   border: none;
-  color:#f2f2f2;
-  background-color: #333;
+  color:black;
+  background-color: #FBF8EF;
 }
 
 .topnav a:hover , .topnav button:hover{
@@ -42,27 +43,46 @@ code {
 }
 
 .topnav a.active , .topnav button:active{
-  background-color: #04AA6D;
-  color: white;
+  background-color: #F96E2A;
+  color: black;
 }
 
 
 /* Home Page Styles */
 .home_page {
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-left: 30px;
   display:flex;
   flex-wrap: wrap;
 }
 
 /* Upload Form Styles */
+#upload_form{
+  background-color: #78B3CE;
+  width: 500px;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 30px;
+  padding: 20px;
+}
 
+#input_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 /* Each Wallpaper Styles */
 .wall_details {
-  width : 200px;
-  margin: 20px;
+  width : 220px;
+  margin-right: 20px;
 }
 
 .wall_details img {
-  width : 190px;
+  width : 220px;
+}
+
+#download_button {
+  width: 100%;
+  cursor: pointer;
 }

@@ -16,16 +16,15 @@ const Navbar = () => {
 
             {!user && (
                 <div className="nav_2">
-                    <a href="#">Login</a>
-                    <a href="#">Signup</a>
+                    <Link to ='/login'>Login</Link>
+                    <Link to ='/signup'>Signup</Link>
                 </div>
             )}
             
             {user && (
                 <div className="nav_2">
-                    <a href="#">{user.name}'s uploads</a>
+                    <Link to = '#'>{user.name}'s uploads</Link>
                     <button onClick={handleLogout}>Logout</button>
-                    <button><span class="material-icons">contrast</span></button>
                 </div>
             )}
         </div>
