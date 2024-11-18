@@ -24,7 +24,7 @@ const Navbar = () => {
             {user && (
                 <div className="nav_2">
                     <Link to = '#'>{user.name}'s uploads</Link>
-                    <button onClick={handleLogout}>Logout</button>
+                    <button class = 'logout_btn' onClick={handleLogout}>Logout</button>
                 </div>
             )}
         </div>

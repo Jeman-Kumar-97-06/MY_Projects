@@ -47,6 +47,9 @@ code {
   color: black;
 }
 
+.logout_btn {
+  cursor: pointer; 
+}
 
 /* Home Page Styles */
 .home_page {

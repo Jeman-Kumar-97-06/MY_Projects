@@ -30,7 +30,7 @@ const Topform = () => {
     return (
         <form id="upload_form" onSubmit={handleSubmit} encType="multipart/form-data">
             <div id='input_btn'>
-                <input type="file" id='wall_pic' name='wall_pic'/>
+                <input type="file" id='wall_pic' name='wall_pic' placeholder='Upload Wallpaper'/>
                 <button type="submit">Submit</button>
             </div>
             {error && <div className='error'>{error}</div>}
