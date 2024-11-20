@@ -32,20 +32,53 @@ const CartDets = () => {
                 <CartItem key={ci.prod_name} ci={ci}/>
             ))}
         </table>
+        
+        <table style={{"marginTop":"20px"}}>
+            <tr>
+                <th>No of Items:</th>
+                <th>Total:</th>
+            </tr>
+            <tr>
+                <td>{cart_items && cart_items.reduce((total,itm)=>total+itm.quantity,0)}</td>
+                <td>₹ {cart_items && cart_items.reduce((total,itm)=>total+Number(itm.price)*Number(itm.quantity),0)}</td>
+            </tr>
+        </table>
 
         <div>
-            <div className='no_of_items'>
-                <h4>Items:</h4>
-                <p>{cart_items && cart_items.reduce((total,itm)=>total+itm.quantity,0)}</p>
-            </div>
-            <div className='tot_price'>
-                <h4>Total:</h4>
-                <p>₹ {cart_items && cart_items.reduce((total,itm)=>total+Number(itm.price)*Number(itm.quantity),0)}</p>
-            </div>
-            <div className="payment">
-                <h4>Payment:</h4>
-                <button>GPay</button>
-            </div>
+            <h4>Payment Details:</h4>
+            <form className="payment">  
+                <label for="name">Full Name : </label>
+                <input type="string" id='name' placeholder="John Doe"/>
+                <br/><br/>
+                <label for='email'>Email : </label>
+                <input type='email' id='email' placeholder="john@example.com"/>
+                <br/><br/>
+                <label for='address'>Address : </label>
+                <input type='string' id='address' placeholder=""/>
+                <br/><br/>
+                <label for='city'>City : </label>
+                <input type='string' id='city' placeholder=""/>
+                <br/><br/>
+                <label for='zip'>Zip Code : </label>
+                <input type='string' id='zip' placeholder=""/>
+                <br/><br/>
+                <label for='card_name'>Name on Card  : </label>
+                <input type='string' id='card_name' placeholder=""/>
+                <br/><br/>
+                <label for='card_number'>Card Number : </label>
+                <input type='string' id='card_number' placeholder="xxxx-xxxx-xxxx"/>
+                <br/><br/>
+                <label for='exp_month'>Exp Month : </label>
+                <input type='string' id='exp_month' placeholder=""/>
+                <br/><br/>
+                <label for='exp_year'>Exp Year : </label>
+                <input type='string' id='exp_year' placeholder=""/>
+                <br/><br/>
+                <label for='cvv'>CVV : </label>
+                <input type='string' id='cvv' placeholder="xxx"/>
+                <br/><br/>
+                <button type="submit">Proceed with payment</button>
+            </form>
         </div>
 
         </div>
