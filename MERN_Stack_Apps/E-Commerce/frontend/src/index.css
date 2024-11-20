@@ -291,3 +291,18 @@ tr{
   font-style: normal;
   font-size: xx-large;
 }
+
+.payment{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.payment label, .payment button{
+  margin-top: 10px;
+}
+
+.payment button {
+  width : 160px;
+  padding: 5px;
+}
