@@ -89,12 +89,17 @@ button:active{
   background-color: rgb(231, 118, 118);
 }
 
+.ur_notes{
+  margin-left:20px;
+}
+
 .all_notes{
   width:100vw;
   margin-left:20px;
   display: flex;
   flex-wrap: wrap;
 }
+
 .nt_det{
   max-width:450px;
   background-color: #F7F7F8;
@@ -103,7 +108,6 @@ button:active{
   margin:25px 25px 25px 0px;
   box-shadow: 4px 4px 10px gray;
 }
-
 
 p:focus, h4:focus{
   outline:none;
@@ -137,9 +141,14 @@ p:focus, h4:focus{
   margin-left: 20px;
 }
 
+.login label, .signup label {
+  margin-top: 30px;
+  font-size: larger;
+}
+
 .login input, .signup input {
   font-size: larger;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .usr_email{

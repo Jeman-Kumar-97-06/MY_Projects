@@ -25,6 +25,7 @@ const Home = () => {
     return (
         <div>
             {user && <NoteForm/>}
+            <h2 className="ur_notes">Your Notes:</h2>
             <div className="all_notes">
                 {notes && notes.map(n=>(
                     <NoteDetails key={n._id} nt={n}/>

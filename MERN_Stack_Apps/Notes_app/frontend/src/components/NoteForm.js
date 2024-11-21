@@ -37,7 +37,7 @@ const NoteForm = () => {
 
     return (
         <form className="new_note" onSubmit={handleSubmit}>
-            <h3>Add a new note:</h3>
+            <h2>Add a new note:</h2>
             <label>Title:</label>
             <input type="text" onChange = {e=>{setTitle(e.target.value)}} value={title}/>
             <label>Body:</label>
