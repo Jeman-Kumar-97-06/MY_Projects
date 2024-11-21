@@ -46,9 +46,7 @@ code {
   justify-content: space-between;
 }
 
-.remain_nav button{
-  height: fit-content;
-}
+
 
 .remain_nav a, .remain_nav button {
   margin-left: 25px;
