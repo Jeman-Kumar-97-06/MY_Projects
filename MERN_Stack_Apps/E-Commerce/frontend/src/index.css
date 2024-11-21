@@ -322,10 +322,3 @@ tr{
   width : 160px;
   padding: 5px;
 }
-
-@media only screen and (max-width: 600px) {
-  body {
-    background-attachment: fixed;
-    background-repeat: repeat-y;
-  }
-}
