@@ -2,6 +2,7 @@
 body {
   background-image: url("../public/istockphoto-1421303925-612x612.jpg");
   background-attachment: fixed;
+  background-repeat: repeat;
   margin: 0;
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
@@ -39,7 +40,7 @@ code {
 
 .remain_nav {
   margin-right:40px;
-  width : 200px;
+  width : auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -47,6 +48,10 @@ code {
 
 .remain_nav button{
   height: fit-content;
+}
+
+.remain_nav a, .remain_nav button {
+  margin-left: 25px;
 }
 
 /* Category Selection */
@@ -201,6 +206,10 @@ code {
   margin-top:100px;
   margin-left:auto;
   margin-right:auto;
+  background-color: #FADFA1;
+  border-radius: 10px;
+  padding:10px;
+  box-shadow: 5px 5px 5px gray;
 }
 
 .cart_page{
@@ -231,7 +240,7 @@ th{
 }
 
 tr{
-  background-color: #F2E5BF;
+  background-color: #FADFA1;
 }
 
 .update_cart_btn{
@@ -268,6 +277,10 @@ tr{
   display: flex;
   flex-direction: column;
   padding:15px;
+  border-radius: 10px;
+  padding:10px;
+  box-shadow: 5px 5px 5px gray;
+  background-color: #FADFA1;
 }
 
 .signup_div input{
@@ -299,6 +312,8 @@ tr{
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+  background-color: #FADFA1;
+  padding:20px;
 }
 
 .payment label, .payment button{
@@ -308,4 +323,11 @@ tr{
 .payment button {
   width : 160px;
   padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-attachment: fixed;
+    background-repeat: repeat-y;
+  }
 }
