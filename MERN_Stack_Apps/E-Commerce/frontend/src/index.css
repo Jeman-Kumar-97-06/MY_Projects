@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap');
 body {
+  background-image: url("../public/istockphoto-1421303925-612x612.jpg");
+  background-attachment: fixed;
   margin: 0;
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
@@ -25,7 +27,8 @@ code {
   z-index: 99 !important;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;  
+  justify-content: space-between; 
+  box-shadow: 7.5px 0px 5px black; 
 }
 
 .nav_div a{
