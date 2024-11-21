@@ -21,7 +21,7 @@ const Navbar = () => {
             {user && (
                 <div className='remain_nav'>
                     <Link to='/cart'>{user.user.name}'s cart</Link>
-                    <button onClick={handleLogout}>Logout</button>
+                    <a onClick={handleLogout}>Logout</a>
                 </div>
             )}
             
