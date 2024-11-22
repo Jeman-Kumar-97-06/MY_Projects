@@ -147,3 +147,31 @@ body{
   font-style: normal;
   font-size: larger;
 }
+
+.login_page {
+  width : 300px;
+  margin-left : 25px;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-top: 25px;
+  }
+  button {
+    margin-top : 20px;
+    width : 50px;
+  }
+}
+
+.signup_page {
+  width : 300px;
+  margin-left : 25px;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-top: 25px;
+  }
+  button {
+    margin-top : 20px;
+    width : 50px;
+  }
+}
