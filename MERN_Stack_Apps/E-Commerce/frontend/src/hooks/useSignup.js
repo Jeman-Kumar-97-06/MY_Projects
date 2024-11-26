@@ -17,7 +17,7 @@ export const useSignup = () => {
             setError(json.error);
         }
         if (resp.ok)    {
-            localStorage.setItem('user',JSON.stringify(json));
+            localStorage.setItem('ecomuser',JSON.stringify(json));
             dispatch({type:"LOGIN",payload:json});
             setIsloading(false);
         }
