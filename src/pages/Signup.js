@@ -23,6 +23,7 @@ const Signup = () => {
             <label>Password:</label>
             <input type='password' onChange={e=>{setPassword(e.target.value)}} value={password}/>
             <button type="submit" display={isloading}>Signup</button>
+            {!isloading || <div>Please wait. The server response is slow.😿</div>}
             {error && <div>{error}</div>}
         </form>
     )
