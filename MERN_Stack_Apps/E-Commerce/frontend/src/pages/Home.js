@@ -7,26 +7,54 @@ const Home = () => {
     const {products,dispatch} = useProductsContext();
     const {user}              = useAuthContext();
     
-    useEffect(()=>{
-        const fetchAllProds = async () => {
-            const resp  = await fetch('/api/products',{headers:{"Authorization":`Bearer ${user.token}`}});
-            const prods = await resp.json();
-            if (resp.ok) {
-                dispatch({type:"SET_PRODS",payload:prods});
-            }
+    const fetchAllProds = async () => {
+        const resp  = await fetch('/api/products',{headers:{"Authorization":`Bearer ${user.token}`}});
+        const prods = await resp.json();
+        if (resp.ok) {
+            dispatch({type:"SET_PRODS",payload:prods});
         }
+    }
+
+    useEffect(()=>{    
         if (user) {
             fetchAllProds();
         }
     },[dispatch,user])
+
+    const sortByFeatured = () => {
+        if (user) {
+            fetchAllProds();
+        }
+    }
+
+    const handlePLtoH = () => {
+        dispatch({type:"SORT_BY_PRICE_L_H"})
+    }
+
+    const handlePHtoL = () => {
+        dispatch({type:"SORT_BY_PRICE_H_L"})
+    }
+
     return (
         <div className="home_div">            
-            <div className="dropdown">
-                <button className="dropbtn">Category</button>
-                <div className="dropdown-content">
-                    <p>Educational</p>
-                    <p>Science Fiction</p>
-                    <p>Comedy</p>
+            <div className="filter_btns">
+                <div className="dropdown">
+                    <button className="dropbtn">Category</button>
+                    <div className="dropdown-content">
+                        <p onClick={()=>{dispatch({type:"CATEGORIZE",payload:'Educational'})}}>Educational</p>
+                        <p onClick={()=>{dispatch({type:"CATEGORIZE",payload:"Science Fiction"})}}>Science Fiction</p>
+                        <p onClick={()=>{dispatch({type:"CATEGORIZE",payload:"Comedy"})}}>Comedy</p>
+                    </div>
+                </div>
+                <div className='dropdown'>
+                    <button className='dropbtn'>Sort</button>
+                    <div className='dropdown-content'>
+                        <p onClick={sortByFeatured}>Featured</p>
+                        <p>By Name</p>
+                        <p>By Date</p>
+                        <p onClick={handlePLtoH}>By Price : Low to High</p>
+                        <p onClick={handlePHtoL}>By Price : High to Low</p>
+                    </div>
                 </div>
             </div>
             <div className="all_prods">
