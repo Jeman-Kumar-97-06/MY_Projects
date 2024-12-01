@@ -47,34 +47,34 @@ const CartDets = () => {
         <div>
             <h4>Payment Details:</h4>
             <form className="payment">  
-                <label for="name">Full Name : </label>
+                <label htmlFor="name">Full Name : </label>
                 <input type="string" id='name' placeholder="John Doe"/>
                 <br/><br/>
-                <label for='email'>Email : </label>
+                <label htmlFor='email'>Email : </label>
                 <input type='email' id='email' placeholder="john@example.com"/>
                 <br/><br/>
-                <label for='address'>Address : </label>
+                <label htmlFor='address'>Address : </label>
                 <input type='string' id='address' placeholder=""/>
                 <br/><br/>
-                <label for='city'>City : </label>
+                <label htmlFor='city'>City : </label>
                 <input type='string' id='city' placeholder=""/>
                 <br/><br/>
-                <label for='zip'>Zip Code : </label>
+                <label htmlFor='zip'>Zip Code : </label>
                 <input type='string' id='zip' placeholder=""/>
                 <br/><br/>
-                <label for='card_name'>Name on Card  : </label>
+                <label htmlFor='card_name'>Name on Card  : </label>
                 <input type='string' id='card_name' placeholder=""/>
                 <br/><br/>
-                <label for='card_number'>Card Number : </label>
+                <label htmlFor='card_number'>Card Number : </label>
                 <input type='string' id='card_number' placeholder="xxxx-xxxx-xxxx"/>
                 <br/><br/>
-                <label for='exp_month'>Exp Month : </label>
+                <label htmlFor='exp_month'>Exp Month : </label>
                 <input type='string' id='exp_month' placeholder=""/>
                 <br/><br/>
-                <label for='exp_year'>Exp Year : </label>
+                <label htmlFor='exp_year'>Exp Year : </label>
                 <input type='string' id='exp_year' placeholder=""/>
                 <br/><br/>
-                <label for='cvv'>CVV : </label>
+                <label htmlFor='cvv'>CVV : </label>
                 <input type='string' id='cvv' placeholder="xxx"/>
                 <br/><br/>
                 <button type="submit">Proceed with payment</button>
