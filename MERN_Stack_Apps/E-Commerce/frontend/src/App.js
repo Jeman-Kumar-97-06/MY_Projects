@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
 import { useAuthContext } from './hooks/useAuthContext';
 import CartDets from './pages/CartDets';
+import About from './pages/About';
 
 function App() {
   const {user} = useAuthContext();
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/cart' element = {user ? <CartDets/> : <Navigate to = '/login'/>}/>
           <Route exact path='/login' element={!user ? <Login/> : <Navigate to = '/'/>}/>
           <Route exact path='/signup' element={!user ? <Signup/> : <Navigate to = '/'/>}/>
+          <Route exact path='/about' element={!user ? <Login/> : <About/>}/>
         </Routes>
       </BrowserRouter>
     </div>
