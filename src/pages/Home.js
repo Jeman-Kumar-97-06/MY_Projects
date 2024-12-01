@@ -58,7 +58,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="all_prods">
-                {!products && <div>Please wait. The server response is slow.😿</div>}
+                {!products && <div className='wait_div'>Please wait. The server response is slow.😿</div>}
                 {products && products.map(prod=>(
                     <ProductDetails prod={prod} key={prod._id}/>
                 ))}

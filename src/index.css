@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Special+Elite&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=UnifrakturCook:wght@700&display=swap');
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&family=UnifrakturCook:wght@700&display=swap');
 body {
   /* background-image: url("../public/istockphoto-1421303925-612x612.jpg"); */
   background-attachment: fixed;
   background-repeat: repeat;
   margin: 0;
-  font-family: "Oswald", sans-serif;
+  font-family: "Podkova", serif;
   font-optical-sizing: auto;
-  font-weight:300;
+  font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,6 +55,7 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -70,9 +75,10 @@ code {
 
 .dropbtn {
   background-color: #C96868;
-  font-family: "Oswald", sans-serif;
+  font-family: "Podkova", serif;
   font-optical-sizing: auto;
-  font-weight:300;
+  font-weight: 400;
+  font-style: normal;
   padding: 8px;
   font-size: 16px;
   border: none;
@@ -217,6 +223,8 @@ code {
   margin-left:10px;
   margin-top:10px;
   margin-bottom: 10px;
+  /* color:#FADFA1; */
+  font-weight:700;
 }
 
 .prod_author{
@@ -249,9 +257,9 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  font-family: "Oswald", sans-serif;
+  font-family: "Podkova", serif;
   font-optical-sizing: auto;
-  font-weight:300;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -272,9 +280,9 @@ tr{
 .update_cart_btn{
   margin-top: 10px;
   margin-right: 10px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Podkova", serif;
   font-optical-sizing: auto;
-  font-weight:300;
+  font-weight: 400;
   font-style: normal;
 }
 /* Login styles */
@@ -328,10 +336,11 @@ tr{
 }
 
 .book_store{
-  font-family: "Lobster", sans-serif;
-  font-weight: 400;
+  font-family: "UnifrakturCook", cursive;
+  font-weight: 700;
   font-style: normal;
-  font-size: xx-large;
+  font-size:xx-large;
+  color:black;
 }
 
 .payment{
@@ -349,4 +358,19 @@ tr{
 .payment button {
   width : 160px;
   padding: 5px;
+}
+
+/* About Page: */
+.about_us{
+  margin-left:20px;
+  margin-top : 100px;
+}
+
+.contact{
+  margin-top:40px;
+  
+}
+
+.wait_div{
+  margin-left:70px;
 }

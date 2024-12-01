@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <div className="nav_div">
-            <Link to='/' className='book_store'>Book-Store</Link>
+            <Link to='/' className='book_store'>Book Store</Link>
             {!user && (
                 <div className='remain_nav'>
                     <Link to='/login'>Login</Link>
@@ -21,8 +21,8 @@ const Navbar = () => {
             {user && (
                 <div className='remain_nav'>
                     <Link to='/cart'>{user.user.name}'s cart</Link>
-                    <a href='#'>About</a>
                     <a onClick={handleLogout}>Logout</a>
+                    <Link to='/about'>About</Link>
                 </div>
             )}
             
