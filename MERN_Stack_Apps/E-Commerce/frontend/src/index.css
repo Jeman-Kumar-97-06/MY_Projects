@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap');
 body {
-  background-image: url("../public/istockphoto-1421303925-612x612.jpg");
+  /* background-image: url("../public/istockphoto-1421303925-612x612.jpg"); */
   background-attachment: fixed;
   background-repeat: repeat;
   margin: 0;
@@ -11,6 +11,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F5F5F5;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  background-color: #C96868;
 }
 
 code {
@@ -114,7 +121,7 @@ code {
 }
 
 .all_prods{
-  width:1000px;
+  width:100%;
   display:flex;
   flex-wrap: wrap;
 }
@@ -134,7 +141,7 @@ code {
 
 /* Each Product Card Styles */
 .card{
-  width:250px;
+  width:230px;
   height: 470px;
   margin-left:70px;
   margin-bottom: 50px;
@@ -177,6 +184,7 @@ code {
   left:3px;
   top:3px;
   box-shadow: none;
+  cursor: pointer;
 }
 
 .price{
