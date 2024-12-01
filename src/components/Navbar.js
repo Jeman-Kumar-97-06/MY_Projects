@@ -21,6 +21,7 @@ const Navbar = () => {
             {user && (
                 <div className='remain_nav'>
                     <Link to='/cart'>{user.user.name}'s cart</Link>
+                    <a href='#'>About</a>
                     <a onClick={handleLogout}>Logout</a>
                 </div>
             )}
