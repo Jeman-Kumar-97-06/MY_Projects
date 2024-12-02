@@ -119,6 +119,7 @@ code {
   color: black;
   padding: 10px;
   text-decoration: none;
+  
   display: block;
   cursor: pointer;
 }
@@ -379,5 +380,16 @@ tr{
   .book_store{
     font-size: x-large;
     font-weight: 200;
+  }
+  .remain_nav {
+    display : flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .remain_nav a {
+    text-align: right;
+  }
+  .filter_btns {
+    margin-top: 50px;
   }
 }
