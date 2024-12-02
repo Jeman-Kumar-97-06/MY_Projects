@@ -7,25 +7,21 @@ const Home = () => {
     const {products,dispatch} = useProductsContext();
     const {user}              = useAuthContext();
     
-    const fetchAllProds = async () => {
-        const resp  = await fetch('/api/products',{headers:{"Authorization":`Bearer ${user.token}`}});
-        const prods = await resp.json();
-        if (resp.ok) {
-            dispatch({type:"SET_PRODS",payload:prods});
-        }
-    }
+    
 
     useEffect(()=>{    
+        const fetchAllProds = async () => {
+            const resp  = await fetch('/api/products',{headers:{"Authorization":`Bearer ${user.token}`}});
+            const prods = await resp.json();
+            if (resp.ok) {
+                dispatch({type:"SET_PRODS",payload:prods});
+            }
+        }
         if (user) {
             fetchAllProds();
         }
     },[dispatch,user])
 
-    const sortByFeatured = () => {
-        if (user) {
-            fetchAllProds();
-        }
-    }
 
     const handlePLtoH = () => {
         dispatch({type:"SORT_BY_PRICE_L_H"})
@@ -49,7 +45,7 @@ const Home = () => {
                 <div className='dropdown'>
                     <button className='dropbtn'>Sort</button>
                     <div className='dropdown-content'>
-                        <p onClick={sortByFeatured}>Featured</p>
+                        <p>Featured</p>
                         <p>By Name</p>
                         <p>By Date</p>
                         <p onClick={handlePLtoH}>By Price : Low to High</p>
