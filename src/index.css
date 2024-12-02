@@ -374,3 +374,10 @@ tr{
 .wait_div{
   margin-left:70px;
 }
+
+@media only screen and (max-width:393px) {
+  .book_store{
+    font-size: x-large;
+    font-weight: 200;
+  }
+}
