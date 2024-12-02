@@ -20,7 +20,7 @@ const CartDets = () => {
 
     return(
         <div className="cart_page">
-        <table className='cart_page'>
+        <table className='cart_page_table'>
             <tr>
                 <th>Product Name</th>
                 <th>Product Quantity</th>

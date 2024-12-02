@@ -270,6 +270,14 @@ td, th {
   padding: 8px;
 }
 
+table input{
+  width:30px;
+}
+
+table button{
+  padding:2px;
+}
+
 th{
   background-color: #7EACB5;
 }
@@ -393,6 +401,17 @@ tr{
     margin-top: 50px;
   }
   .cart_page{
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  table{
+    margin-left: auto;
+    margin-right:auto;
+  }
+  .login_div{
     width:90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
