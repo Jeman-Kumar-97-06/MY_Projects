@@ -392,4 +392,7 @@ tr{
   .filter_btns {
     margin-top: 50px;
   }
+  .cart_page{
+    width:90%;
+  }
 }
