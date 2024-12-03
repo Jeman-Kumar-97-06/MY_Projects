@@ -19,6 +19,7 @@ const Login = () => {
             <label>Password</label>
             <input type='password' onChange={e=>{setPassword(e.target.value)}} value={password}/>
             <button type='submit' disabled={isloading}>Login</button>
+            {!isloading || <div>Please wait. The server response is slow.😿</div>}
             {error && <div className='error'>{error}</div>}
         </form>
     )

@@ -42,7 +42,7 @@ const NoteForm = () => {
             <input type="text" onChange = {e=>{setTitle(e.target.value)}} value={title}/>
             <label>Body:</label>
             <textarea onChange={e=>{setBody(e.target.value)}} value={body} rows='4'/>
-            <button type='submit'>Submit</button>
+            <button type='submit' style={{width:"50px",borderRadius:"3px"}}><span className="material-symbols-outlined">save</span></button>
             {error && <div>{error}</div>}
         </form>
     )

@@ -39,7 +39,7 @@ const NoteDetails = ({nt}) => {
         }
         if(resp.ok){
             setError(null);
-            console.log('note updated!')
+            document.querySelector(`#updateBtn${nt._id}`).style.display = 'none'
             dispatch({type:'UPDATE_NOTE',payload:update_n});
         }
     }
@@ -48,8 +48,8 @@ const NoteDetails = ({nt}) => {
         <div className='nt_det'>
             <input type='text' onChange={e=>{document.querySelector('#updateBtn'+nt._id).style.display='inline-block';setTitle(e.target.value)}} value={title}/><br/>
             <textarea onChange={e=>{document.querySelector('#updateBtn'+nt._id).style.display='inline-block';setBody(e.target.value)}} value={body}/><br/>
-            <button onClick={handleDel} className="del_note_btn">Delete</button>
-            <button id={`updateBtn${nt._id}`}onClick={handleUpdate} style={{display:'none'}}>Update</button>
+            <button onClick={handleDel} className="del_note_btn"><span className="material-symbols-outlined">delete</span></button>
+            <button id={`updateBtn${nt._id}`} onClick={handleUpdate} style={{display:'none',width:"50px",borderRadius:'3px'}}><span className="material-symbols-outlined">update</span></button>
             {error && <div className="error">{error}</div>}
         </div>
     )

@@ -87,6 +87,8 @@ button:active{
 
 .del_note_btn{
   background-color: rgb(231, 118, 118);
+  width:50px;
+  border-radius: 3px;
 }
 
 .ur_notes{

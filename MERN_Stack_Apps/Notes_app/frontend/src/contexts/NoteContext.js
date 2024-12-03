@@ -20,7 +20,6 @@ export const noteReducer = (state,action) => {
             const note_upd  = state.notes.filter(note=>note._id ===  action.payload._id);
             const note_indx = state.notes.indexOf(note_upd[0]);
             state.notes.splice(note_indx,1,action.payload)
-            console.log(note_indx)
             return {
                 notes : state.notes
             }

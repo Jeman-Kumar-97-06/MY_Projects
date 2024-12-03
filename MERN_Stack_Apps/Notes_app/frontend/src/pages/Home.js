@@ -27,6 +27,7 @@ const Home = () => {
             {user && <NoteForm/>}
             <h2 className="ur_notes">Your Notes:</h2>
             <div className="all_notes">
+                {!notes && <div className="wait_div">Please wait. The server response is slow.😿</div>}
                 {notes && notes.map(n=>(
                     <NoteDetails key={n._id} nt={n}/>
                 ))}
