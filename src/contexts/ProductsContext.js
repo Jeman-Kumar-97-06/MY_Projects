@@ -8,16 +8,33 @@ export const productsReducer = (state,action) => {
             return {products:action.payload};
         case "CREATE_PRODS":
             return {products:[action.payload,...state.products]};
-        case "CATEGORIZE":
-            console.log(state.products.length);
-            let cat_state = structuredClone(state.products);
-            return {products:cat_state.filter((p)=>p.category === action.payload )}
+        // case "CATEGORIZE":
+        //     let categorized = [];
+        //     for (var x of state.products){
+        //         if (x.category === action.payload){
+        //             categorized.push(x);
+        //         }
+        //     }
+        //     console.log(categorized)
+        //     console.log(state.products)
+        //     return {products:categorized}
+        case "SORT_BY_NAME":
+            state.products.sort((a, b) => {
+                if (a.title < b.title) {
+                  return -1;
+                }
+                if (a.title > b.title) {
+                  return 1;
+                }
+                return 0;
+              });
+            return {products:state.products};
         case "SORT_BY_PRICE_L_H":
             state.products.sort((a,b)=>{return a.price-b.price})
-            return {products : state.products};
+            return {products:state.products};
         case "SORT_BY_PRICE_H_L":
             state.products.sort((a,b)=>{return b.price-a.price});
-            return {products : state.products};
+            return {products:state.products};
         default:
             return state;
     }

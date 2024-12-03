@@ -31,6 +31,18 @@ const Home = () => {
         dispatch({type:"SORT_BY_PRICE_H_L"})
     }
 
+    const handleByName = () => {
+        dispatch({type:"SORT_BY_NAME"});
+    }
+
+    const handleFeatured = async () => {
+            const resp  = await fetch('/api/products',{headers:{"Authorization":`Bearer ${user.token}`}});
+            const prods = await resp.json();
+            if (resp.ok) {
+                dispatch({type:"SET_PRODS",payload:prods});
+            }
+    }
+
     return (
         <div className="home_div">            
             <div className="filter_btns">
@@ -45,9 +57,8 @@ const Home = () => {
                 <div className='dropdown'>
                     <button className='dropbtn'>Sort</button>
                     <div className='dropdown-content'>
-                        <p>Featured</p>
-                        <p>By Name</p>
-                        <p>By Date</p>
+                        <p onClick={handleFeatured}>Featured</p>
+                        <p onClick={handleByName}>By Name</p>
                         <p onClick={handlePLtoH}>By Price : Low to High</p>
                         <p onClick={handlePHtoL}>By Price : High to Low</p>
                     </div>
