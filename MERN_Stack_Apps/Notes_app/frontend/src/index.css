@@ -163,3 +163,83 @@ p:focus, h4:focus{
   font-style: normal;
   font-size: xx-large;
 }
+
+#profile_pic{
+  display: none;
+  width:50px;
+  height: 50px;
+}
+
+.nav2_2cont p{
+  cursor: pointer;
+}
+
+.dropdown{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width:393px) {
+  .new_note{
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+  }
+  .navbar_comp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .nav1_2 a{
+    font-size: large;
+  }
+
+  .nav2_2cont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #full_email{
+    display: none;
+  }
+
+  /* Dropdown on hover */
+  .dropdown{
+    position: relative;
+    display: inline-block;
+  }
+  /* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right:5px;
+  background-color: #D1E9F6;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#profile_pic {
+  display: inline;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content button, .dropdown-content span {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+}

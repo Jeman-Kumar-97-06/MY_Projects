@@ -14,15 +14,19 @@ const Navbar = () =>{
                 <Link to='/'>Take - Notes</Link>
             </div>
             <div className="nav2_2">
-                {!user && (<div>
+                {!user && (<div className='nav2_2cont'>
                             <Link to='/login'>Login</Link>
                             <Link to='/signup'>Signup</Link>
                           </div>
                             )
                 }
-                {user && (<div>
-                            <span className="usr_email">{user.email}</span>
-                            <button onClick={handleLogout}>Logout</button>
+                
+                {user && (<div className='dropdown'>
+                            <span className="usr_email" id="full_email">{user.email}</span>
+                            <span id='profile_pic' className="dropbtn usr_email">{user.email}</span>
+                            <div className='nav2_2cont dropdown-content'>
+                                <p onClick={handleLogout} style={{width:"50px",borderRadius:"3px"}}>Logout</p>
+                            </div>
                           </div>)}
             </div>
         </div>
