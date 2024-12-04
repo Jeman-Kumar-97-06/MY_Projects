@@ -24,7 +24,6 @@ const requireAuth = require('../middleware/requireAuth');
 
 router.use(requireAuth);
 
-router.get('/my_uploads',getMyWalls)
 
 router.get('/',getWalls);
 

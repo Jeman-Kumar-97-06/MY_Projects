@@ -1,10 +1,12 @@
 import { useAuthContext } from "../hooks/useAuthContext";
 import {useLogout} from '../hooks/useLogout';
 import { Link } from "react-router-dom";
+import { useWallsContext } from "../hooks/useWallsContext";
 
 const Navbar = () => {
     const {logout} = useLogout();
     const {user}   = useAuthContext();
+    const {dispatch:dis}  = useWallsContext();
 
     const handleLogout = () => {
         logout();
@@ -23,7 +25,7 @@ const Navbar = () => {
             
             {user && (
                 <div className="nav_2">
-                    <Link to = '#'>{user.name}'s uploads</Link>
+                    <span>{user.name}</span>
                     <button class = 'logout_btn' onClick={handleLogout}>Logout</button>
                 </div>
             )}
