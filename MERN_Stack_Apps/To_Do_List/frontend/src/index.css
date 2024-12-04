@@ -116,6 +116,14 @@ body{
   padding:4px;
   cursor: pointer;
   margin:8px 8px 8px 0;
+  position: relative;
+  box-shadow: 2px 2px black;
+}
+
+.del_task_btn:active{
+  left:2px;
+  top:2px;
+  box-shadow: none;
 }
 
 .new_todo_list{
