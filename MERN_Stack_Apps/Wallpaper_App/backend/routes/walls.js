@@ -7,6 +7,7 @@ const {
     getWall,
     uploadWalls,
     downloadWalls,
+    getMyWalls
 }             = require('../controllers/wallControllers');
 
 //Recieving Requests to save a uploaded wallpaper:
@@ -22,6 +23,8 @@ const upload = multer({storage:storage});
 const requireAuth = require('../middleware/requireAuth');
 
 router.use(requireAuth);
+
+router.get('/my_uploads',getMyWalls)
 
 router.get('/',getWalls);
 

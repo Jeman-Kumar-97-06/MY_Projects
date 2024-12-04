@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const Wall     = require('../models/wallModel');
 
+// Get User Specific Walls :--
+const getMyWalls = async (req,res) => {
+    const user_id = req.user._id;
+    const walls   = await Wall.find({user_id}).sort({createdAt:-1})
+    res.status(200).json(walls);
+}
+
 //Send all the wallpapers to the client
 const getWalls = async (req,res) => {
     const all_walls = await Wall.find({});
@@ -59,4 +66,4 @@ const downloadWalls = async (req,res) => {
 	})
 }
 
-module.exports = {getWalls,getWall,uploadWalls,downloadWalls};
+module.exports = {getWalls,getWall,uploadWalls,downloadWalls,getMyWalls};
