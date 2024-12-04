@@ -34,8 +34,7 @@ const NewToDoList = ({fL}) => {
             <div className="input-submit">
                 <label className="tasklist-title">Title:</label>
                 <input type='text' onChange={e=>setTitle(e.target.value)} value={title}/>
-
-                <button type="submit" className="tasklist-title-submit">+</button>
+                <button type="submit" className="tasklist-title-submit"><span class="material-symbols-outlined">save</span></button>
             </div>
             
 

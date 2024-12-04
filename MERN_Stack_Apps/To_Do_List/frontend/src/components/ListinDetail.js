@@ -105,7 +105,7 @@ const ListinDetail = ({list}) => {
                 {error && <p>{error}</p>}
             </form>
 
-            <button onClick={handleDel} className="del_task_btn">Delete</button>
+            <button onClick={handleDel} className="del_task_btn"><span class="material-symbols-outlined">delete</span></button>
         </div>
     )
 }

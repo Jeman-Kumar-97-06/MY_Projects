@@ -26,6 +26,7 @@ const Home = () => {
         <div className='home_page'>
             <NewToDoList/>
             <div className='all_lists'>
+                {!lists && <div>Please wait. The server response is slow.😿</div>}
                 {lists && lists.map(l=>(
                     <ListinDetail key={l._id} list={l}/>
                 ))}
