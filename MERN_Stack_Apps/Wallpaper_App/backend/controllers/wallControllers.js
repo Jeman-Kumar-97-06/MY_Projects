@@ -60,4 +60,4 @@ const downloadWalls = async (req,res) => {
 	})
 }
 
-module.exports = {getWalls,getWall,uploadWalls,downloadWalls,getMyWalls};
+module.exports = {getWalls,getWall,uploadWalls,downloadWalls};

@@ -7,7 +7,6 @@ const {
     getWall,
     uploadWalls,
     downloadWalls,
-    getMyWalls
 }             = require('../controllers/wallControllers');
 
 //Recieving Requests to save a uploaded wallpaper:
