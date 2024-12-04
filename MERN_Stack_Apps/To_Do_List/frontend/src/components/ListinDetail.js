@@ -27,7 +27,6 @@ const ListinDetail = ({list}) => {
     //sends PATCH request and fetches updated data again.
     useEffect(()=>{
         const getupdatedList = async () => {
-            console.log("ran this")
             const updatedList = {list:listoftasks,dellis:listofdeltasks};
             const resp        = await fetch('/api/todolists/'+list._id,
                                             {

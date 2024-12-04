@@ -10,22 +10,34 @@ const Navbar = () => {
         await logout();
     }
 
+    // const toggleButton = document.getElementsByClassName('toggle-botton')[0];
+    // const navbarLinks  = document.getElementsByClassName('navbar-links')[0];
+    // toggleButton.addEventListener('click',()=>{
+    //   navbarLinks.classList.toggle('active');
+    //   console.log("Jeman")
+    // })
+
     return (
         <div className='topnav'>
-            <div className="home">
+            <div className="home brand-title">
                 <Link to='/'>To Do List</Link>
             </div>
-            <div className="second_nav">
-            {!user && (<div className="first">
-                            <Link to='/login'>Login</Link>
-                            <Link to='/signup'>Signup</Link>
-                          </div>
+            <a href='#' className="toggle-button" onClick={()=>{document.querySelector('.navbar-links').classList.toggle('active')}}>
+                <span className="bar"></span>
+                <span className='bar'></span>
+                <span className='bar'></span>
+            </a>
+            <div className="second_nav navbar-links">
+            {!user && (<ul className="first">
+                            <li><Link to='/login'>Login</Link></li>
+                            <li><Link to='/signup'>Signup</Link></li>
+                       </ul>
                             )
                 }
-                {user && (<div className="second">
-                            <span className="usr_email">{user.email}</span>
-                            <button onClick={handleLogout}>Logout</button>
-                          </div>)}
+                {user && (<ul className="second">
+                            <li><span className="usr_email">{user.email}</span></li>
+                            <li><span onClick={handleLogout}>Logout</span></li>
+                          </ul>)}
             </div>
             </div>
     )

@@ -9,7 +9,6 @@ const Home = () => {
 
     useEffect(()=>{
         const fetchLists = async () => {
-            console.log('ran this')
             const resp = await fetch('/api/todolists',{headers:{'Authorization':`Bearer ${user.token}`}});
             const json = await resp.json();
             if(resp.ok){
