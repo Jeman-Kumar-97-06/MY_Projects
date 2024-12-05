@@ -78,6 +78,7 @@ code {
 
 /* Each Wallpaper Styles */
 .wall_details {
+  margin-top: 50px;
   width : 220px;
   margin-right: 20px;
 }
@@ -89,4 +90,19 @@ code {
 #download_button {
   width: 100%;
   cursor: pointer;
+}
+
+@media only screen and (max-width:400px){
+  #upload_form{
+    width:200px;
+    margin-left:auto;
+    margin-right: auto;
+  }
+  #input_btn{
+    flex-direction: column;
+    height:60px;
+  }
+  #input_btn button{
+    width: 60px;
+  }
 }
