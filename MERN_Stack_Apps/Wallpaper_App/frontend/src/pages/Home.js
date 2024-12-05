@@ -22,6 +22,7 @@ const Home = () => {
 
     return (
         <div className="home_page">
+            {!walls && <div>Please wait. The server response is slow.😿</div>}
             {
                 walls && walls.map(wall=>(
                     wall && <WallDetails key={wall._id} wall={wall}/>
