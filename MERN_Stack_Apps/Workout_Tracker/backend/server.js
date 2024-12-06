@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const cors     = require('cors');
 const mongoose = require('mongoose');
 
 const express = require('express');
@@ -9,7 +9,7 @@ const app     = express();
 
 //middleware to receive request body as json and not as 'undefined':
 app.use(express.json());
-
+app.use(cors());
 //Import Routes for workouts
 const workoutRoutes = require('./routes/workouts');
 //Import Routes for users
