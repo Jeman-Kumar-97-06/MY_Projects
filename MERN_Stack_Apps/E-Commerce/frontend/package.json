@@ -2,7 +2,6 @@
   "proxy": "https://e-commerce-backend-9p74.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
-  "homepage":"https://Jeman-Kumar-97-06.github.io/MY_Projects/MERN_Stack_Apps/E-Commerce/frontend",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -15,8 +14,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
