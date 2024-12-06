@@ -145,3 +145,23 @@ nav button {
   font-size:1em;
   margin-left:15px;
 }
+
+@media only screen and (max-width:400px){
+  header{
+    height:200px;
+  }
+  .container{
+    flex-direction: column;
+  }
+  .container div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height:90px;
+  }
+  .home{
+    display: flex;
+    flex-direction: column;
+  }
+}
