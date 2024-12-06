@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MERN_Stack_Apps/E-Commerce/frontend/static/css/main.0889d4ad.css",
+    "main.js": "/MERN_Stack_Apps/E-Commerce/frontend/static/js/main.51439389.js",
+    "index.html": "/MERN_Stack_Apps/E-Commerce/frontend/index.html",
+    "main.0889d4ad.css.map": "/MERN_Stack_Apps/E-Commerce/frontend/static/css/main.0889d4ad.css.map",
+    "main.51439389.js.map": "/MERN_Stack_Apps/E-Commerce/frontend/static/js/main.51439389.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0889d4ad.css",
+    "static/js/main.51439389.js"
+  ]
+}
