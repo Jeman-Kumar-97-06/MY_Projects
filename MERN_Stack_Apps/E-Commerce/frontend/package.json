@@ -2,7 +2,7 @@
   "proxy": "https://e-commerce-backend-9p74.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
-  "homepage":"https://Jeman-Kumar-97-06.github.io/MERN_Stack_Apps/E-Commerce/frontend",
+  "homepage":"https://Jeman-Kumar-97-06.github.io/frontend",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
