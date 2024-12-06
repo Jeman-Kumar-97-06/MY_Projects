@@ -12,8 +12,6 @@ const userSchema = new Schema({
 //Static Login Method:
 userSchema.statics.login = async function(email,password){
     if (!email || !password){
-        console.log(email)
-        console.log(password)
         throw Error("All fields must be filled!");
     }
     const user = await this.findOne({email});
