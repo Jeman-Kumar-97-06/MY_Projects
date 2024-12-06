@@ -444,4 +444,13 @@ tr{
     font-size: small;
     padding: 1px;
   }
+  .all_prods{
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width:330px) {
+  .card{
+    width:140px;
+  }
 }
