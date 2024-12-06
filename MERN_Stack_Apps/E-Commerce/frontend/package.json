@@ -2,7 +2,7 @@
   "proxy": "https://e-commerce-backend-9p74.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
-  "homepage":"https://Jeman-Kumar-97-06.github.io/frontend",
+  "homepage":"https://Jeman-Kumar-97-06.github.io/MERN_Stack_Apps/E-Commerce/frontend",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy":"git subtree push --prefix dist origin gh-pages",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
