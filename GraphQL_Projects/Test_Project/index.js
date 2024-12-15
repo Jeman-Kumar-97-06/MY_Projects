@@ -1,10 +1,14 @@
 import { ApolloServer } from "@apollo/server";
 import {startStandaloneServer} from '@apollo/server/standalone';
+import { typeDefsz } from "./schema";
+
+const resolvers = {
+    
+}
 
 //Server setup :
 const server = new ApolloServer({
-    //typeDefs:
-    
+    typeDefs,    
     //Resolvers :
 });
 
