@@ -21,3 +21,5 @@ let reviews = [
     {id:'6',rating:7,content:'Lorem Ipsum',author_id:'1',game_id:'2'},
     {id:'7',rating:10,content:'Lorem Ipsum',author_id:'3',game_id:'1'}
 ]
+
+export default {games,authors,reviews};
