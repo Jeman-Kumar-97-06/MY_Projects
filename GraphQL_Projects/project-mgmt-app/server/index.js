@@ -9,4 +9,6 @@ app.use('/graphql',graphqlHTTP({
     schema,
     graphiql:process.env.NODE_ENV === 'development'
 }))
-const cors    = require('cors');
+
+
+app.listen(port,console.log("Listening at 5000"))
