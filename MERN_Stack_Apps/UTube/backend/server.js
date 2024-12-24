@@ -10,7 +10,8 @@ app.use(cors());
 //Used to access req.body as JSON object.
 app.use(express.json());
 
+//Middle
 app.use('/api/videos',videoRoutes);
-app.use('/api/users',userRoutes)
+app.use('/api/users',userRoutes);
 
 mongoose.connect(process.env.MONGOURL).then(()=>{app.listen(process.env.PORT,()=>{console.log("Request Listening At a PORT")})}).catch(err=>{console.log(err)});
