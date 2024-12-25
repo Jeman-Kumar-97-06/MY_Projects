@@ -49,4 +49,4 @@ const deleteVideo = async (req,res) => {
     res.status(200).json(vid_to_del);
 }
 
-module.exports = {getVideos,getVideo,uploadVideo};
+module.exports = {getVideos,getVideo,uploadVideo,deleteVideo};
