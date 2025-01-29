@@ -29,3 +29,11 @@ router.post("/upload", upload.single("video"), async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+//Get Videos : 
+router.get("/", async (req, res) => {
+    const videos = await Video.find().populate("userId", "username");
+    res.json(videos);
+});
+
+module.exports = router;
