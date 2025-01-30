@@ -4,9 +4,9 @@ const {v2:cloudinary} = require('cloudinary');
 const Video = require('../models/Video');
 
 cloudinary.config({
-    cloud_name:
-    api_key:
-    api_secret:
+    cloud_name: process.env.CLOUDNAME,
+    api_key: process.env.APIKEY,
+    api_secret: process.env.API_SEC
 });
 
 const router = express.Router();
