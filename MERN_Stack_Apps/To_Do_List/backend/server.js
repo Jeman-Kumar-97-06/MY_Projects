@@ -16,4 +16,6 @@ app.use(exp.json());
 app.use('/api/todolists',todolistRoutes);
 app.use('/api/users',userRoutes);
 
-mongoose.connect(process.env.MONGOURL).then(()=>{app.listen(process.env.PORT,()=>{console.log(`Listening at ${process.env.PORT}`)})}).catch(err=>{console.log(err)});
+mongoose.connect(process.env.MONGOURL).then(()=>{
+    app.listen(process.env.PORT,()=>{console.log(`Listening at ${process.env.PORT}`)})
+}).catch(err=>{console.log(err)});

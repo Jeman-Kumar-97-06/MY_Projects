@@ -12,7 +12,9 @@ app.use(cors());
 
 app.use('/uploads',express.static('uploads'));
 
+//Video Routes
 app.use('/api/videos',videoRoutes);
+//User Routes
 app.use('/api/users',userRoutes);
 
 mongoose.connect(process.env.MONGOURL).then(()=>{
