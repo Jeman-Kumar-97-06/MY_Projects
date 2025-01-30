@@ -1,7 +1,9 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const videoRoutes = require('./routes/videos');
+const userRoutes  = require('./routes/auth');
 
 const app = express();
 
@@ -10,6 +12,9 @@ app.use(cors());
 
 app.use('/uploads',express.static('uploads'));
 
-mongoose.connect(process.env.MONGOURL,{useNewUrlParse:true,useUnifiedTopology:true}).then(()=>{
-    console.log("MongoDB connected!")
+app.use('/api/videos',videoRoutes);
+app.use('/api/users',userRoutes);
+
+mongoose.connect(process.env.MONGOURL).then(()=>{
+    app.listen(process.env.PORT,()=>{console.log(`Listening at ${process.env.PORT}`)})
 }).catch(err=>console.log(err))
