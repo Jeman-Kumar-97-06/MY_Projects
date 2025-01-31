@@ -9,7 +9,7 @@ cloudinary.config({
     api_secret:process.env.API_SEC
 });
 
-const router = expresss.Router();
+const router = express.Router();
 //Store in temporary memory before uploading to 'cloudinary'
 const storage = multer.memoryStorage();
 
@@ -37,3 +37,5 @@ router.get('/',async (req,res) => {
     const videos = await Video.find().populate('userId','username');
     res.json(videos);
 });
+
+module.exports = router;
