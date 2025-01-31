@@ -5,7 +5,6 @@ const cors     = require('cors');
 
 const wallRts  = require('./routes/walls');
 const userRts  = require('./routes/users');
-const { db } = require('./models/wallModel');
 
 const app      = express();
 
