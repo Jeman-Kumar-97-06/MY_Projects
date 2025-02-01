@@ -12,7 +12,7 @@ function Upload() {
         formData.append("title", title);
         formData.append("description", description);
 
-        await axios.post("http://localhost:5000/api/videos/upload", formData, {
+        await axios.post("http://localhost:4000/api/videos/upload", formData, {
             headers: { "Content-Type": "multipart/form-data" },
         });
 
