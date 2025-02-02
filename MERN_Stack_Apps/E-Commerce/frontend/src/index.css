@@ -21,7 +21,7 @@ footer{
   position: fixed;
   bottom: 0;
   width:100%;
-  background-color: #C96868;
+  background-color: #577BC1;
 }
 
 code {
@@ -31,7 +31,7 @@ code {
 
 /* Navbar */
 .nav_div{
-  background-color: #FADFA1;
+  background-color: #FFEB00;
   padding:20px;
   width:100vw;
   position: fixed;
@@ -74,7 +74,8 @@ code {
 }
 
 .dropbtn {
-  background-color: #C96868;
+  background-color: #000957;
+  color:white;
   font-family: "Podkova", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -119,7 +120,6 @@ code {
   color: black;
   padding: 10px;
   text-decoration: none;
-  
   display: block;
   cursor: pointer;
 }
@@ -134,8 +134,8 @@ code {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #7eacb5;
-  color:black;
+  background-color: #344CB7;
+  color:white;
 }
 
 /* Home page  */
@@ -187,7 +187,7 @@ code {
 }
 
 .prod_dets{
-  background-color: #7EACB5;
+  background-color: #FFEB00;
   height:200px;
   display: flex;
   flex-direction: column;
@@ -197,7 +197,8 @@ code {
 .prod_dets button{
   cursor: pointer;
   padding:5px;
-  background-color: #C96868;
+  background-color: #000957;
+  color:white;
   border-style: solid;
   border-color:black;
   border-width: 0.5px;

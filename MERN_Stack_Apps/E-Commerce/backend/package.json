@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,7 @@
     "loadash": "^1.0.0",
     "lodash": "^4.17.21",
     "mongoose": "^8.7.0",
-    "nodemon": "^3.1.7",
+    "nodemon": "^3.1.9",
     "validator": "^13.12.0"
   }
 }
