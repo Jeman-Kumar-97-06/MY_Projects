@@ -1,0 +1,456 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Special+Elite&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=UnifrakturCook:wght@700&display=swap');
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&family=UnifrakturCook:wght@700&display=swap');
+body {
+  /* background-image: url("../public/istockphoto-1421303925-612x612.jpg"); */
+  background-attachment: fixed;
+  background-repeat: repeat;
+  margin: 0;
+  font-family: "Podkova", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F5F5;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  background-color: #C96868;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Navbar */
+.nav_div{
+  background-color: #FADFA1;
+  padding:20px;
+  width:100vw;
+  position: fixed;
+  top:0;
+  z-index: 99 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  box-shadow: 7.5px 0px 5px black; 
+}
+
+.nav_div a{
+  text-decoration: none;
+  cursor: pointer;
+  color:#070707
+}
+
+.remain_nav {
+  margin-right:40px;
+  width : auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.remain_nav a, .remain_nav button {
+  margin-left: 25px;
+}
+
+/* Category Selection */
+
+.filter_btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.dropbtn {
+  background-color: #C96868;
+  font-family: "Podkova", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+  position:relative;
+  box-shadow: 1px 1px 10px black;
+}
+
+.dropbtn:hover{
+  left:1px;
+  top:1px;
+  box-shadow: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top:80px;
+  margin-bottom:50px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content p {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  
+  display: block;
+  cursor: pointer;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content p:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #7eacb5;
+  color:black;
+}
+
+/* Home page  */
+.home_div{
+  margin-top:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.all_prods{
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+/* Add to cart form */
+.add_cart_form{
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+.add_cart_form input{
+  width: 50px;
+  margin-bottom: 5px;
+}
+
+/* Each Product Card Styles */
+.card{
+  width:230px;
+  height: 470px;
+  margin-left:70px;
+  margin-bottom: 50px;
+  border-style: solid;
+  border-color: gray;
+  border-width: .5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.prod_image{
+  height:270px;
+  background-color: #FFF4EA;
+  display: flex;
+  justify-content: center;
+}
+
+.prod_dets{
+  background-color: #7EACB5;
+  height:200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.prod_dets button{
+  cursor: pointer;
+  padding:5px;
+  background-color: #C96868;
+  border-style: solid;
+  border-color:black;
+  border-width: 0.5px;
+  box-shadow: 5px 5px 10px black;
+  position: relative;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+.prod_dets button:active{
+  left:3px;
+  top:3px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.price{
+  margin-left:10px;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.prod_dets h4{
+  margin-left:10px;
+  margin-top:10px;
+  margin-bottom: 10px;
+  /* color:#FADFA1; */
+  font-weight:700;
+}
+
+.prod_author{
+  margin-left:10px;
+}
+
+.card img {
+  width:auto
+}
+
+/* Login styles */
+.login_div{
+  margin-top:100px;
+  margin-left:auto;
+  margin-right:auto;
+  background-color: #FADFA1;
+  border-radius: 10px;
+  padding:10px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.cart_page{
+  width:fit-content;
+  margin-top:100px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: "Podkova", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+td, th {
+  border: 1px solid #070707;
+  text-align: left;
+  padding: 8px;
+}
+
+table input{
+  width:30px;
+}
+
+table button{
+  padding:2px;
+}
+
+th{
+  background-color: #7EACB5;
+}
+
+tr{
+  background-color: #FADFA1;
+}
+
+.update_cart_btn{
+  margin-top: 10px;
+  margin-right: 10px;
+  font-family: "Podkova", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Login styles */
+.login_div{
+  width:400px;
+  display: flex;
+  flex-direction: column;
+  padding:15px;
+}
+
+.login_div input{
+  margin-bottom: 20px;
+}
+
+.login_div label{
+  margin-bottom:10px;
+}
+
+.login_div button{
+  width:60px;
+}
+
+/* Signup Styles */
+.signup_div{
+  width:400px;
+  display: flex;
+  flex-direction: column;
+  padding:15px;
+  border-radius: 10px;
+  padding:10px;
+  box-shadow: 5px 5px 5px gray;
+  background-color: #FADFA1;
+}
+
+.signup_div input{
+  margin-bottom: 20px;
+}
+
+.signup_div label{
+  margin-bottom:10px;
+}
+
+.signup_div button{
+  width:60px;
+}
+
+.signup_div{
+  margin-top:100px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.book_store{
+  font-family: "UnifrakturCook", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size:xx-large;
+  color:black;
+}
+
+.payment{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  background-color: #FADFA1;
+  padding:20px;
+}
+
+.payment label, .payment button{
+  margin-top: 10px;
+}
+
+.payment button {
+  width : 160px;
+  padding: 5px;
+}
+
+/* About Page: */
+.about_us{
+  margin-left:20px;
+  margin-top : 100px;
+}
+
+.contact{
+  margin-top:40px;
+  
+}
+
+.wait_div{
+  margin-left:70px;
+}
+
+@media only screen and (max-width:393px) {
+  .book_store{
+    font-size: x-large;
+    font-weight: 200;
+  }
+  .remain_nav {
+    display : flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .remain_nav a {
+    text-align: right;
+  }
+  .filter_btns {
+    margin-top: 50px;
+  }
+  .cart_page{
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  table{
+    margin-left: auto;
+    margin-right:auto;
+  }
+  .login_div{
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card{
+    width:180px;
+    margin-left: 10px;
+  }
+  .prod_image img{
+    width:90px;
+    height: 160px ;
+  }
+  .card{
+    height:300px;
+    font-size: small;
+  }
+  .card button{
+    font-size: xx-small;
+  }
+  .price{
+    margin-top:5px;
+    margin-bottom: 5px;
+  }
+  .add_cart_form{
+    display: flex;
+    flex-direction: row;
+    width:98%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .add_cart_form input{
+    font-size: small;
+    padding: 1px;
+  }
+  .all_prods{
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width:330px) {
+  .card{
+    width:140px;
+  }
+}

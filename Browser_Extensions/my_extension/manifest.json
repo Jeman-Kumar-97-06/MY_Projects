@@ -1,0 +1,11 @@
+{
+    "name":"Screen Time Tracker",
+    "version":"1.0.0",
+    "description":"Screen time of top 3 websites you used!",
+    "manifest_version":3,
+    "author":"Jeman",
+    "action":{
+        "default_popup":"index.html",
+        "default_title":"Latest Screen Time Report"
+    }
+}
