@@ -31,7 +31,7 @@ code {
 
 /* Navbar */
 .nav_div{
-  background-color: #FFEB00;
+  background-color: #ECE852;
   padding:20px;
   width:100vw;
   position: fixed;
@@ -74,8 +74,7 @@ code {
 }
 
 .dropbtn {
-  background-color: #000957;
-  color:white;
+  background-color: #FB4141;
   font-family: "Podkova", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -134,8 +133,7 @@ code {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #344CB7;
-  color:white;
+  background-color: #D84040;
 }
 
 /* Home page  */
@@ -187,7 +185,7 @@ code {
 }
 
 .prod_dets{
-  background-color: #FFEB00;
+  background-color: #5CB338;
   height:200px;
   display: flex;
   flex-direction: column;
@@ -197,8 +195,7 @@ code {
 .prod_dets button{
   cursor: pointer;
   padding:5px;
-  background-color: #000957;
-  color:white;
+  background-color: #FB4141;
   border-style: solid;
   border-color:black;
   border-width: 0.5px;
@@ -242,7 +239,7 @@ code {
   margin-top:100px;
   margin-left:auto;
   margin-right:auto;
-  background-color: #FADFA1;
+  background-color: #5CB338;
   border-radius: 10px;
   padding:10px;
   box-shadow: 5px 5px 5px gray;
@@ -280,11 +277,11 @@ table button{
 }
 
 th{
-  background-color: #7EACB5;
+  background-color: #5CB338;
 }
 
 tr{
-  background-color: #FADFA1;
+  background-color: #ECE852;
 }
 
 .update_cart_btn{
@@ -357,7 +354,7 @@ tr{
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-  background-color: #FADFA1;
+  background-color: #ECE852;
   padding:20px;
 }
 
@@ -366,6 +363,7 @@ tr{
 }
 
 .payment button {
+  background-color: #5CB338;
   width : 160px;
   padding: 5px;
 }
@@ -454,4 +452,19 @@ tr{
   .card{
     width:140px;
   }
+}
+
+button{
+  box-shadow: 5px 5px 10px black;
+  position: relative;
+  border-style: solid;
+  border-color:black;
+  border-width: 0.5px;
+}
+
+button:active{
+  left:3px;
+  top:3px;
+  box-shadow: none;
+  cursor: pointer;
 }
