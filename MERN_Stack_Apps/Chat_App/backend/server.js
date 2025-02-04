@@ -20,6 +20,9 @@ io.on("connection",(socket)=>{
     })
 })
 
+app.use("/api/users",usrRt);
+app.use('/api/chats',charRt);
+
 mong.connect(process.env.MONGOURL).then(
     () => {
         app.listen(process.env.PORT,()=>{
