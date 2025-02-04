@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import React, {useState, useEffect} from 'react';
+import io from 'socket.io-client';
+import axios from 'axios';
+
+const socket = io('http://localhost:4000');
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [msgs, setMsgs] = useState([]);
+  const [msg,setMsg]  = useState("");
+  const [usrName, setUsrname] = useState("User"+Math.floor(Math.random() * 100));
+
+  useEffect(()=>{
+    axios.get('http://localhost:4000/api/chat').then(res=>setMsgs(res.data));
+    socket.on('receiveMessage',(newMessage)=>{
+      setMsgs(prev=>[...prev,newMessage]);
+    })
+  },[])
+
+  const setMessage = () => {
+    if (message.trim()) {
+
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+     <div style={{ textAlign: "center", padding: 20 }}>
+            <h2>Chat App</h2>
+            <div style={{ border: "1px solid black", height: "300px", overflowY: "auto" }}>
+                {messages.map((msg, i) => (
+                    <div key={i} style={{ textAlign: msg.sender === username ? "right" : "left" }}>
+                        <b>{msg.sender}: </b>{msg.message}
+                    </div>
+                ))}
+            </div>
+            <input value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message" />
+            <button onClick={sendMessage}>Send</button>
+        </div>
   )
 }
 
