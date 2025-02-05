@@ -17,9 +17,12 @@ function App() {
     })
   },[])
 
-  const setMessage = () => {
+  const sendMessage = () => {
     if (message.trim()) {
-
+      const newMessage = {sender : username, message};
+      socket.emit('sendMessage',newMessage);
+      axios.post('http://localhost:4000/api/chat',newMessage);
+      setMsg('');
     }
   }
 
