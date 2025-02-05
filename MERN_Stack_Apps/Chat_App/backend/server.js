@@ -11,7 +11,11 @@ const server     = http.createServer(app);
 const io         = new Server(server, {cors: {origin:"*"}});
 
 app.use(exp.json());
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173", // React frontend URL
+    methods: "GET, POST, PUT, DELETE",
+    credentials: true
+}));
 
 
 io.on("connection",(socket)=>{
