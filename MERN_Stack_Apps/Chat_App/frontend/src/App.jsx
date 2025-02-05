@@ -1,45 +1,24 @@
-import './App.css'
-import React, {useState, useEffect} from 'react';
-import io from 'socket.io-client';
-import axios from 'axios';
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Navbar from './components/Navbar';
+import About from './pages/About'
 
-const socket = io('http://localhost:4000');
-
-function App() {
-  const [msgs, setMsgs] = useState([]);
-  const [msg,setMsg]  = useState("");
-  const [usrName, setUsrname] = useState("User"+Math.floor(Math.random() * 100));
-
-  useEffect(()=>{
-    axios.get('http://localhost:4000/api/chat').then(res=>setMsgs(res.data));
-    socket.on('receiveMessage',(newMessage)=>{
-      setMsgs(prev=>[...prev,newMessage]);
-    })
-  },[])
-
-  const sendMessage = () => {
-    if (message.trim()) {
-      const newMessage = {sender : username, message};
-      socket.emit('sendMessage',newMessage);
-      axios.post('http://localhost:4000/api/chat',newMessage);
-      setMsg('');
-    }
-  }
-
+const App = () => {
   return (
-     <div style={{ textAlign: "center", padding: 20 }}>
-            <h2>Chat App</h2>
-            <div style={{ border: "1px solid black", height: "300px", overflowY: "auto" }}>
-                {messages.map((msg, i) => (
-                    <div key={i} style={{ textAlign: msg.sender === username ? "right" : "left" }}>
-                        <b>{msg.sender}: </b>{msg.message}
-                    </div>
-                ))}
-            </div>
-            <input value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message" />
-            <button onClick={sendMessage}>Send</button>
-        </div>
+    <>
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route exact path = '/' element={<Home/>}/>
+          <Route exact path = '/login' element={<Login/>}/>
+          <Route exact path = '/signup' element={<Signup/>}/>
+          <Route exact path = '/about' elment={<About/>}/>
+        </Routes>
+      </BrowserRouter>
+    </>
   )
-}
+};
 
-export default App
+export default App;
