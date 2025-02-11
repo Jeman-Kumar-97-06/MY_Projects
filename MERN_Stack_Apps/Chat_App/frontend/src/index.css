@@ -1,107 +1,113 @@
 @import "tailwindcss";
+
 body {
   margin: 0;
   height:100vh;
   width:100vw;
 }
+/* App Component : */
+.app_div {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:100vh;
+  width:100vw;
+}
 
+/* Nabar Component : */
 
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 350px;
-  height: 100vh;
-  position: absolute;
+.navbar_comp {
+  width: 20%;
+  min-width: 200px;
   background-color: #f1f1f1;
   height: 100%;
   overflow: auto;
 }
 
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 10px;
-  text-decoration: none;
+/* Each User : */
+.user_each {
+  padding : 15px;
+  width : 450px;
+  cursor: pointer;
 }
 
-li a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.navbar_comp {
-
-  width: 350px;
-  height: 100vh;
-}
-
-.users_on_nav div a:hover:not(.active) {
+.user_each:hover:not(.active) {
   padding: 8px 10px;
   background-color: rgb(55,65,81);
   color: white;
 }
 
-.li_w_marg {
-  text-align: center; 
-  img {
-    margin:5px;
-  }
+.chat_main{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
 }
+
 
 .active {
   background-color: rgb(37,99,235);
 }
 
+.msg_inpt_form {
+  position: fixed;
+  bottom : 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 140px;
+}
+
+.msg_inpt {
+  width: 300px;
+}
 @media only screen and (max-width : 800px) {
-  ul {
-    /* list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    bottom: 0;
-    width: 100%; */
-    display:flex;
-    flex-direction: row;
-    height:50px;
-    width: 100%;
-    overflow: hidden;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-  }
-  
-  .search_form_nav {
-    height: 50px
-  }
 
-  li {
-    float: left;
-  }
-  
-  li a {
+  /* App Component : */
+  .app_div {
     display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover:not(.active) {
-    background-color:  #324770;
+    height:100vh;
   }
 
-  .li_w_marg {
-    text-align: center; 
-    img {
-      margin:0px;
-    }
+  .navbar_comp {
+    margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color : white;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
   }
+  .users_on_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 400px;
+  }
+
+.user_each {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
   .user_name_nav {
     display: none;
   }
+
+  .msg_inpt_form {
+    min-width: 100%;
+    height: 140px;
+  }
+
 }

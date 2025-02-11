@@ -16,35 +16,25 @@ const Navbar = () => {
           </form> 
       </div>
       <div className="users_on_nav">
-        <div>
-            <a href="#">
+        <div className='user_each'>
               <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
               <span className="user_name_nav"> User1</span>
-            </a>
         </div>
-        <div>
-            <a href="#">
+        <div className='user_each'>
               <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
               <span className="user_name_nav"> User1</span>
-            </a>
         </div>
-        <div>
-            <a href="#">
+        <div className='user_each'>
               <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
               <span className="user_name_nav"> User1</span>
-            </a>
         </div>
-        <div>
-            <a href="#">
+        <div className='user_each'>
               <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
               <span className="user_name_nav"> User1</span>
-            </a>
         </div>
-        <div>
-            <a href="#">
+        <div className='user_each'>
               <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
               <span className="user_name_nav"> User1</span>
-            </a>
         </div>
       </div>
       
