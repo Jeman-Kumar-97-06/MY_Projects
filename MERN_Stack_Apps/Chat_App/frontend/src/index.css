@@ -1,1 +1,107 @@
 @import "tailwindcss";
+body {
+  margin: 0;
+  height:100vh;
+  width:100vw;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 350px;
+  height: 100vh;
+  position: absolute;
+  background-color: #f1f1f1;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.navbar_comp {
+
+  width: 350px;
+  height: 100vh;
+}
+
+.users_on_nav div a:hover:not(.active) {
+  padding: 8px 10px;
+  background-color: rgb(55,65,81);
+  color: white;
+}
+
+.li_w_marg {
+  text-align: center; 
+  img {
+    margin:5px;
+  }
+}
+
+.active {
+  background-color: rgb(37,99,235);
+}
+
+@media only screen and (max-width : 800px) {
+  ul {
+    /* list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%; */
+    display:flex;
+    flex-direction: row;
+    height:50px;
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+  }
+  
+  .search_form_nav {
+    height: 50px
+  }
+
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color:  #324770;
+  }
+
+  .li_w_marg {
+    text-align: center; 
+    img {
+      margin:0px;
+    }
+  }
+
+  .user_name_nav {
+    display: none;
+  }
+}
