@@ -40,7 +40,7 @@ const Navbar = () => {
       
       <div className="logout_on_nav">
           <a href="#">
-            <span class="material-symbols-outlined">Logout</span>
+            <span class="material-symbols-outlined">logout</span>
           </a>
       </div>
     </div>
