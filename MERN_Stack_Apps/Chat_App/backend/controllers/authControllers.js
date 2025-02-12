@@ -12,9 +12,15 @@ const createToken = (id,res) => {
 };
 
 const signupUser = async (req,res) => {
-   const {fullName,username,password,gender} = req.body;
+   
+   const {fullName,username,password,confirmPassword,gender} = req.body;
    try {
+        if (password !== confirmPassword) {
+           return res.status(404).json({error:"Passwords don't match!"})
+        }
+        console.log("Ran cock sucker")
         const user = await User.signup(fullName, username, password, gender);
+        console.log(user)
         const token = createToken(user._id,res);
         //If all goes well this is what browser will receive : 
         res.status(200).json({user,token});

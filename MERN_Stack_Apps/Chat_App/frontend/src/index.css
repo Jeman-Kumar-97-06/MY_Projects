@@ -83,6 +83,11 @@ padding : 10px;
 .msg_inpt {
   width: 300px;
 }
+
+.login_form, .signup_form{
+  width:100vw;
+}
+
 @media only screen and (max-width : 800px) {
 
   /* App Component : */
