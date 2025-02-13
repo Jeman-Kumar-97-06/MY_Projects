@@ -18,9 +18,7 @@ const signupUser = async (req,res) => {
         if (password !== confirmPassword) {
            return res.status(404).json({error:"Passwords don't match!"})
         }
-        console.log("Ran cock sucker")
         const user = await User.signup(fullName, username, password, gender);
-        console.log(user)
         const token = createToken(user._id,res);
         //If all goes well this is what browser will receive : 
         res.status(200).json({user,token});
@@ -31,6 +29,7 @@ const signupUser = async (req,res) => {
 
 const loginUser = async (req,res) => {
     const {username,password} = req.body;
+    console.log(req.body)
     try {
         const user = await User.login(username,password);
         const token = createToken(user._id,res);
@@ -41,15 +40,6 @@ const loginUser = async (req,res) => {
     }
 };
 
-const logoutUser = async (req,res) => {
-    try {
-        res.cookie("jwt","",{maxAge: 0});
-        res.status(200).json({manage:"Logged out successfully!"});
-    } catch (error) {
-        console.log("Error ",error.message);
-        res.status(500).json({error:"Internal Server Error!"});
-    }
-};
 
 
-module.exports = {loginUser, logoutUser, signupUser}
+module.exports = {loginUser, signupUser}

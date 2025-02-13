@@ -48,6 +48,7 @@ const Signup = () => {
                             </p>
                         </form>
                         {error ? <div>{error}</div> : "success"}
+                        {loading ? <div>Please wait the server is slow 🥹</div> : <div></div>}
                     </div>
                 </div>
             </div>

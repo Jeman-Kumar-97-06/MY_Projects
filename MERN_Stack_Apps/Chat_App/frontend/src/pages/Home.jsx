@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import Messages from "../components/Messages";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
     const noChatSelected = true;
+    const {user} = useContext(AuthContext);
+
     return (
         <div style={{marginLeft:"10px",marginTop:"50px",marginRight:"20px",padding:"1px 16px",height:"800px"}} className="chat_main">     
             { noChatSelected ? (
@@ -9,7 +13,7 @@ const Home = () => {
             )
               :  (<>
             <div>
-                <h3>To : Jeman</h3>
+                <h3>To : {user.username}</h3>
             </div>
             
             <div className="all_msgs">

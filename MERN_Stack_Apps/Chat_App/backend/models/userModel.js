@@ -30,7 +30,6 @@ userSchema.statics.signup = async function (fullName,username,password,gender) {
     const boyPpic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
     const girlPpic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
     const user = await this.create({fullName,username,password:hash,gender,profilePic:gender=='male' ? boyPpic : girlPpic });
-    console.log(user)
     return user;
 };
 

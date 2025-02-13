@@ -1,4 +1,13 @@
+import { useContext } from "react";
+import { useLogout } from "../hooks/useLogout";
+import { AuthContext } from "../contexts/AuthContext";
+
 const Navbar = () => {
+  const {logout} = useLogout();
+  const {user}   = useContext(AuthContext);
+  const handleLogout = () => {
+    logout();
+  }
   return (
     <div className='navbar_comp'>
       <div className="searchbar_on_nav">
@@ -38,7 +47,7 @@ const Navbar = () => {
         </div>
       </div>
       
-      <div className="logout_on_nav">
+      <div className="logout_on_nav" onClick={handleLogout}>
           <a href="#">
             <span class="material-symbols-outlined">logout</span>
           </a>
