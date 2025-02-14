@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { useLogout } from "../hooks/useLogout";
 import { AuthContext } from "../contexts/AuthContext";
+import useConversation from "../zustand/useConversation";
+import useGetConversation from "../hooks/useGetConversation";
 
 const Navbar = () => {
   const {logout} = useLogout();
@@ -8,6 +10,8 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
   }
+  const {loading,convos} = useGetConversation();
+  const {selectedConversation,setSelectedConversation} = useConversation()
   return (
     <div className='navbar_comp'>
       <div className="searchbar_on_nav">
@@ -25,26 +29,18 @@ const Navbar = () => {
           </form> 
       </div>
       <div className="users_on_nav">
-        <div className='user_each'>
-              <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
-              <span className="user_name_nav"> User1</span>
-        </div>
-        <div className='user_each'>
-              <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
-              <span className="user_name_nav"> User1</span>
-        </div>
-        <div className='user_each'>
-              <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
-              <span className="user_name_nav"> User1</span>
-        </div>
-        <div className='user_each'>
-              <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
-              <span className="user_name_nav"> User1</span>
-        </div>
-        <div className='user_each'>
-              <img class="inline-block size-8 rounded-full ring-2 ring-white" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfTzRiDc-HYxu6l5_jZpSqkOsctxH-oMesA&s'/>
-              <span className="user_name_nav"> User1</span>
-        </div>
+        {
+          
+          convos.map((c)=>{
+            const isSelected = selectedConversation?._id == c._id;
+            return (
+              <div className={`user_each ${isSelected ? "bg-blue-700" : ""}`} onClick={()=>setSelectedConversation(c)} key={c._id} >
+              <img class="inline-block size-8 rounded-full ring-2 ring-white" src={c.profilePic}/>
+              <span className="user_name_nav"> {c.fullName}  </span>
+            </div>
+            )
+            })
+        }
       </div>
       
       <div className="logout_on_nav" onClick={handleLogout}>

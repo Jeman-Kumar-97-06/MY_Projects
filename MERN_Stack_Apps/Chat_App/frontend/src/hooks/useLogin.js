@@ -20,7 +20,6 @@ export const useLogin = () => {
         if (response.ok) {
             localStorage.setItem('chat-user',JSON.stringify(json));
             dispatch({type:"LOGIN",payload:json})
-            console.log(json)
             setIsloading(false);
         }
     }
