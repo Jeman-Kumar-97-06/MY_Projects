@@ -35,9 +35,9 @@ const Navbar = () => {
             const isSelected = selectedConversation?._id == c._id;
             return (
               <div className={`user_each ${isSelected ? "bg-blue-700" : ""}`} onClick={()=>setSelectedConversation(c)} key={c._id} >
-              <img class="inline-block size-8 rounded-full ring-2 ring-white" src={c.profilePic}/>
-              <span className="user_name_nav"> {c.fullName}  </span>
-            </div>
+                <img class="inline-block size-8 rounded-full ring-2 ring-white" src={c.profilePic}/>
+                <span className="user_name_nav"> {c.fullName}  </span>
+              </div>
             )
             })
         }
