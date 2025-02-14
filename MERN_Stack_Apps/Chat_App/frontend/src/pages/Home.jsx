@@ -3,9 +3,11 @@ import Messages from "../components/Messages";
 import { AuthContext } from "../contexts/AuthContext";
 import useConversation from "../zustand/useConversation";
 import useSendMessage from "../hooks/useSendMessage";
+import useGetMessages from "../hooks/useGetMessages";
 
 const Home = () => {
     const {selectedConversation,setSelectedConversation} = useConversation();
+    const {messages,isloading} = useGetMessages();
     const {user} = useContext(AuthContext);
     const [msg,setMsg] = useState("");
     const {sendMessage,loading} = useSendMessage();
