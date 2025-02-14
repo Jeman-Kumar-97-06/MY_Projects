@@ -7,7 +7,7 @@ import useGetMessages from "../hooks/useGetMessages";
 
 const Home = () => {
     const {selectedConversation,setSelectedConversation} = useConversation();
-    const {messages,isloading} = useGetMessages();
+    //const {messages,isloading} = useGetMessages();
     const {user} = useContext(AuthContext);
     const [msg,setMsg] = useState("");
     const {sendMessage,loading} = useSendMessage();
