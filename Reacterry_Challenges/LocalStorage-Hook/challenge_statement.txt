@@ -1,12 +1,7 @@
-You need to create a custom hook called useLocalStorage(key, initialValue) that can be used to store and retrieve data from local storage. You should use the key prop as the key for the data in local storage and initialValue as the initial value.
+Local Storage I
 
-The hook should return an object with two properties:
-
-    * the current value of the data, which should be initialized to the value stored in local storage (if it exists), or the initialValue argument (if it doesn't)
-    * a function that can be used to update the value of the data in local storage
-
-Every time the value of the data is updated, the hook should update the corresponding value in local storage.
-
-Please see the example below for the required return object.
+Write a simple App component that returns an input field of type text. Users can interact with the input field to type in 
+any string they want. You’re meant to store this string in local storage so that every time when the page reloads it pre-fills 
+the input field with the latest known value for the users.
 
 We have already written some starting code for you.
