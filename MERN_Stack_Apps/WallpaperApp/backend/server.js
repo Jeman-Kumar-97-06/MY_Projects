@@ -9,6 +9,10 @@ const userRts  = require('./routes/users');
 app.use(cors());
 app.use(express.json());
 
+//Let app use wall routes
+app.use('/api/walls')
+
+//Let app use user routes
 app.use('/api/users',userRts);
 
 mongoose.connect(process.env.MONGOURL).then(()=>{
