@@ -27,8 +27,8 @@ router.get('/',getWalls);
 
 router.get('/:id',getWall);
 
-// router.post('/',upload.single('wall_pic'),uploadWalls);
+router.post('/',upload.single('wall_pic'),uploadWalls);
 
-// router.get('/download/:id',downloadWalls);
+router.get('/download/:id',downloadWalls);
 
 module.exports = router;

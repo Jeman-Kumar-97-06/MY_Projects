@@ -11,6 +11,7 @@ const app      = express();
 app.use(cors());
 app.use(express.json());
 
+//Serve static files to client
 app.use('/uploads',express.static("uploads"));
 
 //Using wallRts at '/api/walls'
