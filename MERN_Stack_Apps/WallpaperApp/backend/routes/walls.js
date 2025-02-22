@@ -17,7 +17,15 @@ const storage = multer.diskStorage(
     }
 )
 
-const upload = multer({storage:storage});
+const fileFilter = (req,file,cb) => {
+    if (file.mimetype==='image/jpeg' || file.mimetype === 'image/jpg') {
+        cb(null,true);
+    } else {
+        cb(new Error("Only JPEG images are allowed!"),false);
+    }
+}
+
+const upload = multer({storage:storage,fileFilter:fileFilter,limits:{fileSize:5*1024*1024}});
 
 const requireAuth = require('../middleware/requireAuth');
 
