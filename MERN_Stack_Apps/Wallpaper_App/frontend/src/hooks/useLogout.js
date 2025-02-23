@@ -7,7 +7,7 @@ export const useLogout = () => {
     const logout = () => {
         localStorage.removeItem('user');
         dispatch({type:"LOGOUT"});
-        wallContext({type:"SET_PRODS",payload:null});
+        wallContext({type:"SET_WALLS",payload:null});
     }
     return {logout};
 };

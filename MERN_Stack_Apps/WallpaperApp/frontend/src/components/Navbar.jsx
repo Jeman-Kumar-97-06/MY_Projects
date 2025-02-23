@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
+import {useLogout} from '../hooks/useLogout';
+import { useWallContext } from "../hooks/useWallContext";
 const Navbar = () => {
+    const {logout} = useLogout();
+    const {user} = useAuthContext();
+    const {dispatch} = useWallContext();
+    const handleLogout = () => {
+        logout();
+    }
     return (
         <nav class="flex items-center justify-between px-6 py-3 bg-blue-900 text-white">
         
@@ -27,10 +36,20 @@ const Navbar = () => {
         </div>
       
         <div class="flex items-center space-x-4">
-          <span class="hidden sm:block">Username</span>
-          <Link to='/login'><button class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg">Login</button></Link>
-          <Link to='/login'><button class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg">Signup</button></Link>
-          <Link to='/signup'><button class="px-4 py-2 bg-red-600 hover:bg-red-500 rounded-lg">Logout</button></Link>
+          {
+            !user && (<>
+                <Link to='/login'><button class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg">Login</button></Link>
+                <Link to='/signup'><button class="px-4 py-2 bg-red-600 hover:bg-red-500 rounded-lg">Signup</button></Link>
+            </>)
+          }
+
+          {
+            user && (<>
+                <span>username</span>
+                <button onClick={handleLogout} class="px-4 py-2 bg-red-600 hover:bg-red-500 rounded-lg">Logout</button>
+            </>)
+          }
+          
         </div>
       </nav>
     );

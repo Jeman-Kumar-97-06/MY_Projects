@@ -4,7 +4,7 @@ import {useWallContext} from '../hooks/useWallContext';
 import {useAuthContext} from '../hooks/useAuthContext';
 
 const Home = () => {
-    const {dispatch} = useWallContext();
+    const {walls,dispatch} = useWallContext();
     const {user}     = useAuthContext();
     useEffect(()=>{
         const fetchAllWalls = async () => {
