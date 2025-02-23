@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 
 const Signup = () => {
-    const [fullname,setFullname] = useState(null);
-    const [username,setUsername] = useState(null);
-    const [password,setPassword] = useState(null);
+    const [fullname,setFullname] = useState('');
+    const [username,setUsername] = useState('');
+    const [password,setPassword] = useState('');
 
     const {signup,error,isloading} = useSignup();
 
