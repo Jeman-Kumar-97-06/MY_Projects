@@ -17,11 +17,14 @@ const loginUser = async () => {
 }
 //signup controller : 
 const signupUser = async () => {
-    const {username,fullname,password} = req.body;
+    const {username,fullname,password,confirmPassword,gender} = req.body;
     try {
-        const user = await User.signup(username,fullname,password);
+        if (password !== confirmPassword) {
+            return res.status(400).json({error:"Passwords don't match!"})
+        }
+        const user = await User.signup(username,fullname,password,gender);
         const token = createToken(user._id);
-        res.status(200).json({user,token});
+        res.status(200).json({...user,token});
     } catch (err) {
         res.status(400).json({error:err.message});
     }

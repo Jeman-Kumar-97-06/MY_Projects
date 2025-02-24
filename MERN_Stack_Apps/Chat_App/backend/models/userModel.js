@@ -5,12 +5,14 @@ const validator = require('validator');
 
 //Defining User Schema :
 const userSchema = new Schema({
-    username : {type:String,required:true},
-    fullname : {type:String,required:true},
-    password : {type:String,required:true}
+    username   : {type:String,required:true},
+    fullname   : {type:String,required:true},
+    password   : {type:String,required:true},
+    gender     : {type:String,required:true,enum:["male","female"]},
+    profilePic : {type:String,default:""}
 });
 //Signup Statics function
-userSchema.statics.signup = async function(username,fullname,password) {
+userSchema.statics.signup = async function(username,fullname,password,gender) {
     if (!username || !fullname || !password) {
         throw Error("All Fields must be filled!");
     }
@@ -22,8 +24,10 @@ userSchema.statics.signup = async function(username,fullname,password) {
         throw Error("User already exists!")
     }
     const salt = await bcrypt.genSalt(10);
-    const hast = await bcrypt.hash(password,salt);
-    const user = await this.create({username,fullname,password});
+    const hash = await bcrypt.hash(password,salt);
+    const bPic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+    const gPic = `https://avatar.iran.liara.run/public/girl?username=${username}`
+    const user = await this.create({username,fullname,password:hash,gender,profilePic:gender==='male'?bPic:gPic});
     return user
 }
 //Login Statics function
@@ -42,4 +46,4 @@ userSchema.statics.login  = async function(username,password) {
     return user;
 }
 
-module.exports = mongoose.model('chatuser',)
+module.exports = mongoose.model('chatuser',userSchema);
