@@ -26,7 +26,6 @@ const getWall = async (req,res) => {
     if (!wallpaper){
         return res.status(404).json({error:"No Wallpaper found with the given ID!"})
     };
-
     res.status(200).json(wallpaper)
 }
 

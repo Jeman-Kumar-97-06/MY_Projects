@@ -9,7 +9,7 @@ const {
     downloadWalls,
 }             = require('../controllers/wallControllers');
 
-//Recieving Requests to save a uploaded wallpaper:
+//Storage Config:
 const storage = multer.diskStorage(
     {
         destination : function(req,file,cb) { return cb(null,'./uploads') },
@@ -17,6 +17,7 @@ const storage = multer.diskStorage(
     }
 )
 
+//Filters only jpeg or jpg images:
 const fileFilter = (req,file,cb) => {
     if (file.mimetype==='image/jpeg' || file.mimetype === 'image/jpg') {
         cb(null,true);
@@ -25,7 +26,8 @@ const fileFilter = (req,file,cb) => {
     }
 }
 
-const upload = multer({storage:storage,fileFilter:fileFilter,limits:{fileSize:5*1024*1024}});
+//File Upload Config :
+const upload = multer({storage:storage,fileFilter:fileFilter});
 
 const requireAuth = require('../middleware/requireAuth');
 

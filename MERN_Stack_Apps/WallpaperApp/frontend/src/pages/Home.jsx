@@ -8,10 +8,12 @@ const Home = () => {
     const {user}     = useAuthContext();
     useEffect(()=>{
         const fetchAllWalls = async () => {
-          const resp  = await fetch('/api/walls/',{headers:{"Authorization":`Bearer ${user.token}`}});
+          const resp  = await fetch('http://localhost:2000/api/walls/',{headers:{"Authorization":`Bearer ${user.token}`}});
           const walls = await resp.json();
           if (resp.ok)  {
-              dispatch({type:"SET_WALLS",payload:walls})
+              console.log("jeman")
+              console.log(walls)
+              dispatch({type:"SETWALLS",payload:walls})
           }
           }
         if (user) {
@@ -21,7 +23,11 @@ const Home = () => {
 
     return (
         <div className='w-screen mt-5 ml-5 flex flex-wrap'>
-          <WallDetail/>
+          {walls && walls.map(
+            w=>(
+              <WallDetail key={w._id} w={w}/>
+            )
+          )}
         </div>
     )
 };

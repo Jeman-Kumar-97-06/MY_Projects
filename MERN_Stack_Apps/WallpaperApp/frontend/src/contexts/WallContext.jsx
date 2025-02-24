@@ -1,4 +1,4 @@
-import {useReducer, useEffect, createContext} from 'react';
+import {useReducer, createContext} from 'react';
 
 export const WallContext = createContext();
 
