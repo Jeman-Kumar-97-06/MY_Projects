@@ -1,7 +1,7 @@
 const User = require('../models/userModel');
 const jwt  = require('jsonwebtoken');
 const createToken = (id) => {
-    return jwt.sign({_id:id},process.env.SEC,{expiresIn:"3h"});
+    return jwt.sign({_id:id},process.env.SEC,{expiresIn:"3d"});
 }
 
 //Login Controller : 
@@ -10,7 +10,7 @@ const loginUser = async () => {
     try {
         const user = await User.login(username,password);
         const token = createToken(user._id);
-        res.status(200).json({user,token});
+        res.status(200).json({...user,token});
     } catch (err) {
         res.status(400).json({error:err.message})
     }
