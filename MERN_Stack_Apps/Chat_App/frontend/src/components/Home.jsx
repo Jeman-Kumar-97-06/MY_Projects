@@ -8,7 +8,9 @@ const Home = () => {
             </div>
     
             {/* Chat Content */}
-            <div className="flex-1 overflow-y-auto"></div>
+            <div className="flex-1 overflow-y-auto bg-white">
+                
+            </div>
     
             {/* Input Field Fixed at Bottom */}
             <div className="w-full bg-white border-t border-gray-300 p-2 fixed bottom-0 left-0">
@@ -23,7 +25,7 @@ const Home = () => {
                     </button>
                 </div>
             </div>
-            
+
         </div>    
     );
 };
