@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import 'tailwindcss';
+
+body{
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.code-help-head{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  padding:5px;
+}
+
+.write_code_h2{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  padding:5px;
+  color:#43766C;
+}
+
+/* "Analyse" button */
+.analyse-btn, .generate_sol_button{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  padding:5px;
+  position: relative;
+  box-shadow: 5px 5px black;
+}
+/* What to do when "Analyse" button is clicked */
+.analyse-btn:active, .generate_sol_button:active {
+  left:5px;
+  top:5px;
+  box-shadow: none;
+}
+
+.tabbed_interf{
+  box-shadow: 5px 5px black;
+}
