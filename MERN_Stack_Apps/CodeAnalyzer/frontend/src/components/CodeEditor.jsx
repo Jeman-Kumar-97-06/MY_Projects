@@ -26,20 +26,20 @@ const CodeEditor = () => {
   },[lang])
 
   return (
-    <div className="w-full h-screen p-3 bg-[#F8FAE5]">
+    <div className="w-full p-3 bg-[#F8FAE5]">
       <select onChange={e=>setLang(e.target.value)} value={lang}>
         <option value="javascript">JavaScript</option>
         <option value="python">Python</option>
       </select>
       <CodeMirror
         value={code}
-        height="450px"
+        height="350px"
         theme={githubDark}
         extensions={exte}
         onChange={handleCodeChange}
         className="border border-gray-700 rounded-lg"
       />
-      <button className='analyse-btn cursor-pointer bg-[#43766C] mt-3 rounded-sm'>Analyse</button>
+      <button className='text-black analyse-btn cursor-pointer bg-[#43766C] mt-3 rounded-sm'>Analyse</button>
       <div className="w-full border-2 mt-10 h-[250px] p-5 bg-white">
           // your output
       </div>

@@ -23,14 +23,14 @@ const ProblemSolver = () => {
       <textarea
         className="w-full p-2 border rounded-md bg-white"
         rows="4"
-        placeholder="Enter problem statement..."
+        placeholder="Enter/Paste problem statement..."
         value={problem}
         onChange={(e) => setProblem(e.target.value)}
       />
 
       {/* Generate Button */}
       <button 
-        className="px-4 py-2 bg-[#43766C] text-white rounded-md generate_sol_button"
+        className="px-4 py-2 text-black bg-[#43766C] rounded-md generate_sol_button"
         onClick={generateSolution}
       >
         Generate Solution

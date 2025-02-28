@@ -5,7 +5,7 @@ import ProblemSolver from "./ProblemSolver";
 export default function TabbedSections() {
   const [activeTab, setActiveTab] = useState(0);
 
-  const tabs = ["Analyse_", "Solve_Problem"];
+  const tabs = ["Analyse_Code", "Solve_A_Problem"];
   const content = [
     <CodeEditor/>,
     <ProblemSolver/>,
@@ -13,7 +13,7 @@ export default function TabbedSections() {
 
   return (
     <div className="tabbed_interf p-5">
-    <div className="w-full h-auto mx-auto mt-10 p-4 border rounded-lg shadow-lg bg-white">
+    <div className="w-full h-auto mx-auto mt-1 p-4 border rounded-lg shadow-lg bg-white">
       <div className="flex border-b">
         {tabs.map((tab, index) => (
           <button

@@ -5,13 +5,23 @@ body{
   font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
   font-style: normal;
+  background-color: #43766C;
 }
 
 .code-help-head{
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
-  padding:5px;
+  text-shadow: 4px 4px black;
+  color:white;
+  background-color: #43766C;
+  padding:10px;
+  width: 250px;
+  align-items: center;
+  img{
+    border-radius: 50%;
+    box-shadow: 4px 4px 5px black;
+  }
 }
 
 .write_code_h2{
