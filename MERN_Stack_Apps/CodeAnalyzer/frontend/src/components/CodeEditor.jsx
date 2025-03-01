@@ -14,6 +14,16 @@ const CodeEditor = () => {
     setCode(value);
   };
   
+  const handleAnalyseClick = async () => {
+    const resp = await fetch('http://localhost:4000/api/askAI',{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({code:code,language:lang})
+    })
+    const resu = await resp.json();
+    document.querySelector('.output_div_an').innerHTML = resu.resp;
+  }
+
   useEffect(()=>{
     if (lang==='javascript') {
       setCode('//Write your code to analyse...\nconsole.log("username")');
@@ -39,8 +49,8 @@ const CodeEditor = () => {
         onChange={handleCodeChange}
         className="border border-gray-700 rounded-lg"
       />
-      <button className='text-black analyse-btn cursor-pointer bg-[#43766C] mt-3 rounded-sm'>Analyse</button>
-      <div className="w-full border-2 mt-10 h-[250px] p-5 bg-white">
+      <button className='text-black analyse-btn cursor-pointer bg-[#43766C] mt-3 rounded-sm' onClick={handleAnalyseClick}>Analyse</button>
+      <div className="output_div_an w-full border-2 mt-10 h-[250px] p-5 bg-white overflow-y-scroll">
           // your output
       </div>
     </div>

@@ -9,6 +9,8 @@ const ProblemSolver = () => {
 
   const generateSolution = () => {
     // Mock solution generation (Replace with AI API call)
+    const resp = 
+    console.log(problem)
     setSolution(`// Generated solution for: ${problem}\nfunction solve() {\n  return "Solution";\n}`);
   };
 
