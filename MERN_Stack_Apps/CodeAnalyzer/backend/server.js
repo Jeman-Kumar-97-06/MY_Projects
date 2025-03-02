@@ -7,7 +7,11 @@ const model                     = genAI.getGenerativeModel({model:"gemini-1.5-fl
 const cors                      = require('cors')
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: "https://your-frontend.netlify.app", // Replace with your Netlify frontend URL
+    methods: "POST",
+    allowedHeaders: "Content-Type"
+  }));
 
 app.post('/api/askAI',async (req,res)=>{
     const prompt = `
@@ -33,11 +37,7 @@ app.post('/api/AIsolve',async (req,res)=>{
         ${req.body.prob}
     `
     const result = await model.generateContent(prompt);
-    return res.status(200).json({resp:result.response.text().replace(/```(javascript|js)?\n?/g, '').replace(/```\n?/g, '')})
-    // return res.status(200).json({resp:result.response.text().replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')  // Convert **bold** to <b>bold</b>
-    //     .replace(/\n\n/g, '<br><br>')            // Paragraph breaks
-    //     .replace(/\n/g, '<br>')                  // Newlines
-    //     .replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>')});
+    return res.status(200).json({resp:result.response.text().replace(/```(javascript|js)?\n?/g, '').replace(/```\n?/g, '')});
 })
 
 app.listen(process.env.PORT,()=>{console.log("Listening at ",process.env.PORT)});
