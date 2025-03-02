@@ -12,7 +12,7 @@ const ProblemSolver = () => {
 
   const generateSolution = async () => {
     // Mock solution generation (Replace with AI API call)
-    const resp = await fetch('http://localhost:4000/api/AIsolve',{
+    const resp = await fetch('https://my-projects-h056.onrender.com/api/AIsolve',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({prob:problem,language:lang})

@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:4000/",
+  "proxy": "https://my-projects-h056.onrender.com",
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
