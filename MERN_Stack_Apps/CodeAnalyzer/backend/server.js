@@ -17,8 +17,9 @@ app.post('/api/askAI',async (req,res)=>{
         ${req.body.code}
         `;
     const result = await model.generateContent(prompt);
-    console.log(result.response.text())
-    console.log(req.body)
+    if (!result){
+        return res.status(404).jsonn({error:"Sorry something is not working"})
+    }
     return res.status(200).json({resp:result.response.text().replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')  // Convert **bold** to <b>bold</b>
         .replace(/\n\n/g, '<br><br>')            // Paragraph breaks
         .replace(/\n/g, '<br>')                  // Newlines
@@ -27,15 +28,16 @@ app.post('/api/askAI',async (req,res)=>{
 
 app.post('/api/AIsolve',async (req,res)=>{
     const prompt = `
-        Solve the following problem statement and give me the solution code in ${req.body.language}:
+        Solve the following problem statement and give me the solution code in ${req.body.language}. I repeat, only give me the code:
         PROBLEM STATEMENT:
-        ${req.body.statement}
+        ${req.body.prob}
     `
     const result = await model.generateContent(prompt);
-    return res.status(200).json({resp:result.response.text().replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')  // Convert **bold** to <b>bold</b>
-        .replace(/\n\n/g, '<br><br>')            // Paragraph breaks
-        .replace(/\n/g, '<br>')                  // Newlines
-        .replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>')});
+    return res.status(200).json({resp:result.response.text().replace(/```(javascript|js)?\n?/g, '').replace(/```\n?/g, '')})
+    // return res.status(200).json({resp:result.response.text().replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')  // Convert **bold** to <b>bold</b>
+    //     .replace(/\n\n/g, '<br><br>')            // Paragraph breaks
+    //     .replace(/\n/g, '<br>')                  // Newlines
+    //     .replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>')});
 })
 
 app.listen(process.env.PORT,()=>{console.log("Listening at ",process.env.PORT)});

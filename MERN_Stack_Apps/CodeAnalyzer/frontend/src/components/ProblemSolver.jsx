@@ -1,23 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
+import { python } from '@codemirror/lang-python';
 import { githubDark } from "@uiw/codemirror-theme-github";
 
 const ProblemSolver = () => {
   const [problem, setProblem] = useState("");
   const [solution, setSolution] = useState("// Solution will appear here...");
+  const [lang,setLang] = useState('javascript');
+  const [exte,setExte] = useState([javascript()]);
 
-  const generateSolution = () => {
+  const generateSolution = async () => {
     // Mock solution generation (Replace with AI API call)
-    const resp = 
-    console.log(problem)
-    setSolution(`// Generated solution for: ${problem}\nfunction solve() {\n  return "Solution";\n}`);
+    const resp = await fetch('http://localhost:4000/api/AIsolve',{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({prob:problem,language:lang})
+    })
+    const resu = await resp.json();
+    setSolution(resu.resp);
   };
+
+  useEffect(()=>{
+    if (lang==='javascript') {
+      setExte([javascript()]);
+      setSolution('//Solution will appear here...');
+    } else if (lang === 'python') {
+      setExte([python()]);
+      setSolution("#Solution will appear here...")
+    }
+  },[lang])
 
   return (
     <div className="w-full mx-auto p-4 space-y-4 bg-[#F8FAE5]">
-      {/* <select onChange={e=>setLang(e.target.value)} value={lang}> */}
-      <select>
+      <select onChange={e=>setLang(e.target.value)} value={lang}>
         <option value="javascript">JavaScript</option>
         <option value="python">Python</option>
       </select>
@@ -42,7 +58,7 @@ const ProblemSolver = () => {
       <CodeMirror
         value={solution}
         height="450px"
-        extensions={[javascript()]}
+        extensions={exte}
         theme={githubDark}
         options={{ theme: "dark", lineNumbers: true }}
         className="border rounded-md"
