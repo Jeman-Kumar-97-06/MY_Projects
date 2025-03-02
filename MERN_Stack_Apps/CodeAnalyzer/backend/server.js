@@ -8,7 +8,7 @@ const cors                      = require('cors')
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://your-frontend.netlify.app", // Replace with your Netlify frontend URL
+    origin: "https://67c495859e12ffa128a10b57--stupendous-centaur-979a4d.netlify.app/", // Replace with your Netlify frontend URL
     methods: "POST",
     allowedHeaders: "Content-Type"
   }));
