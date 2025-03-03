@@ -1,13 +1,10 @@
 const express = require('express');
+const { loginUser, signupUser } = require('../controllers/authControllers');
 const router  = express.Router();
 
 //The following handles request coming to '/api/auth/login'
-router.get('/login',(req,res)=>{
-    res.send("Login Route");
-})
+router.get('/login',loginUser);
 //The following handles request coming to '/api/auth/signup'
-router.get('/signup',(req,res)=>{
-    res.send("Signup Route");
-})
+router.get('/signup',signupUser);
 
-export default router;
+module.exports = router;

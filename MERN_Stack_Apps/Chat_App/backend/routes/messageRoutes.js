@@ -1,5 +1,5 @@
-import { sendMessage,getMessages } from '../controllers/messageControllers';
-import requireAuth from '../middleware/requireAuth';
+const {sendMessage,getMessages} = require('../controllers/messageControllers')
+const requireAuth = require('../middleware/requireAuth');
 
 const express = require('express');
 
@@ -10,4 +10,4 @@ router.use(requireAuth);
 router.get('/:id',getMessages);
 router.post('/send/:id',sendMessage);
 
-export default router;
+module.exports = router;
