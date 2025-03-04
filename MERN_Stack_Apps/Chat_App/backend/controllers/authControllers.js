@@ -5,28 +5,25 @@ const createToken = (id) => {
 }
 
 //Login Controller : 
-const loginUser = async () => {
+const loginUser = async (req,res) => {
     const {username,password} = req.body;
     try {
         const user = await User.login(username,password);
         const token = createToken(user._id);
         res.status(200).json({...user,token});
-    } catch (err) {
-        res.status(400).json({error:err.message})
+    } catch (error) {
+        res.status(404).json({error:error.message})
     }
 }
 //signup controller : 
-const signupUser = async () => {
-    const {username,fullname,password,confirmPassword,gender} = req.body;
+const signupUser = async (req,res) => {
+    const {username,fullname,password,gender} = req.body;
     try {
-        if (password !== confirmPassword) {
-            return res.status(400).json({error:"Passwords don't match!"})
-        }
         const user = await User.signup(username,fullname,password,gender);
         const token = createToken(user._id);
         res.status(200).json({...user,token});
-    } catch (err) {
-        res.status(400).json({error:err.message});
+    } catch (error) {
+        res.status(400).json({error:error.message});
     }
 }
 

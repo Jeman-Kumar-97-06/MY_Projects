@@ -8,7 +8,7 @@ export const useLogin = () => {
     const login = async (username,password) => {
         setIsloading(true);
         setError(null);
-        const resp = await fetch('/api/auth/login',{
+        const resp = await fetch('http://localhost:4000/api/auth/login',{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({username,password})
@@ -21,7 +21,7 @@ export const useLogin = () => {
         if (resp.ok) {
             setIsloading(false);
             localStorage.setItem("chatuser",JSON.stringify(json));
-            dispatch({type:"LOGIN",payload:user});
+            dispatch({type:"LOGIN",payload:json});
         }
     };
     return {login,error,isloading};

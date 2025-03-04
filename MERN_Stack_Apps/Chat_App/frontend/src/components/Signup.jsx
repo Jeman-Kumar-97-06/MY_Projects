@@ -1,33 +1,64 @@
+import { useState } from "react";
+import { useSignup } from "../hooks/useSignup";
+
 const Signup = () => {
+    const [err,setErr]       = useState(null);
+    const [fullname,setFullname] = useState(null);
+    const [username,setUsername] = useState(null);
+    const [password,setPassword] = useState(null);
+    const [gender,setGender]     = useState(null);
+    const {signup,error,isloading} = useSignup()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (!fullname || !username || !password || !gender) {
+            setErr("Make sure no field is empty!")
+            return;
+        }
+        await signup(fullname,username,password,gender);
+    }
     return (
-       <div className="flex items-center justify-center min-h-screen bg-blue-300">
-            <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-                <h2 class="text-2xl font-bold text-center text-orange-500">Signup</h2>
-                <form class="mt-4">
-                    <div className='mt-4'>
-                        <label className="block text-gray-700">Fullname</label>
-                        <input type="text" className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500" placeholder="Enter your fullname"/>
-                    </div>
-                    <div className='mt-4'>
-                        <label className="block text-gray-700">Username</label>
-                        <input type="text" className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500" placeholder="Enter a username"/>
-                    </div>
-                    <div className="mt-4">
-                        <label className="block text-gray-700">Password</label>
-                        <input type="password" className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500" placeholder="Enter your password"/>
-                    </div>
-                    <div className='mt-5'>
-                        <select>
-                            <option value='null'>Select Gender:</option>
-                            <option value='male'>Male</option>
-                            <option value='female'>Female</option>
-                        </select>
-                    </div>
-                    <button class="w-full px-4 py-2 mt-6 font-bold text-white bg-orange-500 rounded-lg hover:bg-orange-600">Signup</button>
-                </form>
-                <p class="mt-4 text-center">Already have an account? <a href="signup.html" class="text-orange-500">Login</a></p>
-            </div>  
+        <div className="flex h-screen items-center justify-center bg-gradient-to-br from-orange-500 to-orange-700">
+        <div className="bg-white p-8 rounded-2xl shadow-lg w-96">
+          <h2 className="text-2xl font-bold text-gray-800 text-center">Sign Up</h2>
+          <form className="mt-6" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Fullname"
+              onChange={e=>{setFullname(e.target.value)}}
+              className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+            <input
+              type="text"
+              placeholder="Username"
+              onChange={e=>{setUsername(e.target.value)}}
+              className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={e=>{setPassword(e.target.value)}}
+              className="w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+            <select className='mb-4' onChange={e=>{setGender(e.target.value)}}>
+                <option value={null}>Select Gender</option>
+                <option value='male'>Male</option>
+                <option value='female'>Female</option>
+            </select>
+            <button className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition">
+              Sign Up
+            </button>
+          </form>
+          {error && <span className="text-red-500">*{error}</span>}
+          {err && <span className="text-red-500">*{err}</span>}
+          <p className="text-sm text-gray-600 mt-4 text-center">
+            Already have an account?{" "}
+            <a href="/login" className="text-orange-500 font-semibold">
+              Login
+            </a>
+          </p>
         </div>
+      </div>
     )
 };
 
