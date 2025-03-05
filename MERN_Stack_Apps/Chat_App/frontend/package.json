@@ -1,5 +1,5 @@
 {
-  "proxy":"http://localhost:4000",
+  "proxy": "http://localhost:4000",
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.9",
+    "lucide-react": "^0.477.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",

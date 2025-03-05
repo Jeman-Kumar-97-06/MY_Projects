@@ -3,6 +3,7 @@ const express = require('express');
 const app     = express();
 const authRoutes = require('./routes/authRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 4000;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 app.use(cors())
 
+app.use("/api/users",userRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/messages',messageRoutes);
 
