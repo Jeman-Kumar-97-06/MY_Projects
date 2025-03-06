@@ -8,11 +8,25 @@ const cors                      = require('cors')
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://67c49b7bbd18d6a041249fef--stupendous-centaur-979a4d.netlify.app/", // Replace with your Netlify frontend URL
+    origin: "https://67c49b7bbd18d6a041249fef--stupendous-centaur-979a4d.netlify.app", // Replace with your Netlify frontend URL
     methods: "POST",
     allowedHeaders: "Content-Type"
   }));
 
+///
+// const allowedOrigins = ["https://67c49b7bbd18d6a041249fef--stupendous-centaur-979a4d.netlify.app"];
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   }
+// }));
+///
+  
 app.post('/api/askAI',async (req,res)=>{
     const prompt = `
         You are a professional code reviewer. Analyze the following ${req.body.language} code for errors, security issues, performance improvements, and best practices. Provide clear suggestions:

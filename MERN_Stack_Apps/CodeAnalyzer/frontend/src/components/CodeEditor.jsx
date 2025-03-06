@@ -15,11 +15,12 @@ const CodeEditor = () => {
   };
   
   const handleAnalyseClick = async () => {
-    const resp = await fetch('https://my-projects-h056.onrender.com/api/askAI',{
+    const resp = await fetch('/api/askAI',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({code:code,language:lang})
     })
+    console.log(resp)
     const resu = await resp.json();
     document.querySelector('.output_div_an').innerHTML = resu.resp;
   }
