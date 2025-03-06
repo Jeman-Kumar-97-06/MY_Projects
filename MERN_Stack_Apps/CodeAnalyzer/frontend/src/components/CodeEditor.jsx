@@ -15,7 +15,7 @@ const CodeEditor = () => {
   };
   
   const handleAnalyseClick = async () => {
-    const resp = await fetch('/api/askAI',{
+    const resp = await fetch('https://my-projects-h056.onrender.com/api/askAI',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({code:code,language:lang})

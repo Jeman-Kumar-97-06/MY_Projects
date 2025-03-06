@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors({
     origin: "https://67c49b7bbd18d6a041249fef--stupendous-centaur-979a4d.netlify.app", // Replace with your Netlify frontend URL
     methods: "POST",
-    allowedHeaders: "Content-Type"
+    allowedHeaders: ["Content-Type"]
   }));
 
 ///
