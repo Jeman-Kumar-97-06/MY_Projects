@@ -1,26 +1,33 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
+import toast from 'react-hot-toast';
+import { useAuthContext } from "./useAuthContext";
 
-export const useGetConvos = () => {
-    const [err,setErr]         = useState(null);
+const useGetConvos = () => {
     const [loading,setLoading] = useState(false);
-    const [convs,setConvs]     = useState([]);
-    
+    const [convos,setConvos]   = useState([]);
+    const {user}               = useAuthContext();
+    console.log(user.token)
     useEffect(()=>{
-        const getCon = async () => {
+        const getConvos = async () => {
             setLoading(true);
             try {
-                const res  = await fetch('/api/users/');
+                const res  = await fetch('http://localhost:4000/api/users',{
+                    headers:{"Authorization":`Bearer ${user.token}`}
+                });
                 const data = await res.json();
-                if (data.error) {
+                if(data.error) {
                     throw new Error(data.error);
                 }
-                setConvs(data);
+                setConvos(data);
             } catch (error) {
-                setErr(error);
+                toast.error(error.message);
+            } finally {
                 setLoading(false);
             }
         }
-        getCon();
+        getConvos();
     },[]);
-    return {convs,err,loading};
+    return {loading,convos}
 };
+
+export default useGetConvos;

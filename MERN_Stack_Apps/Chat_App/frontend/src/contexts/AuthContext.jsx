@@ -21,6 +21,9 @@ export const AuthContextProvider = ({children}) => {
         if (user) {
             dispatch({type:"LOGIN",payload:user});
         }
+        else {
+            dispatch({type:"LOGOUT"})
+        }
     },[])
 
     return (

@@ -1,3 +1,4 @@
+const User = require('../models/userModel')
 const getUsersForSiderbar = async (req,res) => {
     try {
         const loggedInUserId = req.user._id;
