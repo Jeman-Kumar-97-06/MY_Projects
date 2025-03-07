@@ -1,38 +1,82 @@
+import { useEffect,useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import useConversation from "../hooks/useConversation";
+import useSendMessage from '../hooks/useSendMessage';
+import useGetMessages from '../hooks/useGetMessages';
 import Message from "./Message";
 import { Sidebar } from "./Sidebar";
 
 const Home = () => {
+    const [message,setMessage] = useState('');
+
     const {user} = useAuthContext();
+    const {selectedConversation,setSelectedConversation} = useConversation();
+    const {sendMessage,loading} = useSendMessage()
+    const {messages,loading:msgsloading} = useGetMessages();
+
+    //make sure the selectedConversation will be null when you logout and login again : 
+    useEffect(()=>{
+      return ()=>setSelectedConversation(null)
+    },[setSelectedConversation]) //***********************/
+
+    const handleSendMsg = async (e) => {
+      e.preventDefault();
+      if (!message || message.length == 0) {
+        return
+      }
+      await sendMessage(message);
+      setMessage('');
+    }
+
     return (
         <div className="flex h-screen bg-gray-100">
           <Sidebar/>
           {/* Chat Area */}
+          {
+          !selectedConversation ? 
+          //If no Conversation is selected :
+          <>
+            <div className="m-auto text-orange-500">
+              Welcome, {user._doc.username}. <span className="text-blue-600">Select a conversation!</span>
+            </div>
+          </>
+            :
+          //If a conversation is selected :
           <div className="flex-1 flex flex-col">
             {/* Chat Header */}
             <div className="bg-orange-500 text-white p-4 text-lg font-semibold">
-              <div className="w-24 flex justify-between">
-                <img src={user._doc.profilePic} className="w-8"/>
-                  {user._doc.username}
+              <div className="w-25 flex justify-between">
+                <img src={selectedConversation.profilePic} className="w-8"/>
+                  {selectedConversation.username}
               </div>
             </div>
             {/* Messages */}
             <div className="flex-1 p-6 space-y-4 overflow-y-auto bg-blue-100">
-              <Message sender="other" text="Hello, how are you?" />
-              <Message sender="me" text="I'm good! How about you?" />
+              {msgsloading && <>loading...</>}
+              {!loading && messages.length===0 && (
+                <p className=''>Send a message to start the conversation</p>
+              )}
+              {!loading && messages.length>0 && (
+                messages.map(m=>(
+                  <Message sender={m.senderId === user._doc._id ? 'me' : 'other'} text={m.message} />
+                  // <Message sender="me" text="I'm good! How about you?" />
+                ))
+              )}
             </div>
             {/* Chat Input */}
-            <div className="p-4 bg-white flex items-center gap-2 shadow-lg">
+            <form className="p-4 bg-white flex items-center gap-2 shadow-lg" onSubmit={handleSendMsg}>
               <input
                 type="text"
                 placeholder="Type a message..."
                 className="flex-1 p-2 border rounded-lg focus:ring-2 focus:ring-orange-500"
+                value={message}
+                onChange={e=>setMessage(e.target.value)}
               />
               <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
                 Send
               </button>
-            </div>
-          </div>
+            </form>
+          </div>}
         </div>
   );
 }
