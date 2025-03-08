@@ -1,12 +1,23 @@
 import { Search } from 'lucide-react';
 import { useState } from 'react';
+import useConversation from '../hooks/useConversation';
+import useGetConvos from '../hooks/useGetConvos';
+import toast from 'react-hot-toast';
 const SearchBar = () => {
     const [query,setQuery] = useState(null);
-    const handleSearch = () => {
-      console.log("HI")
+    const {setSelectedConversation,selectedConversation} = useConversation();
+    const {convos} = useGetConvos();
+    const handleSearch = (e) => {
+      e.preventDefault();
+      if (!query) {
+        return;
+      }
+      if (query.length < 3) {
+        toast.error("Search term must be at least 3 characters long");
+      }
     }
     return (
-        <div className="relative w-full max-w-md">
+        <form className="relative w-full max-w-md" onSubmit={handleSearch}>
             <input
                 type="text"
                 placeholder="Search..."
@@ -15,12 +26,12 @@ const SearchBar = () => {
                 className="w-full px-4 py-2 border rounded-full shadow-sm pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button
-                onClick={handleSearch}
+                type='submit'
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition"
             >
                 <Search size={20} />
             </button>
-        </div>
+        </form>
     )
 };
 
