@@ -5,7 +5,7 @@ import useGetConvos from '../hooks/useGetConvos';
 import toast from 'react-hot-toast';
 const SearchBar = () => {
     const [query,setQuery] = useState(null);
-    const {setSelectedConversation,selectedConversation} = useConversation();
+    const {setSelectedConversation} = useConversation();
     const {convos} = useGetConvos();
     const handleSearch = (e) => {
       e.preventDefault();
@@ -14,6 +14,15 @@ const SearchBar = () => {
       }
       if (query.length < 3) {
         toast.error("Search term must be at least 3 characters long");
+      }
+      //The following line goes through every user and sees if the user's fullname includes the string value of the query when we clicked submit:
+      //True/False
+      const convo = convos.find(c=>c.fullname.toLowerCase()).includes(query.toLowerCase());
+      if (convo) {
+        setSelectedConversation(convo);
+        setQuery('');
+      } else {
+        toast.error("No suck user found!")
       }
     }
     return (
