@@ -13,11 +13,9 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar/>
-        {user && <Upload/>}
         <Routes>
           <Route exact path='/lp' element={<LandingPage/>}/>
-          <Route exact path='/' element={user ? <Home/> : <Navigate to ='/lp'/>}/>
+          <Route exact path='/' element={user ? <><Navbar/><Home/></> : <Navigate to ='/lp'/>}/>
           <Route exact path='/signup' element={!user ? <Signup/> : <Navigate to = '/'/>}/>
           <Route exact path='/login' element={!user ? <Login/> : <Navigate to = '/'/>}/>
         </Routes>

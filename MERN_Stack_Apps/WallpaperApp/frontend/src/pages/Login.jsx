@@ -50,7 +50,7 @@ const Login = () => {
                 </p>
             </form>
             {!isloading || <div>Please wait. The server response is slow.😿</div>}
-            {error && <div className='error'>{error}</div>}
+            {error && <div className='error text-red-500'>{error}</div>}
         </div>
     )
 };

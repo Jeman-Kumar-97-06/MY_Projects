@@ -2,6 +2,7 @@ import WallDetail from "../components/WallDetail";
 import { useEffect } from "react";
 import {useWallContext} from '../hooks/useWallContext';
 import {useAuthContext} from '../hooks/useAuthContext';
+import Navbar from "../components/Navbar";
 
 const Home = () => {
     const {walls,dispatch} = useWallContext();
@@ -23,6 +24,7 @@ const Home = () => {
 
     return (
         <div className='w-screen mt-5 ml-5 flex flex-wrap'>
+          
           {walls && walls.map(
             w=>(
               <WallDetail key={w._id} w={w}/>
