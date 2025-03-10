@@ -8,7 +8,6 @@ export const Sidebar = () => {
     const {logout} = useLogout()
     const {loading,convos} = useGetConvos();
     const {user} = useAuthContext();
-    const {onlineUsers} = useSocketContext();
 
     return (
         <div className="w-64 bg-white shadow-lg p-4 flex flex-col">

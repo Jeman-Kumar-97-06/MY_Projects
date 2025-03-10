@@ -17,7 +17,7 @@ const SearchBar = () => {
       }
       //The following line goes through every user and sees if the user's fullname includes the string value of the query when we clicked submit:
       //True/False
-      const convo = convos.find(c=>c.fullname.toLowerCase()).includes(query.toLowerCase());
+      const convo = convos.find(c=>c.fullname.toLowerCase().includes(query.toLowerCase()));
       if (convo) {
         setSelectedConversation(convo);
         setQuery('');

@@ -5,12 +5,14 @@ import useSendMessage from '../hooks/useSendMessage';
 import useGetMessages from '../hooks/useGetMessages';
 import Message from "./Message";
 import { Sidebar } from "./Sidebar";
+import useListenMessages from "../hooks/useListenMessages";
 
 const Home = () => {
     const [message,setMessage] = useState('');
 
     const {user} = useAuthContext();
     const {selectedConversation,setSelectedConversation} = useConversation();
+    useListenMessages();
     const {sendMessage,loading} = useSendMessage()
     const {messages,loading:msgsloading} = useGetMessages();
 

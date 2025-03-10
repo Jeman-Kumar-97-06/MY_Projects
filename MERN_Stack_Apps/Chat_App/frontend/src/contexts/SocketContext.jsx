@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { useSocketContext } from '../hooks/useSocketContext';
+import io from 'socket.io-client';
 
 export const SocketContext = createContext();
 
@@ -14,8 +14,12 @@ export const SocketContextProvider = ({children}) => {
             const socket = io('http://localhost:4000',{
                 query : {
                     userId : user._doc._id
+                },
+                headers : {
+                    "Authorization":`Bearer ${user.token}`
                 }
             });
+            
             setSocket(socket);
             socket.on('getOnlineUser',(users)=>{
                 setOnlineUsers(users);
@@ -27,7 +31,7 @@ export const SocketContextProvider = ({children}) => {
                 setSocket(null);
             }
         }
-    },[])
+    },[user])
 
     return (
         <SocketContext.Provider value={{socket,onlineUsers}}>

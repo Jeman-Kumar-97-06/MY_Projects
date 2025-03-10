@@ -10,7 +10,7 @@ const useSendMessage = () => {
         try {
             const res = await fetch(`http://localhost:4000/api/messages/send/${selectedConversation._id}`,{
                 method:"POST",
-                headers:{'Content-Type':'application/json'},
+                headers:{'Content-Type':'application/json',"Authorization":`Bearer ${user.token}`},
                 body:JSON.stringify({message})
             })
             const data = await res.json();
