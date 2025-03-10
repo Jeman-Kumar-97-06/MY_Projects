@@ -10,6 +10,94 @@ body {
   background-color: #F6EACB;
 }
 
+/* Landing Page */
+/* Header */
+.lp-header {
+  background-color: #AFCBED;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  color: #333;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.hero .buttons {
+  margin-top: 20px;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 2px solid #333;
+}
+
+.btn-primary {
+  background-color: #3B82F6;
+  color: white;
+  border-color: #3B82F6;
+}
+
+.btn-primary:hover {
+  background-color: #2563EB;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #ddd;
+}
+
+/* Features Section */
+.features {
+  background-color: #F5E5B8;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.feature-box {
+  display: inline-block;
+  width: 300px;
+  background: #FDF1C8;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #AFCBED;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+/* End Landing Page */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
