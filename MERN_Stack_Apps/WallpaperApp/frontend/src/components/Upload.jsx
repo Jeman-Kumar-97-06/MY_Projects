@@ -21,7 +21,7 @@ const Upload = () => {
 
         const formData  = new FormData();
         formData.append("wall_pic",fileInput);
-        const response  = await fetch('http://localhost:2000/api/walls/',{
+        const response  = await fetch('https://my-projects-lxja.onrender.com/api/walls/',{
             method:"POST",
             body:formData,
             headers:{"Authorization":`Bearer ${user.token}`}

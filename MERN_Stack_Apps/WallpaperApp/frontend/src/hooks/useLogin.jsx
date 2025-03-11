@@ -9,7 +9,7 @@ export const useLogin = () => {
     const login = async (username,password) => {
         setIsloading(true);
         setError(null);
-        const resp = await fetch('http://localhost:2000/api/users/login',{
+        const resp = await fetch('https://my-projects-lxja.onrender.com/api/users/login',{
             method:"POST",
             headers : {"Content-Type":"application/json"},
             body : JSON.stringify({username,password})

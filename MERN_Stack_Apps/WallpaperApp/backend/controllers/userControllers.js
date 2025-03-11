@@ -3,7 +3,6 @@ const jwt      = require('jsonwebtoken');
 const User     = require('../models/userModel');
 
 const createToken = (_id) => {
-    console.log("You Yo Yo Ran Ti",process.env.SEC)
     return jwt.sign({_id},process.env.SEC,{expiresIn:"3d"});
 }
 

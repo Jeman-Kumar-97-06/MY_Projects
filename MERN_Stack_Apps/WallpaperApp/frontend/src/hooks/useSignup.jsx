@@ -8,7 +8,7 @@ export const useSignup = () => {
     const signup = async (fullname,username,password) => {
         setIsloading(true);
         setError(null);
-        const resp = await fetch('http://localhost:2000/api/users/signup',{method:"POST",
+        const resp = await fetch('https://my-projects-lxja.onrender.com/api/users/signup',{method:"POST",
                                                       headers:{"Content-Type":"application/json"},
                                                       body : JSON.stringify({fullname,username,password})
                                                       });
