@@ -10,8 +10,8 @@ const wallRts  = require('./routes/walls');
 app.use(cors());
 app.use(express.json());
 
-//Serve static files to client
-app.use('/uploads',express.static("uploads"));
+// Serve static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //Let app use wall routes
 app.use('/api/walls',wallRts)
