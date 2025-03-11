@@ -35,6 +35,7 @@ const uploadWalls = async (req,res) => {
         return res.status(400).json({error:"Invalid file type! only JPEG allowed."});
     }
     const {path} = req.file;
+    console.log(path)
     try{
         user_id = req.user._id;
         const new_wall = await Wall.create({wall:path,user_id:user_id});
