@@ -37,7 +37,22 @@ router.get('/',getWalls);
 
 router.get('/:id',getWall);
 
-router.post('/',upload.single('wall_pic'),uploadWalls);
+//Saves to 'upload' folder first then saves the file path to mongodb :
+router.post('/',(req, res, next) => {
+    console.log("Received request for file upload.");
+    
+    upload.single('wall_pic')(req, res, (err) => {
+        if (err) {
+            console.error("Multer error:", err);
+            return res.status(400).json({ error: err.message });
+        }
+        
+        console.log("File uploaded:", req.file); // Check file data
+        console.log("Request body:", req.body); // Check other request data
+        
+        next();
+    });
+},uploadWalls);
 
 router.get('/download/:id',downloadWalls);
 
