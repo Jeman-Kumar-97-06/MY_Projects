@@ -31,7 +31,7 @@ const LandingPage = () => {
       </section>
 
       {/* Call to Action */}
-      <footer className="text-center py-10 px-4">
+      <footer className="text-center py-10 px-4 mb-10">
         <h2 className="text-2xl font-semibold mb-4">Start Your Collection Now</h2>
         <Link to='/login' className="bg-green-500 hover:bg-green-400 text-white font-semibold py-3 px-6 rounded-lg shadow-md">
           Get Started

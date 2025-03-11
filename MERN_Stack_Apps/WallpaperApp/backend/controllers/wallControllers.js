@@ -5,7 +5,6 @@ const Wall     = require('../models/wallModel');
 //Send all the wallpapers to the client
 const getWalls = async (req,res) => {
     const all_walls = await Wall.find({});
-    console.log(all_walls)
     if (!all_walls){
         return res.status(404).json({error:"No Wallpapers Found!"})
     };
