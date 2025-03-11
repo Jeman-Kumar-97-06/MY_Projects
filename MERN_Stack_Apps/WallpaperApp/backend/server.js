@@ -8,6 +8,14 @@ const path     = require('path');
 const userRts  = require('./routes/users');
 const wallRts  = require('./routes/walls');
 
+const fs       = require('fs');
+const path     = require('path');
+//Create a uploads folder if there isn't one :
+const uploadPath = path.join(__dirname,'uploads');
+if (!fs.existsSync(uploadPath)) {
+    fs.mkdirSync(uploadPath,{recursive:true})
+}
+
 app.use(cors());
 app.use(express.json());
 
