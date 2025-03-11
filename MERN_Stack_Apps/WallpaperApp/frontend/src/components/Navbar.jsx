@@ -45,7 +45,7 @@ const Navbar = () => {
 
           {
             user && (<>
-                <span>username</span>
+                <span>{user.name}</span>
                 <button onClick={handleLogout} class="px-4 py-2 bg-red-600 hover:bg-red-500 rounded-lg">Logout</button>
             </>)
           }
