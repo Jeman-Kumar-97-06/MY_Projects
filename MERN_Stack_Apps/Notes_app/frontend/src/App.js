@@ -14,8 +14,8 @@ function App() {
         
         <div className='pages'>
           <Routes>
-            <Route exact path='/lp' element={<NotesLandingPage/>}/>
-            <Route exact path='/' element={user ? <><Navbar/><Home/></> : <Navigate to='/login'/>}/>
+            <Route exact path='/lp' element={user ? <><Navbar/><Home/></> : <NotesLandingPage/>}/>
+            <Route exact path='/' element={user ? <><Navbar/><Home/></> : <Navigate to='/lp'/>}/>
             <Route exact path='/login' element={!user ? <Login/> : <Navigate to='/'/>}/>
             <Route exact path='/signup' element={!user ? <Signup/> : <Navigate to='/'/>}/>
           </Routes>

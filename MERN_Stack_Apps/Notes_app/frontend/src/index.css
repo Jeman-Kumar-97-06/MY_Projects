@@ -10,6 +10,11 @@ body {
   background-color: #F6EACB;
 }
 
+.update_notif {
+  margin-left: 20px;
+  color: red;
+}
+
 /* Landing Page */
 /* Header */
 .lp-header {

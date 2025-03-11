@@ -26,6 +26,7 @@ const Home = () => {
         <div>
             {user && <NoteForm/>}
             <h2 className="ur_notes">Your Notes:</h2>
+            <h3 className='update_notif'>*Type something on any note to update it.</h3>
             <div className="all_notes">
                 {!notes && <div className="wait_div">Please wait. The server response is slow.😿</div>}
                 {notes && notes.map(n=>(

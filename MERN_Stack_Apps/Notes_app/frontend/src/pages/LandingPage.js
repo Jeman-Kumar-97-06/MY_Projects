@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function NotesLandingPage() {
     return (
         <div>
@@ -8,11 +10,11 @@ export default function NotesLandingPage() {
             <section className="hero">
                 <h2>Your Notes, Anywhere.</h2>
                 <p>
-                    Organize your thoughts, ideas, and to-dos in one place with our secure and easy-to-use notes app.
+                    Organize your thoughts and ideas in one place with our secure and easy-to-use notes app.
                 </p>
                 <div className="buttons">
-                    <a href="/signup" className="btn btn-primary">Get Started</a>
-                    <a href="/login" className="btn btn-secondary">Sign In</a>
+                    <Link to="/signup" className="btn btn-primary">Get Started</Link>
+                    <Link to="/login" className="btn btn-secondary">Sign In</Link>
                 </div>
             </section>
   
