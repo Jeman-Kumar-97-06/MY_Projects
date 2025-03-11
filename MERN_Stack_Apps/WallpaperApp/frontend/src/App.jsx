@@ -14,8 +14,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/lp' element={user ? <><Navbar/><Upload/><Home/></> : <LandingPage/>}/>
-          <Route exact path='/' element={user ? <><Navbar/><Upload/><Home/></> : <Navigate to ='/lp'/>}/>
+          <Route exact path='/lp' element={!user ? <Navigate to='/'/> : <LandingPage/>}/>
+          <Route exact path='/' element={user ? <><Navbar/><Upload/><Home/></> : <LandingPage/>}/>
           <Route exact path='/signup' element={!user ? <Signup/> : <Navigate to = '/'/>}/>
           <Route exact path='/login' element={!user ? <Login/> : <Navigate to = '/'/>}/>
         </Routes>
