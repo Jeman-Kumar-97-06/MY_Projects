@@ -32,6 +32,7 @@ const getWall = async (req,res) => {
 
 //Letting an Authenticated User Upload wallpaper
 const uploadWalls = async (req,res) => {
+    console.log("Runnin this")
     if (!req.file) {
         return res.status(400).json({error:"Invalid file type! only JPEG allowed."});
     }
