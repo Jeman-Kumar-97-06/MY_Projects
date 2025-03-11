@@ -12,6 +12,13 @@ const ProblemSolver = () => {
 
   const generateSolution = async () => {
     // Mock solution generation (Replace with AI API call)
+    if (lang === 'python') {
+      setSolution("#Please wait. The server is a bit slow 😿")
+    }
+    if (lang==='javascript') {
+      setSolution('//Solution will appear please wait 😿')
+    }
+    setSolution('//Solution will appear please wait')
     const resp = await fetch('https://my-projects-h056.onrender.com/api/AIsolve',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
