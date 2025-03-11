@@ -9,11 +9,9 @@ const Home = () => {
     const {user}     = useAuthContext();
     useEffect(()=>{
         const fetchAllWalls = async () => {
-          const resp  = await fetch('http://localhost:2000/api/walls/',{headers:{"Authorization":`Bearer ${user.token}`}});
+          const resp  = await fetch('https://my-projects-lxja.onrender.com/api/walls/',{headers:{"Authorization":`Bearer ${user.token}`}});
           const walls = await resp.json();
           if (resp.ok)  {
-              console.log("jeman")
-              console.log(walls)
               dispatch({type:"SETWALLS",payload:walls})
           }
           }
