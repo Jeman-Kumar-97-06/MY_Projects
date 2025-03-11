@@ -274,7 +274,11 @@ p:focus, h4:focus{
   justify-content: space-between;
 }
 
-@media only screen and (max-width:393px) {
+@media only screen and (max-width:450px) {
+  .login ,.signup{
+    margin: auto;
+    width: 90vw;
+  }
   .new_note{
     width:95%;
     margin-left: auto;
