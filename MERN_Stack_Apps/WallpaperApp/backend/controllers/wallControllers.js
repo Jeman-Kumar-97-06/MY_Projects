@@ -5,6 +5,7 @@ const Wall     = require('../models/wallModel');
 //Send all the wallpapers to the client
 const getWalls = async (req,res) => {
     const all_walls = await Wall.find({});
+    console.log(all_walls)
     if (!all_walls){
         return res.status(404).json({error:"No Wallpapers Found!"})
     };
@@ -35,12 +36,9 @@ const uploadWalls = async (req,res) => {
         return res.status(400).json({error:"Invalid file type! only JPEG allowed."});
     }
     const {path} = req.file;
-    console.log(path)
     try{
         user_id = req.user._id;
-        console.log("Stopped below User_id line")
         const new_wall = await Wall.create({wall:path,user_id:user_id});
-        console.log("Cant get new_wall")
         res.status(200).json(new_wall);
     } catch (err) {
         res.status(404).json({error:`Yerri Pooku ${err.message}`})
