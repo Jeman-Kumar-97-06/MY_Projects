@@ -1,6 +1,6 @@
 const WallDetail = ({w}) => {
 
-    let fullUrl = `https://my-projects-lxja.onrender.com/${w.wall}`
+    let fullUrl = `${w.wall}`
 
     return (
         <div class="max-w-sm mr-12 mt-6 h-auto min-h-1 p-6 bg-gray-100 rounded-lg shadow-lg">

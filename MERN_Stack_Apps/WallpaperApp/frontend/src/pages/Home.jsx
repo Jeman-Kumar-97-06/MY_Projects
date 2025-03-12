@@ -11,6 +11,7 @@ const Home = () => {
         const fetchAllWalls = async () => {
           const resp  = await fetch('https://my-projects-lxja.onrender.com/api/walls/',{headers:{"Authorization":`Bearer ${user.token}`}});
           const walls = await resp.json();
+          console.log("Ran this")
           if (resp.ok)  {
               dispatch({type:"SETWALLS",payload:walls})
           }
