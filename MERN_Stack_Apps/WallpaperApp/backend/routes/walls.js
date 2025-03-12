@@ -4,6 +4,7 @@ const multer   = require('multer');
 const router   = express.Router();
 const fs       = require('fs');
 const path     = require('path');
+const Wall     = require('../models/wallModel');
 
 const uploadDir = path.join(__dirname,'uploads')
 
@@ -79,7 +80,12 @@ router.post('/',(req, res, next) => {
         //Remove the file as soon as it is uploaded to cloudinary:
         fs.unlinkSync(req.file.path);
         //Send the Image URL to client : 
-        res.json({imageURL:uploadResult.secure_url});
+        try {
+            user_id = req.user._id;
+            const new_wall = await Wall.create({wall:uploadResult.secure_url,user_id:user_id})
+        } catch (err) {
+            res.status(404).json({error:`${err.message}`})
+        }
     } catch (error) {
         console.log("upload error: ",error);
         res.status(500).json({error:"Upload failed!"})
