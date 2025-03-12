@@ -19,7 +19,7 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 //Cloudinary Config : 
-cld.config({
+cloudinary.config({
     cloud_name:'dt0zcc0ec',
     api_key:'363287392839592',
     api_secret:process.env.API_SEC
