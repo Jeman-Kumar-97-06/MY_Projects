@@ -1,5 +1,5 @@
 const express  = require('express');
-const {v2:cld} = require('cloudinary');
+const {v2:cloudinary} = require('cloudinary');
 const multer   = require('multer');
 const router   = express.Router();
 const fs       = require('fs');
