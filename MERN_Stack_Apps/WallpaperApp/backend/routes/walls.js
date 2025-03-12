@@ -82,7 +82,8 @@ router.post('/',(req, res, next) => {
         //Send the Image URL to client : 
         try {
             user_id = req.user._id;
-            const new_wall = await Wall.create({wall:uploadResult.secure_url,user_id:user_id})
+            const new_wall = await Wall.create({wall:uploadResult.secure_url,user_id:user_id});
+            res.status(200).json(new_wall);
         } catch (err) {
             res.status(404).json({error:`${err.message}`})
         }
