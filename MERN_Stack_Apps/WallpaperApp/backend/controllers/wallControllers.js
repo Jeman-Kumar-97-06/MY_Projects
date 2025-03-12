@@ -40,7 +40,7 @@ const uploadWalls = async (req,res) => {
         const new_wall = await Wall.create({wall:path,user_id:user_id});
         res.status(200).json(new_wall);
     } catch (err) {
-        res.status(404).json({error:`Yerri Pooku ${err.message}`})
+        res.status(404).json({error:`${err.message}`})
     }
 }
 
