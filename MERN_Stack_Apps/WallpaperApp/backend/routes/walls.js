@@ -5,6 +5,8 @@ const router   = express.Router();
 const fs       = require('fs');
 const path     = require('path');
 
+const uploadDir = path.join(__dirname,'uploads')
+
 const {
     getWalls,
     getWall,
@@ -12,6 +14,9 @@ const {
     downloadWalls,
 }             = require('../controllers/wallControllers');
 
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
 
 //Cloudinary Config : 
 cld.config({
@@ -23,7 +28,7 @@ cld.config({
 //Storage Config:
 const storage = multer.diskStorage(
     {
-        destination : function(req,file,cb) { cb(null,'uploads/') },
+        destination : function(req,file,cb) { cb(null,uploadDir) },
         filename    : function(req,file,cb) { cb(null,`${Date.now()}-${file.originalname}`) }
     }
 )
