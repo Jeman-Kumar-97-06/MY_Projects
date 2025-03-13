@@ -63,10 +63,8 @@ router.post('/',(req, res, next) => {
             console.error("Multer error:", err);
             return res.status(400).json({ error: err.message });
         }
-        
         console.log("File uploaded:", req.file); // Check file data
         console.log("Request body:", req.body); // Check other request data
-        
         next();
     });
 },async (req,res)=> {
