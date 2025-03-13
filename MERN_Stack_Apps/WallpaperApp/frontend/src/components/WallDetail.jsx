@@ -1,5 +1,5 @@
 const WallDetail = ({w}) => {
-
+    console.log(w.wall)
     let fullUrl = `${w.wall}`
 
     return (
