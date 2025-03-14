@@ -1,6 +1,5 @@
 const mongoose          = require('mongoose');
 const Prompts           = require('../models/promptModel');
-const multer            = require('multer');
 const fs                = require('fs');
 const {v2 : cloudinary} = require('cloudinary');
 
@@ -20,14 +19,18 @@ const getPrompts = async (req,res) => {
     res.status(200).json(all_prompts);
 };
 
-//Save a prompt :
-const savePrompts = async (req,res) => {
-    console.log(req.body);
-}
 
 const saveGeneratedImage = async (req,res) => {
     console.log(req.body);
-    //USe the API to get generated image:
+    return;
+    //First save the prompt to database :
+    try{
+        const updatedPrompt = await Prompts.findByIdAndUpdate({user:req.user._id},{$push : {texts:req.body}},{new:true});
+    } catch(error) {
+        console.log(error);
+        res.status(500).json({message:"Can't update the list of images on mongodb:",error})
+    }
+    //USe the API to get generated image from the prompt sent via request body:
     try {
         response = await fetch('https://api.imagepig.com/',{
             method:"POST",
@@ -45,7 +48,7 @@ const saveGeneratedImage = async (req,res) => {
         //Upload image to cloudinary : 
         const uploadResponse = await cloudinary.uploader.upload(`data:image/jpeg;base4,${imageData}`,{folder : 'ai-images'})
         //The url of the image saved is : uploadResponse.secure_url
-        //Find the prompt with the corresponding user_id and update it: 
+        //Find the prompt image array with the corresponding user_id and update it: 
         try{
             const updatedPrompt = await Prompts.findByIdAndUpdate({user:req.user._id},{$push : {images:uploadResponse.secure_url}},{new:true});
         } catch(error) {
@@ -57,4 +60,4 @@ const saveGeneratedImage = async (req,res) => {
     }
 }
 
-module.exports = {getPrompts, savePrompts, saveGeneratedImage};
+module.exports = {getPrompts, saveGeneratedImage};
