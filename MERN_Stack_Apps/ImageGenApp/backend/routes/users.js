@@ -31,13 +31,16 @@ const storage = multer.diskStorage(
     }
 )
 
+//File Upload Config :
+const upload = multer({storage:storage});
+
 //All user routes:
 router.post('/login',loginUser);
 
 router.post('/signup',(req, res, next) => {
     console.log("Received request for file upload.");
     
-    upload.single('wall_pic')(req, res, (err) => {
+    upload.single('pfPic')(req, res, (err) => {
         if (err) {
             console.error("Multer error:", err);
             return res.status(400).json({ error: err.message });

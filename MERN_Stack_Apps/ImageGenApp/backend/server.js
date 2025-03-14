@@ -9,7 +9,11 @@ const pRts     = require('./routes/prompts');
 const app      = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Change this to your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use('/api/users',uRts);
 app.use('/api/prompts',pRts);

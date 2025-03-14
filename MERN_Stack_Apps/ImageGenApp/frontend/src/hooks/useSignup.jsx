@@ -8,10 +8,16 @@ export const useSignup = () => {
     const signup = async (fulln,usrn,pwd,pfPic) => {
         setIsloading(true);
         setError(null);
-        const resp = await fetch('/api/users/signup',{
+        const fData = new FormData();
+        fData.append('fulln',fulln);
+        fData.append('usrn',usrn);
+        fData.append('pwd',pwd);
+        fData.append('pfPic',pfPic);
+        console.log(fData)
+
+        const resp = await fetch('http://localhost:4000/api/users/signup',{
             method : "POST",
-            headers : {'Content-Type':'application/json'},
-            body : JSON.stringify({fulln,usrn,pwd,pfPic})
+            body : fData
         })
         const json = await resp.json();
         if (!resp.ok) {

@@ -29,7 +29,7 @@ userSchema.statics.signup = async function(fulln,usrn,pwd,pfPic) {
     //Create a salt to add to the password :
     const salt = await bcrypt.genSalt(10);
     //Create a hash with the above salt:
-    const hash = await bcrtpt.hash(pwd,salt);
+    const hash = await bcrypt.hash(pwd,salt);
     //Save the user as a new doc to mongodb:
     const user = await this.create({fulln,usrn,pwd:hash,pfPic});
     //Return that new user:
