@@ -1,15 +1,16 @@
+import {Link} from 'react-router-dom';
 const LandingPage = () => {
     return (
         <div className="bg-[#66D2CE] text-white min-h-screen">
       {/* Hero Section */}
       <section className="text-center py-20">
         <h1 className="text-5xl text-black font-bold">AI Image Generator</h1>
-        <p className="text-lg text-black mt-4">
+        <p className="text-lg text-black mt-4 mb-5">
           Generate stunning images with AI in seconds!
         </p>
-        <button className="mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-lg text-black font-bold">
+        <Link to='/login' className="mt-10 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-lg text-black font-bold">
           Get Started
-        </button>
+        </Link>
       </section>
 
       {/* Features Section */}

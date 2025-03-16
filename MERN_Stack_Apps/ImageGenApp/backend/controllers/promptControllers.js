@@ -21,11 +21,12 @@ const getPrompts = async (req,res) => {
 
 
 const saveGeneratedImage = async (req,res) => {
-    console.log(req.body);
-    return;
     //First save the prompt to database :
+    let resp_bod
     try{
-        const updatedPrompt = await Prompts.findByIdAndUpdate({user:req.user._id},{$push : {texts:req.body}},{new:true});
+        //Find by ID but if it's not there create one with 'upsert:true' part.
+        const updatedPrompt = await Prompts.findOneAndUpdate({user:req.user._id},{$push : {texts:req.body.prompt}},{new:true,upsert:true});
+        resp_bod = updatedPrompt;
     } catch(error) {
         console.log(error);
         res.status(500).json({message:"Can't update the list of images on mongodb:",error})
@@ -38,7 +39,7 @@ const saveGeneratedImage = async (req,res) => {
                 'Content-Type' : 'application/json',
                 'Api-Key' : process.env.API_K //Image Pig API Key
             },
-            body:JSON.stringify({"prompt":req.body})
+            body:JSON.stringify({"prompt":req.body.prompt})
         });
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
@@ -46,11 +47,13 @@ const saveGeneratedImage = async (req,res) => {
         const json = await response.json();
         const imageData = json.image_data; //image in base64 format.
         //Upload image to cloudinary : 
-        const uploadResponse = await cloudinary.uploader.upload(`data:image/jpeg;base4,${imageData}`,{folder : 'ai-images'})
+        const uploadResponse = await cloudinary.uploader.upload(`data:image/jpeg;base64,${imageData}`,{folder : 'ai-images'})
         //The url of the image saved is : uploadResponse.secure_url
         //Find the prompt image array with the corresponding user_id and update it: 
         try{
-            const updatedPrompt = await Prompts.findByIdAndUpdate({user:req.user._id},{$push : {images:uploadResponse.secure_url}},{new:true});
+            const updatedPrompt = await Prompts.findOneAndUpdate({user:req.user._id},{$push : {images:uploadResponse.secure_url}},{new:true,upsert:true});
+            resp_bod = updatedPrompt;
+            res.status(200).json({'whole':resp_bod,'now_':uploadResponse.secure_url});
         } catch(error) {
             console.log(error);
             res.status(500).json({message:"Can't update the list of images on mongodb:",error})
