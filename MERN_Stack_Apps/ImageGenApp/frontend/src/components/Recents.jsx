@@ -1,6 +1,6 @@
 const Recents = () => {
     return (
-        <div className="flex gap-4 mt-6 w-full max-w-4xl m-auto">
+        <div className="flex gap-4 mt-6 w-full max-w-4xl m-auto flex-col sm:flex-row">
           <div className="flex-1 bg-gray-100 p-4 rounded-lg shadow">
             <h3 className="text-lg font-semibold">Recent Prompts</h3>
             <ul className="mt-2 space-y-2">
