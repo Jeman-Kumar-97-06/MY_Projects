@@ -12,11 +12,11 @@ cloudinary.config({
 
 //Send all the prompt to the client : 
 const getPrompts = async (req,res) => {
-    const all_prompts = await Prompts.find({});
+    const all_prompts = await Prompts.find({user:req.user._id});
     if (!all_prompts) {
-        return res.status(404).json({error:"No Prompts!"});
+       return res.status(404).json({error:"No Prompts!"});
     };
-    res.status(200).json(all_prompts);
+    return res.status(200).json(all_prompts);
 };
 
 
@@ -37,7 +37,7 @@ const saveGeneratedImage = async (req,res) => {
             method:"POST",
             headers:{
                 'Content-Type' : 'application/json',
-                'Api-Key' : process.env.API_K //Image Pig API Key
+                'Api-Key' : process.env.API_K2 //Image Pig API Key
             },
             body:JSON.stringify({"prompt":req.body.prompt})
         });

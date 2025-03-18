@@ -4,7 +4,7 @@ const LandingPage = () => {
         <div className="bg-[#66D2CE] text-white min-h-screen">
       {/* Hero Section */}
       <section className="text-center py-20">
-        <h1 className="text-5xl text-black font-bold">AI Image Generator</h1>
+        <h1 className="text-5xl text-black font-bold">ImgGen</h1>
         <p className="text-lg text-black mt-4 mb-5">
           Generate stunning images with AI in seconds!
         </p>
@@ -26,14 +26,14 @@ const LandingPage = () => {
             <p className="text-black">Generate images and save/download them.<span className="text-red-500">Login required*</span></p>
           </div>
           <div className="bg-[#E3D2C3] p-6 rounded-lg shadow-2xl">
-            <h3 className="text-xl font-bold text-black">Upto 30 Free images</h3>
-            <p className="text-black">No sign-up required. Start generating now!</p>
+            <h3 className="text-xl font-bold text-red-500">Upto 30 Free images</h3>
+            <p className="text-black">That's all my free API Key supports!</p>
           </div>
         </div>
       </section>
 
       {/* Demo Section */}
-      <section className="text-center py-20">
+      {/* <section className="text-center py-20">
         <h2 className="text-3xl font-semibold text-black">Try It Now</h2>
         <input
           type="text"
@@ -46,10 +46,10 @@ const LandingPage = () => {
         <div className="mt-6 text-black">
           <img src="https://via.placeholder.com/400" alt="Generated Image" className="mx-auto rounded-lg"/>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
-      <footer className="text-center py-6 bg-gray-800">
+      <footer className="text-center py-6 bg-gray-800 bottom-0 fixed w-[100vw]">
         <p>© 2025 AI Image Generator | Jeman_06_03</p>
       </footer>
     </div>

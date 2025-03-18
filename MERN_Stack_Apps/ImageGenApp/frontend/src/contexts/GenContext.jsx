@@ -14,7 +14,7 @@ export const genReducer = (state,action) => {
 };
 
 export const GenContextProvider = ({children}) => {
-    const [state,dispatch] = useReducer(genReducer,{imgs:null});
+    const [state,dispatch] = useReducer(genReducer,{imgs:[]});
     return (
         <GenContext.Provider value={{...state,dispatch}}>
             {children}

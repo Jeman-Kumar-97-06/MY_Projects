@@ -32,35 +32,60 @@ const Home = () => {
     const [prompt,setPrompt] = useState('');
 
     const {user} = useAuthContext();
-    const {dispatch} = useGenContext();
+    const {imgs,dispatch} = useGenContext();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    //Everytime page loads:
+    useEffect(()=>{
+      const fetchAll = async () => {
+        const resp = await fetch("http://localhost:4000/api/prompts/gt_p",{
+          method:"GET",
+          headers:{"Authorization":`Bearer ${user.token}`,'Content-Type':'application/json'},
+        });
+        const json = await resp.json();
+        console.log(json[0])
+        console.log(json);
+        if (resp.ok) {
+          dispatch({type:"SET_IMGS",payload:json})
+        }
+      }
+      fetchAll()
+    },[dispatch,user,isModalOpen])
+
+    //What to do when clicked 'generate':
+    let lastRequestTime = 0;
     const handleGenerate = async (e) => {
-     e.preventDefault();
-     setIsModalOpen(true);
-     const resp = await fetch('http://localhost:4000/api/prompts/save_p/',{
+      e.preventDefault();
+      const now = Date.now();
+      if (now - lastRequestTime < 30000) { // Enforce 30s delay
+          window.alert("Please wait before generating another image.");
+          return;
+      }
+      lastRequestTime = now;
+      setIsModalOpen(true);
+      const resp = await fetch('http://localhost:4000/api/prompts/save_p/',{
         method:"POST",
         headers:{"Authorization":`Bearer ${user.token}`, "Content-Type": "application/json"},
         body:JSON.stringify({'prompt':prompt})
-     })
-     const json = await resp.json();
-    //  console.log(json)
-    if (resp.ok) {
-      setIsModalOpen(true);
-      document.querySelector('#gener_wait').style.display='none';
-      document.querySelector('#gen_img').src=json.now_;
+      })
+      const json = await resp.json();
+      if (resp.ok) {
+        setIsModalOpen(true);
+        document.querySelector('#gener_wait').style.display='none';
+        document.querySelector('#gen_img').src=json.now_;
+        dispatch({type:"SET_IMGS",payload:json.whole});
+      }
+      if (!resp.ok) {
+        setIsModalOpen(false);
+        document.querySelector('#gener_wait').style.display='';
+        document.querySelector('#gen_img').src='';
+        window.alert(json.error);
+      };
     }
-    if (!resp.ok) {
-      setIsModalOpen(false);
-      document.querySelector('#gener_wait').style.display='';
-      document.querySelector('#gen_img').src='';
-      console.log()
-    };
-  }
-    useEffect(()=>{
-      
-    },[dispatch,user]);
+    // useEffect(()=>{
+    //   // const fetchAll =   
+    // },[dispatch,user]);
 
     return (
         <>
@@ -74,7 +99,7 @@ const Home = () => {
            <div className="image_result">
 
            </div>
-           <Recents/>
+           {imgs[0] && <Recents txts={imgs[0].texts} ims={imgs[0].images}/>}
            {/* Modal to show image generated */}
            {isModalOpen && <Modal isM={isModalOpen} setisM={setIsModalOpen}/>}
         </div>
