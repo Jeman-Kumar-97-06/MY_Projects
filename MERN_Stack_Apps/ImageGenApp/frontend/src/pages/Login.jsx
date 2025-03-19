@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import {useLogin} from '../hooks/useLogin';
 import { useState } from 'react';
+import {motion} from 'framer-motion';
 
 const Login = () => {
     const [username,setUsername]  = useState(null);
@@ -19,7 +20,7 @@ const Login = () => {
 
     return (
         <div className="login_page w-[100vw] h-[100vh] content-center">
-            <form className="m-auto bg-[#66D2CE] flex flex-col w-[400px] p-5 pt-10 rounded-lg" onSubmit={handleLogin}>
+            <motion.form initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }} className="m-auto bg-[#66D2CE] flex flex-col w-[400px] p-5 pt-10 rounded-lg" onSubmit={handleLogin}>
                 <input 
                     type='text' 
                     className="p-3 bg-white rounded-lg mb-5" 
@@ -28,18 +29,18 @@ const Login = () => {
                     value={username}
                     />
                 <input 
-                    type='text' 
+                    type='password' 
                     className="p-3 bg-white rounded-lg mb-5" 
                     placeholder='Password'
                     onChange={e=>{setPassword(e.target.value)}}
                     value={password}
                     />
                 <button type='submit' className="cursor-pointer shadow-sm bg-[#E3D2C3] w-[100px] p-2 rounded-lg">Login</button>
-                <p>Already have an account ? <a className='text-blue-700' href='#'>Signup</a></p>
+                <p>Already have an account ? <Link to='/signup' className='text-blue-700'>Signup</Link></p>
                 {error && <span className='text-red-500'>{error}*</span>}
                 {err && <span className='text-red-500'>{err}*</span>}
                 {isloading && <span>Please wait, the server is bit slow. 😿</span>}
-            </form>
+            </motion.form>
         </div>
     )
 }

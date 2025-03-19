@@ -37,7 +37,7 @@ const saveGeneratedImage = async (req,res) => {
             method:"POST",
             headers:{
                 'Content-Type' : 'application/json',
-                'Api-Key' : process.env.API_K2 //Image Pig API Key
+                'Api-Key' : [process.env.API_K,process.env.API_K2,process.env.API_K3][Math.floor(Math.random()*3)] //Image Pig API Key
             },
             body:JSON.stringify({"prompt":req.body.prompt})
         });

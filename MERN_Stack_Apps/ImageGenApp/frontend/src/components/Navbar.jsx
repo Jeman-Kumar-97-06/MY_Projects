@@ -11,7 +11,7 @@ const Navbar = ({username,profPic}) => {
             <div className="flex items-center gap-4">
                 <span>{username}</span>
                 <img src={profPic} alt="pic" className="w-7 h-7 rounded-full" />
-                <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded">Logout</button>
+                <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded cursor-pointer">Logout</button>
             </div>
         </nav>
     )  

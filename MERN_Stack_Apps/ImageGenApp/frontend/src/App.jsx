@@ -13,7 +13,7 @@ function App() {
         <Route exact path='/lp' element={user ? <Home/> : <LandingPage/>}/>
         <Route exact path='/' element={user ? <Home/> : <Navigate to='/lp'/>}/>
         <Route exact path='/login' element={!user ? <Login/> : <Home/>}/>
-        <Route exact paht='/signup' element={!user ? <Signup/> : <Home/>}/>
+        <Route exact path='/signup' element={!user ? <Signup/> : <Home/>}/>
       </Routes>
      </BrowserRouter>
   )
