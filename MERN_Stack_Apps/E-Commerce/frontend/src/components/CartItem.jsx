@@ -39,18 +39,33 @@ const CartItem = ({ci}) => {
     }
 
     return (
-        <tr>
-                    {/* The following is book names */}
-                    <td>{ci.prod_name}</td>
-                    {/* The following is books quantity */}
-                    <td><input type='number' value={quantity} onChange={(e)=>{setQuantity(e.target.value)}}/></td>
-                    {/* The following is book prices */}
-                    <td>{Number(ci.price)*Number(quantity)}</td>
-                    {/* The following is just a Update btn */}
-                    <td><button onClick={updateCart}>{error || "Update"}</button></td>
-                    {/* The following is just a DELET btn */}
-                    <td><button onClick={deleteFromCart}>{error || "Delete"}</button></td>
-        </tr>
+        <div
+        className="flex items-center justify-between border-b py-4"
+       >
+       <div className="flex-1">
+         <h2 className="text-xl font-semibold">{ci.prod_name}</h2>
+         <p className="text-lg">₹{Number(ci.price)*Number(quantity)}</p>
+       </div>
+       <input
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={(e)=>{setQuantity(e.target.value)}}
+                className="w-16 text-center border rounded-lg p-1 mx-4"
+              />
+       <button
+         onClick={updateCart}
+         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 mr-3"
+       >
+        {error || 'Update'}
+       </button>
+       <button
+         onClick={deleteFromCart}
+         className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+       >
+        {error || 'Remove'}
+       </button>
+     </div>
     )
 }
 

@@ -10,7 +10,7 @@ const getCart = async (req,res) => {
         return res.status(404).json({error:"No Cart with the give ID!"});
     }
     const resps = cart[0].products
-    res.status(200).json({resps})
+    return res.status(200).json({resps})
 }
 
 const updateCart = async (req,res) => {

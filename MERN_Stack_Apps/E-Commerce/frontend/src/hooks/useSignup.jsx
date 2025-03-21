@@ -8,7 +8,7 @@ export const useSignup = () => {
     const signup = async (name,email,password) => {
         setIsloading(true);
         setError(null);
-        const resp = await fetch('/api/users/signup',{method:"POST",
+        const resp = await fetch('https://e-commerce-backend-9p74.onrender.com/api/users/signup',{method:"POST",
                                                       headers:{"Content-Type":"application/json"},
                                                       body:JSON.stringify({name,email,password})});
         const json = await resp.json();
