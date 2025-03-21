@@ -1,4 +1,5 @@
 {
+  "proxy" : "https://imggen-06-03.onrender.com",
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
