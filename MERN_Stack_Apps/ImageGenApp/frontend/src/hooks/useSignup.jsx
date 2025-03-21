@@ -15,7 +15,7 @@ export const useSignup = () => {
         fData.append('pfPic',pfPic);
         console.log(fData)
 
-        const resp = await fetch('http://localhost:4000/api/users/signup',{
+        const resp = await fetch('https://imggen-06-03.onrender.com/api/users/signup',{
             method : "POST",
             body : fData
         })

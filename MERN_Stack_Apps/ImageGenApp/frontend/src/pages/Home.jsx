@@ -40,7 +40,7 @@ const Home = () => {
     //Everytime page loads:
     useEffect(()=>{
       const fetchAll = async () => {
-        const resp = await fetch("http://localhost:4000/api/prompts/gt_p",{
+        const resp = await fetch("https://imggen-06-03.onrender.com/api/prompts/gt_p",{
           method:"GET",
           headers:{"Authorization":`Bearer ${user.token}`,'Content-Type':'application/json'},
         });
