@@ -35,13 +35,20 @@ const ProductDetails = ({product}) => {
             <img
                 src={product.img}
                 alt={product.name}
-                className="w-full h-48 object-cover rounded-md"
+                className="w-full h-48 object-contain rounded-md"
             />
             <h2 className="text-xl font-semibold mt-4">{product.title}</h2>
             <h3 className='text-lg mt-2'>{product.author}</h3>
             <p className="text-lg font-bold">₹{product.price}</p>
             <form onSubmit={handleAdd} className='add_cart_form'> 
-                <input type='number' value={quantity} onChange={e=>{setQuantity(quantity+1)}}/>
+                <input
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={(e)=>{setQuantity(e.target.value)}}
+                className="w-16 text-center border rounded-lg p-1 mx-4"
+                />
+                
                 <button>Add to Cart</button>
             </form>
             <button onClick={handleAdd} className="mt-4 bg-[#8b5a2b] text-white px-4 py-2 rounded-lg hover:bg-[#6d4522]">

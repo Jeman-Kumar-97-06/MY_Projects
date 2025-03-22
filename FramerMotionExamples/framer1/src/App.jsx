@@ -54,7 +54,10 @@ function App() {
     >
       <h1 className="text-2xl">Welcome to the Page</h1>
     </motion.div>
-
+    <motion.div
+  initial={{ backgroundColor: "rgb(0, 255, 0)", opacity: 0 }}
+  whileInView={{ backgroundColor: "rgb(255, 0, 0)", opacity: 1 }}
+/>
     </>
   )
 }
