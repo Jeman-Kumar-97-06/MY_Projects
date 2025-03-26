@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
-import { ShoppingCart, CheckCircle, Search } from "lucide-react";
+import { ShoppingCart, Search } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
-
-const phones = [
-  { id: 1, name: "iPhone 12", price: "$499", image: "/iphone12.jpg" },
-  { id: 2, name: "Samsung Galaxy S21", price: "$399", image: "/s21.jpg" },
-  { id: 3, name: "Google Pixel 6", price: "$349", image: "/pixel6.jpg" },
-];
 
 const reviews = [
   "Great quality phones! Saved a lot of money.",
@@ -18,6 +12,16 @@ const reviews = [
 export default function HomePage() {
   const [search, setSearch] = useState("");
   const [currentReview, setCurrentReview] = useState(0);
+  const [phones,setPhones] = useState([]);
+
+  useEffect(()=>{
+    const fetchAllPhones = async () => {
+      const resp = await fetch('http://localhost:4000/api/products',)
+      const json = await resp.json();
+      setPhones(json);
+    };
+    fetchAllPhones();
+  },[])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -47,7 +51,7 @@ export default function HomePage() {
 
       {/* Featured Phones with Fade-in Scroll Effect */}
       <div className="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {phones.map((phone, index) => (
+        {phones && phones.map((phone, index) => (
           <motion.div
             key={phone.id}
             initial={{ opacity: 0, y: 50 }}
@@ -56,7 +60,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="p-4 shadow-lg bg-white rounded-lg"
           >
-            <img src={phone.image} alt={phone.name} className="w-full h-48 object-cover rounded-md" />
+            <img src={phone.image} alt={phone.name} className="w-full h-48 object-contain rounded-md" />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold">{phone.name}</h3>
               <p className="text-lg text-blue-600 font-bold">{phone.price}</p>
