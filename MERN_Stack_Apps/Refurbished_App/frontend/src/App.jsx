@@ -5,7 +5,7 @@ import LandingPage from "./pages/LandingPage"
 import LoginPage from "./pages/Login"
 import ProductDetail from "./pages/ProductDetails"
 import AllProducts from "./pages/Products"
-import SignupPage from "./pages/SIgnup"
+import SignupPage from "./pages/Signup"
 
 function App() {
   return (

@@ -14,6 +14,7 @@ export default function HomePage() {
   const [currentReview, setCurrentReview] = useState(0);
   const [phones,setPhones] = useState([]);
 
+  //fetchAllPhones should run everytime HomePage loads:
   useEffect(()=>{
     const fetchAllPhones = async () => {
       const resp = await fetch('http://localhost:4000/api/products',)
@@ -23,12 +24,17 @@ export default function HomePage() {
     fetchAllPhones();
   },[])
 
+  //Review changes every 3 seconds:
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentReview((prev) => (prev + 1) % reviews.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleAddtoCart = (ph)=>{
+    console.log(ph)
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -63,8 +69,8 @@ export default function HomePage() {
             <img src={phone.image} alt={phone.name} className="w-full h-48 object-contain rounded-md" />
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold">{phone.name}</h3>
-              <p className="text-lg text-blue-600 font-bold">{phone.price}</p>
-              <button className="mt-4 flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700">
+              <p className="text-lg text-blue-600 font-bold">₹ {phone.price}</p>
+              <button onClick={e=>handleAddtoCart(phone)} className="mt-4 flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700">
                 <ShoppingCart className="mr-2" size={18} /> Add to Cart
               </button>
             </div>
