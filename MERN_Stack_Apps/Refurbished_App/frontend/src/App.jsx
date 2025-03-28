@@ -11,12 +11,12 @@ function App() {
   return (
     <>
       {/* <LandingPage/> */}
-      <HomePage/>
+      {/* <HomePage/> */}
       {/* <LoginPage/> */}
       {/* <SignupPage/> */}
       {/* <ContactUs/> */}
       {/* <AllProducts/> */}
-      {/* <CartPage/> */}
+      <CartPage/>
       {/* <ProductDetail/> */}
     </>
   )
