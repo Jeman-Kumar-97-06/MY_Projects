@@ -6,6 +6,7 @@ const products = [
 ];
 
 export default function CartPage() {
+  
   const [cart, setCart] = useState(products);
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
