@@ -3,6 +3,7 @@ import { ShoppingCart, Search } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import {useProductContext} from '../hooks/useProductContext';
 
 const reviews = [
   "Great quality phones! Saved a lot of money.",
@@ -11,19 +12,22 @@ const reviews = [
 ];
 
 export default function HomePage() {
-  const [search, setSearch] = useState("");
+  const [query, setQuery]  = useState("");
+  const [results,setResults] = useState([]); 
   const [currentReview, setCurrentReview] = useState(0);
-  const [phones,setPhones] = useState([]);
+  const {products,dispatch} = useProductContext();
 
   //fetchAllPhones should run everytime HomePage loads:
   useEffect(()=>{
     const fetchAllPhones = async () => {
       const resp = await fetch('http://localhost:4000/api/products',)
       const json = await resp.json();
-      setPhones(json);
+      if (resp.ok) {
+        dispatch({type:"SET_PRODS",payload:json});
+      }
     };
     fetchAllPhones();
-  },[])
+  },[query,results])
 
   //Review changes every 3 seconds:
   useEffect(() => {
@@ -32,6 +36,20 @@ export default function HomePage() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  //Dynamic Product Search:
+  useEffect(()=>{
+    if (!products) {
+      return
+    }
+    if (query.length==0){
+      setResults([]);
+      return;
+    }
+    const reslt = products.filter(p=>p.name.toLowerCase().includes(query.toLowerCase()));
+    dispatch({type:"SET_PRODS",payload:reslt})
+    setResults(reslt)
+  },[query])
 
   //When user clicks 'Add to Cart':
   const handleAddtoCart = (ph)=>{
@@ -50,17 +68,25 @@ export default function HomePage() {
           <input
             type="text"
             placeholder="Search for a phone..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             className="w-full px-4 py-2 border rounded-md shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <Search className="absolute top-2 right-3 text-gray-400" size={20} />
+          <ul className="p-3 bg-white">
+            {results && results.map((item) => (
+              <>
+                <li className='hover:bg-blue-100 cursor-pointer' key={item._id}>{item.name}</li>
+                <hr></hr>
+              </>
+            ))}
+          </ul>
         </div>
       </div>
 
       {/* Featured Phones with Fade-in Scroll Effect */}
       <div className="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {phones && phones.map((phone, index) => (
+        {products && products.map((phone, index) => (
           <motion.div
             key={phone._id}
             initial={{ opacity: 0, y: 50 }}
@@ -80,6 +106,7 @@ export default function HomePage() {
                 <input
                   type="number"
                   placeholder="0"
+                  min='0'
                   className="max-w-45 min-w-10 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button className="px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700">

@@ -1,35 +1,89 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
-
-const products = [
-  { id: 1, name: "iPhone 12", price: 599, description: "A powerful smartphone with A14 Bionic chip.", image: "https://via.placeholder.com/300" },
-  { id: 2, name: "Samsung Galaxy S21", price: 499, description: "Flagship phone with 120Hz AMOLED display.", image: "https://via.placeholder.com/300" },
-  { id: 3, name: "Google Pixel 6", price: 449, description: "Amazing AI-powered camera and pure Android.", image: "https://via.placeholder.com/300" },
-  { id: 4, name: "OnePlus 9", price: 399, description: "Fast performance with 65W charging.", image: "https://via.placeholder.com/300" },
-];
+import { useProductContext } from "../hooks/useProductContext";
+import { motion } from "framer-motion";
+import { Battery, Smartphone, Monitor } from "lucide-react";
 
 export default function ProductDetail() {
-//   const { id } = useParams();
-  const id = 2;
-  const product = products.find((p) => p.id === parseInt(id));
+  const { id } = useParams();
+  const {products} = useProductContext();
+
+  const product = products.find(p=>p._id === id);
 
   if (!product) {
     return <h2 className="text-center text-red-600 text-2xl">Product not found</h2>;
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
-      <div className="bg-white shadow-lg rounded-lg p-6 max-w-xl w-full">
-        <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded-md" />
-        <h2 className="text-3xl font-bold text-gray-800 mt-4">{product.name}</h2>
-        <p className="text-gray-600 mt-2">{product.description}</p>
-        <h3 className="text-xl font-semibold text-blue-600 mt-4">Price: ₹{product.price}</h3>
-        <button
-          className="mt-4 px-6 py-3 bg-green-600 text-white rounded-md shadow hover:bg-green-700 w-full"
-        >
-          Add to Cart
-        </button>
+    <motion.div 
+    initial={{ opacity: 0 }} 
+    animate={{ opacity: 1 }} 
+    transition={{ duration: 0.6 }} 
+    className="h-screen w-screen flex justify-center items-center bg-gray-100"
+  >
+    <motion.div 
+      initial={{ y: 20, opacity: 0 }} 
+      animate={{ y: 0, opacity: 1 }} 
+      transition={{ duration: 0.6 }} 
+      className="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-8 border flex flex-col md:flex-row items-center"
+    >
+      {/* Product Image */}
+      <motion.img
+        src={product.image}
+        alt="iPhone 12"
+        className="w-64 md:w-80 rounded-lg"
+        whileHover={{ scale: 1.05 }}
+      />
+
+      {/* Product Details */}
+      <div className="mt-6 md:mt-0 md:ml-10 flex-1">
+        <h2 className="text-3xl font-bold text-gray-900">{product.name}</h2>
+
+        {/* Battery Section */}
+        <div className="mt-5 flex items-start">
+          <Battery className="w-7 h-7 text-blue-500 mt-1" />
+          <div className="ml-3">
+            <h3 className="text-lg font-semibold">Battery</h3>
+            <p className="text-gray-600">
+              {product.battery}
+            </p>
+          </div>
+        </div>
+
+        {/* Design Section */}
+        <div className="mt-5 flex items-start">
+          <Smartphone className="w-7 h-7 text-green-500 mt-1" />
+          <div className="ml-3">
+            <h3 className="text-lg font-semibold">Design</h3>
+            <p className="text-gray-600">
+              {product.design}
+            </p>
+          </div>
+        </div>
+
+        {/* Display Section */}
+        <div className="mt-5 flex items-start">
+          <Monitor className="w-7 h-7 text-purple-500 mt-1" />
+          <div className="ml-3">
+            <h3 className="text-lg font-semibold">Display</h3>
+            <p className="text-gray-600">
+              {product.display}
+            </p>
+          </div>
+        </div>
+
+        {/* Price & Button */}
+        <div className="mt-8 flex justify-between items-center">
+          <span className="text-2xl font-bold text-blue-600">₹{product.price}</span>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md text-lg"
+          >
+            Add to Cart
+          </motion.button>
+        </div>
       </div>
-    </div>
+    </motion.div>
+  </motion.div>
   );
 }
