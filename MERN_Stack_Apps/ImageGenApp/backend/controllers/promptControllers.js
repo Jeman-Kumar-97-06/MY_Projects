@@ -23,8 +23,10 @@ const getPrompts = async (req,res) => {
 const saveGeneratedImage = async (req,res) => {
     //First save the prompt to database :
     let resp_bod
+    console.log("ran this shit")
     try{
-        //Find by ID but if it's not there create one with 'upsert:true' part.
+        //Find by user_ID but if it's not there create one with 'upsert:true' part.
+        console.log("ran this shit yo")
         const updatedPrompt = await Prompts.findOneAndUpdate({user:req.user._id},{$push : {texts:req.body.prompt}},{new:true,upsert:true});
         resp_bod = updatedPrompt;
     } catch(error) {
