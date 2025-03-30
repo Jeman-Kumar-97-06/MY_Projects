@@ -10,7 +10,7 @@ const app      = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://imagegen0603-4nf0qfsjq-jemans-projects.vercel.app', // Change this to your frontend URL
+    origin: ['https://imagegen0603-4nf0qfsjq-jemans-projects.vercel.app','https://api.imagepig.com/'], // Change this to your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
