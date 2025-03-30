@@ -8,7 +8,7 @@ const pRts     = require('./routes/prompts');
 
 const app      = express();
 
-
+//CORS
 app.use(cors({
     origin: ['https://imagegen0603-4nf0qfsjq-jemans-projects.vercel.app','https://api.imagepig.com/'], // Change this to your frontend URL
     methods: ['GET', 'POST', 'PUT','PATCH','DELETE'],
