@@ -17,17 +17,22 @@ export default function HomePage() {
   const [currentReview, setCurrentReview] = useState(0);
   const {products,dispatch} = useProductContext();
 
+  //Handling 'quantity&add2cart' form data :
+  const [quantity,setQuantity] = useState(0);
+
+
+  const fetchAllPhones = async () => {
+    const resp = await fetch('http://localhost:4000/api/products',)
+    const json = await resp.json();
+    if (resp.ok) {
+      dispatch({type:"SET_PRODS",payload:json});
+    }
+  };
+
   //fetchAllPhones should run everytime HomePage loads:
   useEffect(()=>{
-    const fetchAllPhones = async () => {
-      const resp = await fetch('http://localhost:4000/api/products',)
-      const json = await resp.json();
-      if (resp.ok) {
-        dispatch({type:"SET_PRODS",payload:json});
-      }
-    };
     fetchAllPhones();
-  },[query,results])
+  },[])
 
   //Review changes every 3 seconds:
   useEffect(() => {
@@ -39,21 +44,31 @@ export default function HomePage() {
 
   //Dynamic Product Search:
   useEffect(()=>{
+    //If the products aren't loaded yet:
     if (!products) {
+      // fetchAllPhones();
+      console.log("ran this")
       return
     }
+    //If the query length is zero
     if (query.length==0){
       setResults([]);
+      fetchAllPhones();
       return;
     }
     const reslt = products.filter(p=>p.name.toLowerCase().includes(query.toLowerCase()));
+    if (reslt.length == 0) {
+      fetchAllPhones();
+    }
     dispatch({type:"SET_PRODS",payload:reslt})
     setResults(reslt)
   },[query])
 
   //When user clicks 'Add to Cart':
-  const handleAddtoCart = (ph)=>{
-    console.log(ph)
+  const handleCartSubmit = (e,ph)=>{
+    e.preventDefault();
+    console.log(ph);
+    console.log(quantity);
   }
 
   //Main Shit:
@@ -99,7 +114,9 @@ export default function HomePage() {
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold">{phone.name}</h3>
               <p className="text-lg text-blue-600 font-bold">₹ {phone.price}</p>
-              <div className="flex gap-2 mt-2">
+              
+              {/* Form with 'details', 'quantity shit' and 'cart' button */}
+              <form className="flex gap-2 mt-2" onSubmit={e=>handleCartSubmit(e,phone)}>
                 <Link to={`/phone/${phone._id}`}  className="px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 w-full text-center">
                   Details
                 </Link>
@@ -107,12 +124,15 @@ export default function HomePage() {
                   type="number"
                   placeholder="0"
                   min='0'
+                  value={quantity}
+                  onChange={e=>{setQuantity(e.target.value)}}
                   className="max-w-45 min-w-10 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <button className="px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700">
-                <ShoppingCart className="mr-2" size={18} />
+                <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700">
+                  <ShoppingCart className="mr-2" size={18} />
                 </button>
-              </div>
+              </form>
+
             </div>
           </motion.div>
         ))}
