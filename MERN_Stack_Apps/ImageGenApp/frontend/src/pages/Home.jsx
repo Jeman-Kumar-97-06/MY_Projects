@@ -65,7 +65,7 @@ const Home = () => {
       }
       lastRequestTime = now;
       setIsModalOpen(true);
-      const resp = await fetch('https://imggen-06-03.onrender.com/api/prompts/save_p/',{
+      const resp = await fetch('https://imggen-06-03.onrender.com/api/prompts/save_p',{
         method:"POST",
         headers:{"Authorization":`Bearer ${user.token}`, "Content-Type": "application/json"},
         body:JSON.stringify({'prompt':prompt})
