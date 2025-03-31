@@ -11,7 +11,7 @@ const app      = express();
 //CORS
 app.options("*", cors()); 
 app.use(cors({
-    origin: ['http://localhost:5173','https://imagegen0603-4nf0qfsjq-jemans-projects.vercel.app','https://api.imagepig.com'], // Change this to your frontend URL
+    origin: ['http://localhost:5173','https://imagegen0603-oitzkx0cf-jemans-projects.vercel.app','https://api.imagepig.com'], // Change this to your frontend URL
     methods: ['GET', 'POST', 'PUT','PATCH','DELETE'],
     // Allows both Content-Type and Authorization:
     allowedHeaders: ['Content-Type', 'Authorization']
