@@ -16,7 +16,6 @@ const getPrompts = async (req,res) => {
     if (!all_prompts) {
        return res.status(404).json({error:"No Prompts!"});
     };
-    console.log("Ran nigga")
     return res.status(200).json(all_prompts);
 };
 
