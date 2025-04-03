@@ -12,7 +12,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
       <div className="text-center py-20 bg-blue-600 text-white">
-        <h1 className="text-5xl font-bold">Premium Refurbished Phones</h1>
+        <h1 className="text-5xl font-bold pRPhones">Premium Refurbished Phones</h1>
         <p className="mt-4 text-lg">High-quality, certified refurbished phones at unbeatable prices.</p>
         <a href="#shop" className="mt-6 inline-block px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-gray-200">Shop Now</a>
       </div>
