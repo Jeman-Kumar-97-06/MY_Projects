@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useLogin } from '../hooks/useLogin';
+import { GoogleLoginButton } from "../components/GoogleLoginButton";
 
 export default function LoginPage() {
   const [name, setName] = useState("");
@@ -10,11 +11,6 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     await login(name,password);
-  };
-
-  const handleGoogleSignIn = () => {
-    console.log("Signing in with Google");
-    // Integrate Google OAuth here
   };
 
   return (
@@ -55,12 +51,7 @@ export default function LoginPage() {
           <span className="mx-2 text-gray-500">or</span>
           <div className="border-t w-1/3"></div>
         </div>
-        <button
-          onClick={handleGoogleSignIn}
-          className="mt-4 w-full flex items-center justify-center px-4 py-2 border rounded-md shadow bg-white hover:bg-gray-100"
-        >
-          <FcGoogle className="mr-2" size={20} /> Sign in with Google
-        </button>
+        <GoogleLoginButton/>
         <p className="text-center text-gray-600 mt-4">
           Don't have an account? <a href="/signup" className="text-blue-600 font-medium">Sign up</a>
         </p>

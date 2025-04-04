@@ -7,6 +7,8 @@ const createToken = (id) => {
     return jwt.sign({_id:id},process.env.SEC,{expiresIn:'3d'});
 }
 
+const client = new OAuth2Client(process.env.GOOGLECLIENTID);
+
 //Login Users with Google : 
 const googleLogin = async (req,res) => {
     const {credential} = req.body;
@@ -58,4 +60,4 @@ const signupUser = async (req,res) => {
     }
 };
 
-module.exports = {loginUser,signupUser};
+module.exports = {googleLogin,loginUser,signupUser};
