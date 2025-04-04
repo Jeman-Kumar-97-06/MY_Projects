@@ -7,7 +7,7 @@ import AllProducts from "./pages/Products"
 import ProductDetail from "./components/ProductDetails";
 import SignupPage from "./pages/Signup"
 import {useAuthContext} from './hooks/useAuthContext';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 
 function App() {
   const {user} = useAuthContext();
@@ -15,12 +15,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/lp' element={<LandingPage/>}/>
-          <Route exact path='/' element={<HomePage/>}/>
-          <Route exact path='/signup' element={<SignupPage/>}/>
-          <Route exact path='/login' element={<LoginPage/>}/>
-          <Route exact path='/contact' element={<ContactUs/>}/>
-          <Route exact path='/phone/:id' element={<ProductDetail/>}/>
+          <Route exact path='/' element={user ? <HomePage/> : <LandingPage/>}/>
+          <Route exact path='/signup' element={user ? <Navigate to='/'/> : <SignupPage/>}/>
+          <Route exact path='/login' element={user ? <Navigate to='/'/> : <LoginPage/>}/>
+          <Route exact path='/contact' element={user ? <ContactUs/> : <Navigate to='/login'/>}/>
+          <Route exact path='/phone/:id' element={user ? <ProductDetail/> : <Navigate to='/login'/>}/>
         </Routes>
       </BrowserRouter>
     </>

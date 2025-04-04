@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { useSignup } from "../hooks/useSignup";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {signup,error,isloading} = useSignup();
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    console.log("Signing up with", name, email, password);
+    await signup(name,email,password);
   };
 
   const handleGoogleSignUp = () => {
@@ -55,9 +57,10 @@ export default function SignupPage() {
             type="submit"
             className="w-full px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700"
           >
-            Sign Up
+            {isloading ? <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> : 'Signup'}
           </button>
         </form>
+        {error && <span className="text-red-500">{error}</span>}
         <div className="mt-4 flex justify-center items-center">
           <div className="border-t w-1/3"></div>
           <span className="mx-2 text-gray-500">or</span>

@@ -65,7 +65,6 @@ const {Pinecone} = require('@pinecone-database/pinecone');
 //Get all Products:
 const getAllProducts = async (req,res) => {
     const products = await Product.find({}).sort({createdAt:-1});
-    console.log(products)
     res.status(200).json(products);
 }
 

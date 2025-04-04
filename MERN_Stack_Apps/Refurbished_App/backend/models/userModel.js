@@ -6,7 +6,7 @@ const validator = require('validator');
 const userSchema = new Schema({
     name : {type:String,required:true},
     email : {type:String,required:true},
-    password : {type:String,required:true}
+    password : {type:String,required:false}
 });
 
 userSchema.statics.signup = async function(name,email,password) {
@@ -28,16 +28,16 @@ userSchema.statics.signup = async function(name,email,password) {
     //Add that salt to password to create a hash
     const hash = await bcrypt.hash(password,salt);
     //Create new user
-    const user = await this.create({name,email,hash});
+    const user = await this.create({name,email,password:hash});
     return user;
 }
 
-userSchema.statics.login = async function(email,password) {
+userSchema.statics.login = async function(name,password) {
     //Find the user with the given name:
-    const user = await this.findOne({email});
+    const user = await this.findOne({name:name});
     //See if that email exists
     if (!user) {
-        throw Error("Incorrect Email");
+        throw Error("Incorrect Username");
     }
     //Match received password and existing password
     const match = await bcrypt.compare(password,user.password);
