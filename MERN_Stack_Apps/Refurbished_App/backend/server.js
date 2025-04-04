@@ -11,6 +11,7 @@ const pRts     = require('./routes/products');
 app.use(express.json());
 app.use(cors());
 
+
 app.use('/api/users',uRts);
 app.use('/api/carts',cRts);
 app.use('/api/products',pRts);
