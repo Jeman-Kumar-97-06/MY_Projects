@@ -16,7 +16,7 @@ const Navbar = () => {
             user && (
                 <>
                     <span className="text-[#3b2f2f] font-semibold">{user.user.name}</span>
-                    <Link to='/cart' className="px-4 py-2 bg-[#8b5a2b] text-white rounded-lg hover:bg-[#6d4522]">Cart</Link>
+                    <Link to='/cart' className="px-4 py-2 bg-[#8b5a2b] text-white rounded-lg hover:bg-[#6d4522] cursor-pointer">Cart</Link>
                     <button onClick={handleLogout} className="px-4 py-2 bg-[#8b5a2b] text-white rounded-lg hover:bg-[#6d4522]">Logout</button>
                 </>
             )

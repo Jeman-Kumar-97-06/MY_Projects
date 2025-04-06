@@ -54,7 +54,7 @@ const createCart = async (req,res) => {
         //Array of all products Ex:[{Dune:1},{Ender's Game:3}]
         const old_prod = exists.products;
         let found    = false;
-        //Loop through each product to see if the product name of the send item exists:
+        //Loop through each product to see if the product name of the sent item exists:
         for (let i = 0; i < old_prod.length; i++) {
             const element = old_prod[i];
             const key     = element.prod_name;

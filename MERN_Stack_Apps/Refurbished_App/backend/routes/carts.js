@@ -6,9 +6,9 @@ const {
     createCart
 }             = require('../controllers/cartControllers');
 
-// const requireAuth = require('../middleware/requireAuth');
+const requireAuth = require('../middleware/requireAuth');
 
-// router.use(requireAuth);
+router.use(requireAuth);
 
 //Get a cart by user_id:
 router.get('/',getCart);
