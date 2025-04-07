@@ -10,8 +10,7 @@ function App() {
   return (
      <BrowserRouter>
       <Routes>
-        <Route exact path='/lp' element={user ? <Home/> : <LandingPage/>}/>
-        <Route exact path='/' element={user ? <Home/> : <Navigate to='/lp'/>}/>
+        <Route exact path='/' element={user ? <Home/> : <LandingPage/>}/>
         <Route exact path='/login' element={!user ? <Login/> : <Home/>}/>
         <Route exact path='/signup' element={!user ? <Signup/> : <Home/>}/>
       </Routes>
