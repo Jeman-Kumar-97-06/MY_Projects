@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Timmana&family=Ysabeau:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import 'tailwindcss';
+
+.pRPhones{
+  font-family: "Timmana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Ysabeau", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:normal;
+  font-style: normal;
+}
